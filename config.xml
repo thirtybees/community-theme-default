@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <theme version="1.1.0" name="community-theme-default" directory="community-theme-default">
-    <author name="PrestaShop Community" email="contact@prestashop.com" url="http://www.prestashop.com"/>
+    <author name="Gytis Škema & Krystian Podemski" email="info@thirtybees.com" url="https://thirtybees.com"/>
     <descriptions>
-        <description iso="en">Community theme is a theme developed and maintained by the PrestaShop community.</description>
+        <description iso="en">Community theme is a theme developed and maintained by the thirty bees community.</description>
     </descriptions>
     <variations>
         <variation name="community-theme-default" directory="community-theme-default" responsive="1"
