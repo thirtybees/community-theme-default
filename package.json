@@ -6,6 +6,7 @@
     "fs-extra": "~0.30.0",
     "glob-all": "~3.1.0",
     "gulp": "~3.9.1",
+    "gulp-changed": "~2.0.0",
     "gulp-if": "~2.0.2",
     "gulp-jscs": "~3.0.2",
     "gulp-notify": "~2.2.0",

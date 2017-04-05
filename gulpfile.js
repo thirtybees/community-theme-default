@@ -2,6 +2,7 @@ var del         = require('del');
 var fs          = require('fs-extra');
 var glob        = require('glob-all');
 var gulp        = require('gulp');
+var changed     = require('gulp-changed');
 var gulpif      = require('gulp-if');
 var jscs        = require('gulp-jscs');
 var notify      = require('gulp-notify');
@@ -58,6 +59,7 @@ function displayNotification(msg) {
 
 gulp.task('compile-css', function() {
 	return gulp.src('./sass/**/*.scss')
+		.pipe(changed('./css/', {transformPath: newPath => newPath.replace(/\.[^/.]+$/, '') + '.css'}))
 		.pipe(gulpif(options.sourcemaps, sourcemaps.init()))
 		.pipe(
 			sass({
