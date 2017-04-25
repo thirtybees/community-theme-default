@@ -1,16 +1,17 @@
-var gulp        = require('gulp');
 var del         = require('del');
-var mkdirp      = require('mkdirp');
-var glob        = require('glob-all');
 var fs          = require('fs-extra');
-var zip         = require('gulp-zip');
+var glob        = require('glob-all');
+var gulp        = require('gulp');
+var changed     = require('gulp-changed');
+var gulpif      = require('gulp-if');
 var jscs        = require('gulp-jscs');
+var notify      = require('gulp-notify');
+var rename      = require('gulp-rename');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
-var notify      = require('gulp-notify');
+var zip         = require('gulp-zip');
+var mkdirp      = require('mkdirp');
 var bourbon     = require('node-bourbon');
-var gulpif      = require('gulp-if');
-var rename      = require('gulp-rename');
 /** @var {{ themeName, themeModulePrefix, sourcemaps }} options **/
 var options     = require('./package.json').options;
 
@@ -58,6 +59,7 @@ function displayNotification(msg) {
 
 gulp.task('compile-css', function() {
 	return gulp.src('./sass/**/*.scss')
+		.pipe(changed('./css/', {transformPath: newPath => newPath.replace(/\.[^/.]+$/, '') + '.css'}))
 		.pipe(gulpif(options.sourcemaps, sourcemaps.init()))
 		.pipe(
 			sass({
