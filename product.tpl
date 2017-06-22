@@ -108,7 +108,7 @@
           <span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
         </p>
 
-        {if !$product->is_virtual && $product->condition}
+        {if !$product->is_virtual && $product->condition && $show_condition}
           <p id="product_condition">
             <b>{l s='Condition:'}</b>
             {if $product->condition == 'new'}
