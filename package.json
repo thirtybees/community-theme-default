@@ -19,7 +19,7 @@
   },
   "options": {
     "themeName": "community-theme-default",
-    "themeModulePrefix" : "ct",
+    "themeModulePrefix": "ct",
     "sourcemaps": false
   },
   "scripts": {
@@ -29,5 +29,17 @@
     "copy-index": "./node_modules/.bin/gulp copy-index",
     "format-js": "./node_modules/.bin/gulp format-js",
     "scan-translations": "./node_modules/.bin/gulp scan-translations"
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "fs-extra": "^0.30.0",
+    "glob-all": "^3.1.0",
+    "gulp-if": "^2.0.2",
+    "gulp-jscs": "^3.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.12.0",
+    "gulp-zip": "^3.2.0",
+    "node-bourbon": "^4.2.8"
   }
 }
