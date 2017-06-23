@@ -29,5 +29,6 @@
   },
 
   "excludeFiles": [
+    "/gulpfile.js"
   ]
 }
