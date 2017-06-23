@@ -1,5 +1,5 @@
-# Community Theme <small> by thirty bees</small>
-![thirty bees logo](docs/img/thirty-bees-dark.png)
+# Community Theme <small> by</small>
+![thirty bees logo](docs/img/thirty-bees-dark.png "thirty bees logo")
 
 **Powered By**
 ----
