@@ -48,9 +48,9 @@
 {if !isset($content_only) || !$content_only}
 
 {if isset($restricted_country_mode) && $restricted_country_mode}
-  <div id="restricted-country">
+  <dialog role="alert" id="restricted-country">
     <p>{l s='You cannot place a new order from your country.'}{if isset($geolocation_country) && $geolocation_country} <span class="bold">{$geolocation_country|escape:'html':'UTF-8'}</span>{/if}</p>
-  </div>
+  </dialog>
 {/if}
 
 <header id="header">
