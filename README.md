@@ -1,5 +1,8 @@
-# Community Theme for thirty bees
-The community theme is our basic thirty bees theme that currently ships with the software. It is a fork of the 1.6 PrestaShop bootstrap theme that has had many major SEO improvements and the code has been refactored to be HTML5 compliant.
+# Community Theme <small> by thirty bees</small>
+![thirty bees logo](docs/img/thirty-bees-dark.png)
 
+## Powered By
+----
+<img src="docs/img/HTML5_Logo.png" width="75" height="75"><img src="docs/img/CSS3_logo_and_wordmark.svg.png" width="55" height="75"><img src="docs/img/Javascript-shield.png" width="79" height="79"><img src="docs/img/json-ld-logo.png" width="75" height="75"><img src="docs/img/wai-aaa.png" width="75" height="75"><img src="docs/img/semanticweb.png" width="75" height="75">
 ## Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md)
