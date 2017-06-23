@@ -347,3 +347,7 @@
   </a>
   <button data-show-if-js="" style="" id="confirmOrder" type="button" class="btn btn-lg btn-success pull-right standard-checkout"><span>{l s='Order With Obligation To Pay'}</span></button>
 </p>
+
+{strip}
+{addJsDef deliveryAddress=$cart->id_address_delivery|intval}
+{/strip}
