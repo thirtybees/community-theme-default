@@ -141,7 +141,7 @@
 
         <p id="product-availability">
           {if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
-          <span id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
+            <span id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
             <span id="quantityAvailable">{$product->quantity|intval}</span>
             <span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
             <span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span>
@@ -262,13 +262,13 @@
                     <label for="quantity_wanted">{l s='Quantity'}</label>
                     <div class="input-group">
                       <div class="input-group-btn">
-                        <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
+                        <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down" title="Decrease" aria-label="Decrease">
                           <i class="icon icon-fw icon-minus"></i>
                         </a>
                       </div>
                       <input type="number" min="1" name="qty" id="quantity_wanted" class="text text-center form-control" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
                       <div class="input-group-btn">
-                        <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
+                        <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up" title="Increase" aria-label="Increase">
                           <i class="icon icon-fw icon-plus"></i>
                         </a>
                       </div>
@@ -364,11 +364,11 @@
               <tbody>
               {foreach from=$quantity_discounts item='quantity_discount' name='quantity_discounts'}
                 {if $quantity_discount.price >= 0 || $quantity_discount.reduction_type == 'amount'}
-                  {$realDiscountPrice=$quantity_discount.base_price|floatval-$quantity_discount.real_value|floatval}
+                  {$realDiscountPrice=$productPriceWithoutReduction|floatval-$quantity_discount.real_value|floatval}
                 {else}
-                  {$realDiscountPrice=$quantity_discount.base_price|floatval*(1 - $quantity_discount.reduction)|floatval}
+                  {$realDiscountPrice=$productPriceWithoutReduction|floatval-($productPriceWithoutReduction*$quantity_discount.reduction)|floatval}
                 {/if}
-                <tr class="quantityDiscount_{$quantity_discount.id_product_attribute}" data-real-discount-value="{convertPrice price = $realDiscountPrice}" data-discount-type="{$quantity_discount.reduction_type}" data-discount="{$quantity_discount.real_value|floatval}" data-discount-quantity="{$quantity_discount.quantity|intval}">
+                <tr id="quantityDiscount_{$quantity_discount.id_product_attribute}" class="quantityDiscount_{$quantity_discount.id_product_attribute}" data-real-discount-value="{convertPrice price = $realDiscountPrice}" data-discount-type="{$quantity_discount.reduction_type}" data-discount="{$quantity_discount.real_value|floatval}" data-discount-quantity="{$quantity_discount.quantity|intval}">
                   <td>
                     {$quantity_discount.quantity|intval}
                   </td>
@@ -469,25 +469,25 @@
           <section id="product-attachments" class="page-product-box">
             <h3 class="page-product-heading">{l s='Download'}</h3>
             <div class="row">
-            {foreach from=$attachments item=attachment}
-              <div class="col-xs-12 col-sm-4 col-lg-3">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
-                      {$attachment.name|escape:'html':'UTF-8'}
-                    </a>
-                  </div>
-                  <div class="panel-body">
-                    {if !empty($attachment.description)}
-                      <p class="text-muted">{$attachment.description|escape:'html':'UTF-8'}</p>
-                    {/if}
-                    <a class="btn btn-default btn-block" href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
-                      <i class="icon icon-download"></i> {l s="Download"} ({Tools::formatBytes($attachment.file_size, 2)})
-                    </a>
+              {foreach from=$attachments item=attachment}
+                <div class="col-xs-12 col-sm-4 col-lg-3">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
+                        {$attachment.name|escape:'html':'UTF-8'}
+                      </a>
+                    </div>
+                    <div class="panel-body">
+                      {if !empty($attachment.description)}
+                        <p class="text-muted">{$attachment.description|escape:'html':'UTF-8'}</p>
+                      {/if}
+                      <a class="btn btn-default btn-block" href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
+                        <i class="icon icon-download"></i> {l s="Download"} ({Tools::formatBytes($attachment.file_size, 2)})
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            {/foreach}
+              {/foreach}
             </div>
           </section>
         {/if}
