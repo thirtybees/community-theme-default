@@ -2,7 +2,17 @@
 
   <div class="product-image-container">
     <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
-      <img class="replace-2x img-responsive center-block" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />
+      <img class="replace-2x img-responsive center-block"
+           src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}"
+           srcset="
+           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest')|escape:'html':'UTF-8'} 211w,
+           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller')|escape:'html':'UTF-8'} 218w,
+           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'} 250w
+           "
+           sizes="(min-width: 1200px) 250px, (min-width: 992px) 218px, (min-width: 768px) 211px, 250px"
+           alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
+           title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
+               itemprop="image" />
     </a>
 
     {if isset($quick_view) && $quick_view}
