@@ -16,11 +16,11 @@
               title="{$special.name|escape:'html':'UTF-8'}" />
           </a>
           <div class="product-content">
-            <h3>
+            <span>
               <a class="product-name" href="{$special.link|escape:'html':'UTF-8'}" title="{$special.name|escape:'html':'UTF-8'}">
                 {$special.name|escape:'html':'UTF-8'}
               </a>
-            </h3>
+            </span>
             {if isset($special.description_short) && $special.description_short}
               <p class="product-description">
                 {$special.description_short|strip_tags:'UTF-8'|truncate:40}

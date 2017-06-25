@@ -1,9 +1,9 @@
 <div id="wishlist_block" class="block account">
-  <h4 class="title_block">
+  <span class="title_block">
     <a href="{$link->getModuleLink('blockwishlist', 'mywishlist', array(), true)|escape:'html':'UTF-8'}" title="{l s='My wishlists' mod='blockwishlist'}" rel="nofollow">
       {l s='Wishlist' mod='blockwishlist'}
     </a>
-  </h4>
+  </span>
   <div class="block_content">
     <div id="wishlist_block_list" class="expanded">
       {if $wishlist_products}

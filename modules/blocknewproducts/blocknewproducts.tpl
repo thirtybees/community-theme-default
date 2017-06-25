@@ -1,7 +1,7 @@
 <div id="new-products_block_right" class="block products_block">
-  <span class="title_block">
+  <p class="title_block">
     <a href="{$link->getPageLink('new-products')|escape:'html'}" title="{l s='New products' mod='blocknewproducts'}">{l s='New products' mod='blocknewproducts'}</a>
-  </span>
+  </p>
   <div class="block_content products-block">
     {if $new_products !== false}
       <ul>

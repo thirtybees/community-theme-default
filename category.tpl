@@ -29,7 +29,7 @@
         </section>
         {if !empty($subcategories) && $display_subcategories}
             <section id="category-subcategories">
-                <h2 class="page-heading">{l s='Subcategories'}</h2>
+                <h2 class="page-heading">{$category->name|escape:'html':'UTF-8'} {l s='Subcategories'}</h2>
                 <ul class="list-grid row">
                     {foreach from=$subcategories item=subcategory}
                         <li class="col-xs-6 col-sm-4 col-md-3">
@@ -69,11 +69,11 @@
             <section id="category-products">
                 <h2 class="page-heading">
                     {l s='Products'}
+
                     <div class="pull-right">
                         {include file="$tpl_dir./category-count.tpl"}
                     </div>
                 </h2>
-
                 <div class="content_sortPagiBar clearfix">
                     <div class="form-inline sortPagiBar clearfix">
                         {include file="./product-sort.tpl"}

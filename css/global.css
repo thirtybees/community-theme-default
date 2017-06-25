@@ -9375,6 +9375,10 @@ label.required:after {
   background-color: #fcf8e3;
 }
 
+.btn {
+  padding: 9px 12px;
+}
+
 a:hover {
   text-decoration: none;
 }
