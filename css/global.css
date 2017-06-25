@@ -9471,6 +9471,10 @@ body.content_only {
   text-align: center;
 }
 
+.footer-title {
+  font-size: 20px;
+}
+
 .price {
   white-space: nowrap;
 }

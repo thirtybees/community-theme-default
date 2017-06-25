@@ -1,6 +1,6 @@
 {if !empty($blockCategTree) && !empty($blockCategTree.children)}
   <section id="blockcategories" class="blockcategories block">
-    <h4 class="title_block">
+    <span class="column-title">
       {if isset($currentCategory)}
         {$currentCategory->name|escape:'html':'UTF-8'}
       {else}

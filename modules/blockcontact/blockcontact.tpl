@@ -1,5 +1,5 @@
 <div id="contact_block" class="block">
-  <h4 class="title_block">
+  <span class="column-title">
     {l s='Contact Us' mod='blockcontact'}
   </h4>
   <div class="block_content clearfix">

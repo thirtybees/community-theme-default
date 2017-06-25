@@ -1,5 +1,5 @@
 <section id="blockcontactinfos" class="col-xs-12 col-sm-3">
-  <h4>{l s='Store Information' mod='blockcontactinfos'}</h4>
+  <span class="footer-title">{l s='Store Information' mod='blockcontactinfos'}</span>
   <address>
     <ul class="list-unstyled">
       {if !empty($blockcontactinfos_company)}

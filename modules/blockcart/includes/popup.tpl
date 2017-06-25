@@ -5,9 +5,9 @@
 
       <button type="button" class="close cross" title="{l s='Close window' mod='blockcart'}">&times;</button>
 
-      <h3 class="text-success title">
+      <span class="text-success cart-title">
         <i class="icon icon-check"></i> {l s='Product successfully added to your shopping cart' mod='blockcart'}
-      </h3>
+      </span>
 
       <div class="row">
         <div class="col-xs-12 col-md-5">
@@ -15,7 +15,7 @@
         </div>
         <div class="col-xs-12 col-md-7">
           <div class="layer_cart_product_info">
-            <h4 id="layer_cart_product_title" class="product-name"></h4>
+            <span id="layer_cart_product_title" class="product-name"></span>
             <p id="layer_cart_product_attributes"></p>
             <p>
               <strong>{l s='Quantity:' mod='blockcart'}</strong>
@@ -33,14 +33,14 @@
 
     <div class="layer_cart_cart col-xs-12 col-md-6">
 
-      <h3 class="title">
+      <span class="title">
         <span class="ajax_cart_product_txt_s {if $cart_qties < 2} unvisible{/if}">
           {l s='There are [1]%d[/1] items in your cart.' mod='blockcart' sprintf=[$cart_qties] tags=['<span class="ajax_cart_quantity">']}
         </span>
         <span class="ajax_cart_product_txt {if $cart_qties > 1} unvisible{/if}">
           {l s='There is 1 item in your cart.' mod='blockcart'}
         </span>
-      </h3>
+      </span>
 
       <p class="layer_cart_row">
         <strong>
