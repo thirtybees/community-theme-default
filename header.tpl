@@ -1,4 +1,4 @@
-<!DOCTYPE HTML lang="{$language_code}">
+<!DOCTYPE HTML>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" {if isset($language_code) && $language_code}
       lang="{$language_code|escape:'html':'UTF-8'}" {/if}><![endif]-->
