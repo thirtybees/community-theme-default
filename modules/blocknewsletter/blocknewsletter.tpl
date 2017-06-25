@@ -1,5 +1,5 @@
 <section id="blocknewsletter" class="col-xs-12 col-sm-3">
-  <psan class="footer-title">{l s='Newsletter' mod='blocknewsletter'}</span>
+  <span class="footer-title">{l s='Newsletter' mod='blocknewsletter'}</span>
   <form action="{$link->getPageLink('index', null, null, null, false, null, true)|escape:'html':'UTF-8'}" method="post">
     <div class="form-group{if isset($msg) && $msg } {if $nw_error}form-error{else}form-ok{/if}{/if}" >
       <div class="input-group">
