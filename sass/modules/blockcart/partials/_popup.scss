@@ -35,7 +35,10 @@
     margin-top: 0;
   }
 }
-
+.cart-title {
+  font-size: 16px;
+  font-weight: bold;
+}
 .layer_cart_cart {
   background: #fafafa;
   border-left: 1px solid #ccc;
@@ -58,7 +61,8 @@
   .title {
     margin-top: 0;
     padding-bottom: 0.35em;
-    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: bold;
   }
 
   .button-container {

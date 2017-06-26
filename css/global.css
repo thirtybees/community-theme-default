@@ -9594,6 +9594,14 @@ ul.address {
   margin: 0 0 15px;
 }
 
+.block h3 .product-name {
+  font-size: 17px;
+}
+
+.block h3 .post-name {
+  font-size: 17px;
+}
+
 .block .list-block ul {
   padding: 0;
   margin: 0 0 10px;

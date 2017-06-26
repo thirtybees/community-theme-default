@@ -1,3 +1,8 @@
 
 @import "../../theme_variables";
 @import "../../vendor_variables";
+em {
+  float: left;
+  font-size: 24px!important;
+  padding-right: 10px;
+}

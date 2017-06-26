@@ -1,5 +1,5 @@
 <section id="blockmyaccountfooter" class="col-xs-12 col-sm-3">
-  <span class="footer-title">{l s='My account' mod='blockmyaccountfooter'}</span>
+  <h2 class="footer-title section-title-footer">{l s='My account' mod='blockmyaccountfooter'}</h2>
   <ul class="list-unstyled">
     <li>
       <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Manage my customer account' mod='blockmyaccountfooter'}" rel="nofollow">

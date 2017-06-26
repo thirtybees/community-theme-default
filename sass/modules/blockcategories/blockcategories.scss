@@ -78,6 +78,7 @@ $ct-toggle-btn-width: 32px;
       border: 1px solid $ct-toggle-border;
       border-left: none;
       font-size: 20px;
+      padding-top:5px;
       &.collapsed > .icon:before {
         content: "\f107";
       }
