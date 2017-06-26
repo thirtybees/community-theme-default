@@ -35,7 +35,7 @@
         <ul class="cms-category-list">
           {foreach from=$sub_category item=subcategory}
             <li>
-              <a href="{$link->getCMSCategoryLink($subcategory.id_cms_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">
+              <a href="{$link->getCMSCategoryLink($subcategory.id_cms_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}" title="{$subcategory.name|escape:'html':'UTF-8'}">
                 {$subcategory.name|escape:'html':'UTF-8'}
               </a>
             </li>
