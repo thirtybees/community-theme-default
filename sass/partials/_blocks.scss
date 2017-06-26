@@ -19,9 +19,6 @@ $block-line-border: #ccc;
   h3 .product-name {
     font-size: 17px;
   }
-  h3 .post-name {
-    font-size: 17px
-  }
   .list-block {
     ul {
       padding: 0;
@@ -76,4 +73,7 @@ $block-line-border: #ccc;
       }
     }
   }
+}
+h3 .post-name {
+  font-size: 17px
 }

@@ -9598,10 +9598,6 @@ ul.address {
   font-size: 17px;
 }
 
-.block h3 .post-name {
-  font-size: 17px;
-}
-
 .block .list-block ul {
   padding: 0;
   margin: 0 0 10px;
@@ -9657,6 +9653,10 @@ ul.address {
 
 .block .products-block li .product-content h5 {
   margin-top: 0;
+}
+
+h3 .post-name {
+  font-size: 17px;
 }
 
 .instant_search .productsSortForm {
