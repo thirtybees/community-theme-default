@@ -9375,6 +9375,12 @@ label.required:after {
   background-color: #fcf8e3;
 }
 
+@media (min-width: 1400px) {
+  .container {
+    width: 1370px;
+  }
+}
+
 a:hover {
   text-decoration: none;
 }

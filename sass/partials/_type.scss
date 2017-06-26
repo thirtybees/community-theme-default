@@ -1,3 +1,9 @@
+.container {
+  @media (min-width: 1400px) {
+    width: 1370px;
+  } 
+}
+
 a:hover {
   text-decoration: none;
 }
