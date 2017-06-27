@@ -1,6 +1,8 @@
 #blockcart {
   position: relative;
   margin-top: 30px;
+  width: 220px;
+  float: right;
 }
 
 @media (max-width: 767px) {
@@ -29,7 +31,7 @@
   height: 46px;
   padding: 0 16px;
   line-height: 46px;
-  background: #337ab7;
+  background: #3e3e3e;
   color: #fff;
   display: block;
   overflow: hidden;

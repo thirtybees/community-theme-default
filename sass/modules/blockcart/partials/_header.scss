@@ -4,6 +4,8 @@ $bc-header-color: #fff;
 #blockcart {
   position: relative;
   margin-top: 30px;
+  width: 220px;
+  float: right;
 
   @media (max-width: $screen-xs-max) {
     margin-top: 15px;
