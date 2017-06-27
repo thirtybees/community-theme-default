@@ -1,4 +1,6 @@
 @import "../theme_variables";
+@import "../vendor_variables";
+
 
 //
 // Custom css to override bootstrap and personnalize theme blocks easily
@@ -148,7 +150,14 @@
 	margin-right: 30px;
 }
 
-@media (max-width: 767px) {  
+
+@media (max-width: $screen-xs-max) {  
+
+  #shop-logo img {
+    max-width: 250px;
+	margin: -20px 0 0 0;
+  }
+  
   .sloganfoot {
 	margin-bottom: 15px;
   }
@@ -158,15 +167,41 @@
 	margin-top: 5px;
 	margin-bottom: 15px;
   }
+  
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (max-width: 410px) {  
+  #shop-logo img {
+	max-width: 170px;
+	margin: -15px 0px 0px;
+  }
+  #header-blocks #blockcart {
+	top: -98px;
+  }
+  
+}
+
+@media (min-width: $screen-sm) and (max-width:$screen-sm-max) {
+
+  #shop-logo > a > img {
+	max-width: 230px;
+  }
+  
+  #header-blocks {
+	top: -10px;
+  }
+  
+  #header .navbar {
+	margin-bottom: -15px !important;
+  }
+    
+  .navbar-nav > li > a {
+	padding-top: 6px;
+	padding-bottom: 7px;
+  }
+  
   #blockcontact-phone {
 	display: none;
-  }
-
-  #header-navbar {
-	margin-top: 25px;
   }
   
   #block_top_menu {
@@ -192,24 +227,42 @@
   .footlogos {
 	margin-right: 15px;
   }
+  
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
    .sloganfoot {
 	margin-bottom: 30px;
 	text-align: center;
   }
+  
   .footlogos {
 	margin-top: 5px;
   }
+  
+  .navbar-nav > li > a {
+	padding-top: 6px;
+	padding-bottom: 7px;
+  }
+  
+  .navbar-text {
+	margin-top: 7px;
+	margin-bottom: 0;
+  }
+  
 }
 
-@media (min-width: 1200px) {
-  .footlogos {
+@media (min-width: $screen-md-max) {
 
+  #shop-logo img {
+	max-width: 324px;
+	float: left;
+	margin: -15px 0px 5px 0px;
   }
+  
   .sloganfoot {
 	float: left;
  }
+ 
 }
-

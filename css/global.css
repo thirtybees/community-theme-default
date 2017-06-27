@@ -9464,11 +9464,6 @@ body.content_only {
   margin-bottom: 0;
 }
 
-#shop-logo > a > img {
-  max-width: 324px;
-  float: left;
-}
-
 #footer {
   background: #f8f8f8;
   border-top: 1px solid #e7e7e7;

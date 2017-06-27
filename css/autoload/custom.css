@@ -128,6 +128,10 @@
 }
 
 @media (max-width: 767px) {
+  #shop-logo img {
+    max-width: 250px;
+    margin: -20px 0 0 0;
+  }
   .sloganfoot {
     margin-bottom: 15px;
   }
@@ -138,12 +142,32 @@
   }
 }
 
+@media (max-width: 410px) {
+  #shop-logo img {
+    max-width: 170px;
+    margin: -15px 0px 0px;
+  }
+  #header-blocks #blockcart {
+    top: -98px;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
+  #shop-logo > a > img {
+    max-width: 230px;
+  }
+  #header-blocks {
+    top: -10px;
+  }
+  #header .navbar {
+    margin-bottom: -15px !important;
+  }
+  .navbar-nav > li > a {
+    padding-top: 6px;
+    padding-bottom: 7px;
+  }
   #blockcontact-phone {
     display: none;
-  }
-  #header-navbar {
-    margin-top: 25px;
   }
   #block_top_menu {
     margin-top: 10px;
@@ -175,9 +199,22 @@
   .footlogos {
     margin-top: 5px;
   }
+  .navbar-nav > li > a {
+    padding-top: 6px;
+    padding-bottom: 7px;
+  }
+  .navbar-text {
+    margin-top: 7px;
+    margin-bottom: 0;
+  }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1199px) {
+  #shop-logo img {
+    max-width: 324px;
+    float: left;
+    margin: -15px 0px 5px 0px;
+  }
   .sloganfoot {
     float: left;
   }

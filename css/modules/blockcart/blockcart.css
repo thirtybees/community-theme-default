@@ -7,13 +7,17 @@
 
 @media (max-width: 767px) {
   #blockcart {
-    margin-top: 15px;
+    margin-top: 0;
+    position: absolute;
+    top: -110px;
+    right: 15px;
+    width: 120px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   #blockcart {
-    margin-top: 10px;
+    margin-top: 11px;
   }
 }
 
