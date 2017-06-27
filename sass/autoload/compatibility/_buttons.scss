@@ -103,7 +103,6 @@ $btn-legacy-buy-border    : #006fa8;
 .exclusive_large_disabled {
   cursor: $cursor-disabled;
   @include opacity(.65);
-  @include box-shadow(none);
 }
 
 // Buttons from PS 1.5, but used in combination with PS 1.6 buttons (Bootstrap) - .btn.btn-default
