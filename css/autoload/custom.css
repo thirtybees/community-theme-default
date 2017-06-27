@@ -1,7 +1,9 @@
 .navbar-nav > li > a {
+  letter-spacing: 0.3px;
   z-index: 1;
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
   color: #f0d541;
   background-color: #222222;
 }
