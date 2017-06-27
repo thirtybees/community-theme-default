@@ -9,7 +9,9 @@
   <nav>
     <ul class="pager">
       <li class="previous">
-        <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Home'}</a>
+        <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+          {if isset($isRtl) && $isRtl}&rarr;{else}&larr;{/if} {l s='Home'}
+        </a>
       </li>
     </ul>
   </nav>
@@ -18,7 +20,9 @@
   <nav>
     <ul class="pager">
       <li class="previous">
-        <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Home'}</a>
+        <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+          {if isset($isRtl) && $isRtl}&rarr;{else}&larr;{/if} {l s='Home'}
+        </a>
       </li>
     </ul>
   </nav>
