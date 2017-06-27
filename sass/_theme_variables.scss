@@ -2,6 +2,16 @@
 // Place your theme variables here
 //
 
+// Main Font for body
+
+$font-family-sans-serif:  'Lato', Arial, sans-serif !default;
+
+// Custom colors
+
+$maincolor: #f0d541; // yellow
+$lightbgcolor: #dedede; // light grey
+$darkbgcolor: #222222; // almost black
+
 // PrestaShop Blocks
 $ps-border-color : #d6d4d4;
 
@@ -50,7 +60,7 @@ $brand-primary: 	#3e3e3e;
 
 // @see themes/community-theme-default/sass/vendor/bootstrap/bootstrap/mixins/_forms.scss
 // Change the glow color of .form-control when in focus
-$input-border-focus: $brand-primary;
+$input-border-focus: $maincolor;
 
 // Font Awesome
 $font-icon     : 'FontAwesome';
