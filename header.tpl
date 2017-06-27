@@ -62,7 +62,7 @@
     </div>
   {/if}
 
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false">
