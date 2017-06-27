@@ -88,3 +88,128 @@
 	background-color: $maincolor;
 	border: 0px solid transparent;
 }
+
+// Footer
+
+#footer {
+  background: #f8f8f8;
+  border-top: 1px solid #ebebeb;
+  padding: 20px 0;
+}
+
+#footer .list-unstyled a,
+#footer .list-unstyled {
+	font-size: 1em;
+	letter-spacing: 1px;
+	line-height: 1.8em;
+	color: #a0a0a0;
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+	transition: all  0.3s ease-in-out;
+}
+
+#footer .list-unstyled a:hover {
+	color: #d7b712;
+	border-color: #ababab;
+
+}
+
+#footer h4 {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 1.4em;
+	line-height: 1.2em;
+	margin-bottom: 30px;
+}
+
+#copyright-footer {
+	margin-top: 40px;
+	padding: 20px 0;
+	border-top: 1px solid #ccc;
+	text-align: left;
+	background-color: #222;
+	color: #686868;
+	letter-spacing: 2px;
+	margin-bottom: -20px;
+}
+
+#copyright-footer a {
+	color: #898989;
+}
+
+.footlogos {
+	max-width: 180px;
+	height: auto;
+	float: right;
+	margin-top: -4px;
+}
+
+.espace {
+	margin-right: 30px;
+}
+
+@media (max-width: 767px) {  
+  .sloganfoot {
+	margin-bottom: 15px;
+  }
+  
+  .footlogos {
+	float: inherit;
+	margin-top: 5px;
+	margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #blockcontact-phone {
+	display: none;
+  }
+
+  #header-navbar {
+	margin-top: 25px;
+  }
+  
+  #block_top_menu {
+	margin-top: 10px;
+	margin-bottom: 20px;
+  }
+  
+  #footer .list-unstyled a, #footer .list-unstyled {
+	font-size: 0.9em;
+	letter-spacing: 0.5px;
+  }
+ 
+  #footer h4 {
+	letter-spacing: 0.5px;
+	font-size: 1em;
+	line-height: 1em;
+	margin-bottom: 15px;
+  }
+  
+  .sloganfoot {
+	margin-bottom: 20px;
+  }
+  .footlogos {
+	margin-right: 15px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+   .sloganfoot {
+	margin-bottom: 30px;
+	text-align: center;
+  }
+  .footlogos {
+	margin-top: 5px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footlogos {
+
+  }
+  .sloganfoot {
+	float: left;
+ }
+}
+
