@@ -13,7 +13,7 @@
   {if isset($meta_keywords) AND $meta_keywords}
     <meta name="keywords" content="{$meta_keywords|escape:'html':'UTF-8'}" />
   {/if}
-  <meta name="generator" content="PrestaShop" />
+  <meta name="generator" content="thirty bees" />
   <meta name="robots" content="{if isset($nobots)}no{/if}index,{if isset($nofollow) && $nofollow}no{/if}follow" />
   <meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=1.6, initial-scale=1.0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
       {/if}
     {/foreach}
   {/if}
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&amp;subset=cyrillic,cyrillic-ext,devanagari,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet"> 
   {if isset($js_defer) && !$js_defer && isset($js_files) && isset($js_def)}
     {$js_def}
     {foreach from=$js_files item=js_uri}
@@ -72,7 +72,6 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">{$PS_SHOP_NAME|escape:'html':'UTF-8'}</a>
       </div>
 
       <div class="collapse navbar-collapse" id="header-navbar">

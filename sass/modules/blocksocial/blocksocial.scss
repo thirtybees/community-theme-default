@@ -1,9 +1,32 @@
 @import "../../vendor_variables";
 
-$side-padding: floor(($grid-gutter-width / 2));
-
 #blocksocial {
-  padding: 0 $side-padding 15px;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 15px;
+	text-align: center;
+	top: 40px;
+	margin-bottom: 40px;
+}
+
+#blocksocial a {
+	margin-right: 8px;
+}
+
+#footer #blocksocial .h4 {
+	color: #cdcdcd;
+	margin-right: 10px;
+	display: none;
+}
+
+#blocksocial .icon {
+	height: 40px;
+	width: 40px;
+	border-radius: 0;
+	line-height: 40px;
+	font-size: 22px;
+	transition:all 0.6s ease-in-out;
+}
+
+#blocksocial .icon:hover {
+	border-radius: 50%;
+	background-color: #222;
+	color: #fff;
 }
