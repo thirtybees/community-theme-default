@@ -4,6 +4,22 @@
 // Custom css to override bootstrap and personnalize theme blocks easily
 // -------------------------------------------------------------------------
 
+// Boutons 
+
+.btn-primary {
+	background-color: $maincolor;
+	border-color: $maincolor;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-default {
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background-color: #d3d3d3;
+	transition: 0.3s ease-in-out;
+}
+
 // Navbar nav links
 
 .navbar-nav > li > a {
@@ -33,11 +49,6 @@
 	height: 40px;
 	padding: 5px 14px;
 	font-size: 17px;
-}
-
-#search_block_top .btn-primary {
-	background-color: $maincolor;
-	border-color: $maincolor;
 }
 
 #search_block_top .form-control {
