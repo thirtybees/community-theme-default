@@ -1,4 +1,4 @@
-{if isset($orderProducts) && count($orderProducts)}
+{if isset($orderProducts) && && is_array($orderProducts) && !empty($orderProducts)}
     <section id="crossselling" class="page-product-box">
         <h2 class="productscategory_h2 page-product-heading">
             {if $page_name == 'product'}

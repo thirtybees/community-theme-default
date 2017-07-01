@@ -5,7 +5,7 @@
                title="{l s='View a top sellers products' mod='blockbestsellers'}">{l s='Top sellers' mod='blockbestsellers'}</a>
         </h2>
         <div class="block_content products-block">
-            {if $best_sellers && $best_sellers|@count > 0}
+            {if isset($best_sellers) && is_array($best_sellers) && !empty($best_sellers)}
                 <ul>
                     {foreach from=$best_sellers item=product name=myLoop}
                         <li class="clearfix">

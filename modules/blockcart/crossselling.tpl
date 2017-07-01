@@ -1,4 +1,4 @@
-{if isset($orderProducts) && count($orderProducts) > 0}
+{if isset($orderProducts) && is_array($orderProducts) && !empty($orderProducts)}
   <div class="crossseling-content">
     <h3>{l s='Customers who bought this product also bought:' mod='blockcart'}</h3>
     <div id="blockcart_list" class="row">
