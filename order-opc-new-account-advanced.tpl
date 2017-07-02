@@ -249,17 +249,18 @@
             <label for="other">{l s='Additional information'}</label>
             <textarea class="form-control" name="other" id="other" cols="26" rows="7"></textarea>
           </div>
-          {if isset($one_phone_at_least) && $one_phone_at_least}
-            <p class="help-block required is_customer_param">{l s='You must register at least one phone number.'}</p>
-          {/if}
           <div class="form-group is_customer_param">
-            <label for="phone">{l s='Home phone'}</label>
+            <label for="phone">{l s='Home phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>**</sup>{/if}</label>
             <input type="text" class="text form-control validate" name="phone" id="phone"  data-validate="isPhoneNumber" value="{if isset($guestInformations) && isset($guestInformations.phone) && $guestInformations.phone}{$guestInformations.phone}{/if}" />
           </div>
           <div class="{if isset($one_phone_at_least) && $one_phone_at_least}required {/if}form-group">
-            <label for="phone_mobile">{l s='Mobile phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>*</sup>{/if}</label>
+            <label for="phone_mobile">{l s='Mobile phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>**</sup>{/if}</label>
             <input type="text" class="text form-control validate" name="phone_mobile" id="phone_mobile" data-validate="isPhoneNumber" value="{if isset($guestInformations) && isset($guestInformations.phone_mobile) && $guestInformations.phone_mobile}{$guestInformations.phone_mobile}{/if}" />
           </div>
+            {if isset($one_phone_at_least) && $one_phone_at_least}
+                {assign var="atLeastOneExists" value=true}
+              <p class="help-block required">** {l s='You must register at least one phone number.'}</p>
+            {/if}
           <input type="hidden" name="alias" id="alias" value="{l s='My address'}"/>
 
           <div class="checkbox">
@@ -370,17 +371,18 @@
               <label for="other_invoice">{l s='Additional information'}</label>
               <textarea class="form-control" name="other_invoice" id="other_invoice" cols="26" rows="3"></textarea>
             </div>
-            {if isset($one_phone_at_least) && $one_phone_at_least}
-              <p class="help-block required is_customer_param">{l s='You must register at least one phone number.'}</p>
-            {/if}
             <div class="form-group is_customer_param">
-              <label for="phone_invoice">{l s='Home phone'}</label>
+              <label for="phone_invoice">{l s='Home phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>**</sup>{/if}</label>
               <input type="text" class="form-control validate" name="phone_invoice" id="phone_invoice" data-validate="isPhoneNumber" value="{if isset($guestInformations) && isset($guestInformations.phone_invoice) && $guestInformations.phone_invoice}{$guestInformations.phone_invoice}{/if}" />
             </div>
             <div class="{if isset($one_phone_at_least) && $one_phone_at_least}required {/if}form-group">
-              <label for="phone_mobile_invoice">{l s='Mobile phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>*</sup>{/if}</label>
+              <label for="phone_mobile_invoice">{l s='Mobile phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>**</sup>{/if}</label>
               <input type="text" class="form-control validate" name="phone_mobile_invoice" id="phone_mobile_invoice" data-validate="isPhoneNumber" value="{if isset($guestInformations) && isset($guestInformations.phone_mobile_invoice) && $guestInformations.phone_mobile_invoice}{$guestInformations.phone_mobile_invoice}{/if}" />
             </div>
+              {if isset($one_phone_at_least) && $one_phone_at_least}
+                  {assign var="atLeastOneExists" value=true}
+                <p class="help-block required">** {l s='You must register at least one phone number.'}</p>
+              {/if}
             <input type="hidden" name="alias_invoice" id="alias_invoice" value="{l s='My Invoice address'}" />
           </div>
           {$HOOK_CREATE_ACCOUNT_FORM}
