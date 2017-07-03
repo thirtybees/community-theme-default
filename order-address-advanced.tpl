@@ -1,4 +1,9 @@
 {assign var='have_non_virtual_products' value=false}
+{if $opc}
+  {assign var="back_order_page" value="order-opc.php"}
+{else}
+  {assign var="back_order_page" value="order.php"}
+{/if}
 {foreach $products as $product}
   {if $product.is_virtual == 0}
     {assign var='have_non_virtual_products' value=true}
