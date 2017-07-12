@@ -1,5 +1,5 @@
 $bc-header-bg: $brand-primary;
-$bc-header-color: #fff;
+$bc-header-color: #fad629;
 
 #blockcart {
   position: relative;
@@ -35,6 +35,7 @@ $bc-header-color: #fff;
   color: $bc-header-color;
   display: block;
   overflow: hidden;
+  font-weight: bold;
 
   &:after {
     content: "\f0d7";

@@ -1,5 +1,5 @@
 <section id="blocksocial" class="col-xs-12">
-    <h2 class="title_block main-title-column">{l s='Follow us' mod='blocksocial'}</h2>
+    <h2 class="title_block main-title-column social-header">{l s='Follow us' mod='blocksocial'}</h2>
 
     {if !empty($facebook_url)}
         <a href="{$facebook_url|escape:html:'UTF-8'}" title="{l s='Facebook' mod='blocksocial'}" target="_blank"

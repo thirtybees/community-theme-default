@@ -3,3 +3,7 @@
   border-bottom: 1px solid #ccc;
   margin-bottom: 15px;
 }
+
+.social-header {
+  display: inline;
+}

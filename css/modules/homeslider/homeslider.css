@@ -76,11 +76,12 @@
   line-height: 20px;
   background: #ccc;
   margin: 0 5px;
-  color: #000;
+  color: #fad629;
+  font-weight: bold;
   text-decoration: none;
 }
 
 #homeslider-pager .bx-pager-item .bx-pager-link.active {
-  background: #337ab7;
+  background: black;
   color: #fff;
 }

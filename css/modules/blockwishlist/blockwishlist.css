@@ -23,7 +23,7 @@
 }
 
 #wishlist_block .ajax_cart_block_remove_link:hover {
-  color: #23527c;
+  color: black;
 }
 
 #wishlist_block .cart_block_product_name {
@@ -109,7 +109,7 @@
 }
 
 #module-blockwishlist-mywishlist .wishlistLinkTop ul.display_list a:hover {
-  color: #23527c;
+  color: black;
 }
 
 #module-blockwishlist-mywishlist .wishlistLinkTop li {

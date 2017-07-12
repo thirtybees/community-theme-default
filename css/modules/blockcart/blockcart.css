@@ -29,10 +29,11 @@
   height: 46px;
   padding: 0 16px;
   line-height: 46px;
-  background: #337ab7;
-  color: #fff;
+  background: black;
+  color: #fad629;
   display: block;
   overflow: hidden;
+  font-weight: bold;
 }
 
 #blockcart-header:after {
