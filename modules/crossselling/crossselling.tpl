@@ -1,4 +1,4 @@
-{if isset($orderProducts) && && is_array($orderProducts) && !empty($orderProducts)}
+{if isset($orderProducts) && is_array($orderProducts) && !empty($orderProducts)}
     <section id="crossselling" class="page-product-box">
         <h2 class="productscategory_h2 page-product-heading">
             {if $page_name == 'product'}
@@ -29,7 +29,7 @@
                                 {if isset($orderProduct.description_short)}
                                     <p>{$orderProduct.description_short|strip_tags:'UTF-8'|truncate:50:'...'}</p>{/if}
                             </div>
-                            {if $crossDisplayPrice AND $orderProduct.show_price == 1 AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
+                            {if $crossDisplayPrice && $orderProduct.show_price == 1 && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
                                 <p class="price_display">
                                     <span class="price">{convertPrice price=$orderProduct.displayed_price}</span>
                                 </p>
