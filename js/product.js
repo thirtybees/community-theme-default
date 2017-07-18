@@ -592,7 +592,7 @@ function updateDisplay() {
       }
     }
   } else {
-    //show the hook out of stock
+    // show the hook out of stock
     if (productAvailableForOrder == 1) {
       $oosHook.show();
       if ($oosHook.length && function_exists('oosHookJsCode')) {
@@ -600,17 +600,17 @@ function updateDisplay() {
       }
     }
 
-    //hide 'last quantities' message if it was previously visible
+    // hide 'last quantities' message if it was previously visible
     $lastQuantities.hide();
 
-    //hide the quantity of pieces if it was previously visible
+    // hide the quantity of pieces if it was previously visible
     $('#pQuantityAvailable:visible').hide();
 
-    //hide the choice of quantities
+    // hide the choice of quantities
     if (!allowBuyWhenOutOfStock)
       $('#quantity_wanted_p:visible').hide();
 
-    //display that the product is unavailable with theses attributes
+    // display that the product is unavailable with theses attributes
     if (!selectedCombination['unavailable']) {
       $availabilityValue.text(doesntExistNoMore + (globalQuantity > 0 ? ' ' + doesntExistNoMoreBut : ''));
       if (!allowBuyWhenOutOfStock) {
@@ -797,7 +797,7 @@ function updatePrice() {
   /*  Update the page content, no price calculation happens after */
 
   var $reductionPercent = $('#reduction_percent');
-  var $reductionAmount  = $('#reduction_amount');
+  var $reductionAmount = $('#reduction_amount');
   var $unitPrice = $('.unit-price');
   var $priceEcotax = $('.price-ecotax');
 
