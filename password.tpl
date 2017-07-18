@@ -27,7 +27,9 @@
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a href="{$link->getPageLink('authentication')|escape:'html':'UTF-8'}" title="{l s='Back to Login'}">&larr; {l s='Back to Login'}</a>
+      <a href="{$link->getPageLink('authentication')|escape:'html':'UTF-8'}" title="{l s='Back to Login'}">
+        {if isset($isRtl) && $isRtl}&rarr;{else}&larr;{/if} {l s='Back to Login'}
+      </a>
     </li>
   </ul>
 </nav>

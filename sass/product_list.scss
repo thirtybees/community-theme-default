@@ -86,7 +86,6 @@ $product-grid-item-hover-bg: #f6f6f6;
 .product-container {
   text-align: center;
   margin-bottom: 30px;
-  border-bottom: 1px solid transparent; // Preserves block heights on hover
 }
 
 .hook-reviews {
@@ -100,18 +99,7 @@ $product-grid-item-hover-bg: #f6f6f6;
 
 .product-image-container {
   position: relative;
-  border: 1px solid #ccc;
   background-color: #fff;
-  .content_price {
-    display: none;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: rgba(50, 50, 50, 0.65);
-    padding: 3px;
-    color: #fff;
-  }
 }
 
 .product-actions-container {
@@ -125,29 +113,25 @@ $product-grid-item-hover-bg: #f6f6f6;
   }
   .availability {
     margin-bottom: 10px;
+	display:none; // don't show "in stock", "out of stock",... on product listing
   }
 }
 
 .product_list.grid {
   .product-container {
-    margin-bottom: 45px;
+    margin-bottom: 40px;
+	border: 1px solid #e9ebee;
     &:hover {
-      background-color: $product-grid-item-hover-bg;
-      border: 1px solid #ccc;
       .product-image-container {
         border-left: none;
         border-right: none;
         border-top: none;
       }
-      .button-container {
-        display: block;
-      }
-      .product-actions-container {
-        .content_price {
-          @include opacity(0);
-        }
-      }
     }
+	.product-name {
+	  font-size: 1.1em;
+	  letter-spacing: -0.5px;
+	}
   }
   .product-price-button-wrapper {
     position: relative;
@@ -162,8 +146,7 @@ $product-grid-item-hover-bg: #f6f6f6;
     padding: 0 5px;
   }
   .button-container {
-    display: none;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;

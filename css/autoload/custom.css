@@ -1,0 +1,63 @@
+.navbar-nav > li > a {
+  letter-spacing: 0.3px;
+  z-index: 1;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  color: #f0d541;
+  background-color: #222222;
+}
+
+#header-blocks #blockcart-header {
+  height: 40px;
+  line-height: 40px;
+  background-color: #dedede;
+}
+
+#search_block_top .input-lg, .input-group-lg > .form-control,
+#search_block_top .input-group-lg > .input-group-addon,
+#search_block_top .input-group-lg > .input-group-btn > .btn {
+  height: 40px;
+  padding: 5px 14px;
+  font-size: 17px;
+}
+
+#search_block_top .btn-primary {
+  background-color: #f0d541;
+  border-color: #f0d541;
+}
+
+#search_block_top .form-control {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: #dedede;
+}
+
+#search_block_top .form-control:focus {
+  border-color: #f0d541;
+}
+
+#homeslider-pager {
+  display: none;
+}
+
+#home-page-tabs {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.nav-tabs,
+.nav-tabs > li > a {
+  border-bottom: 0px solid transparent;
+  transition: .3s ease-in-out;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #222222;
+  background-color: #f0d541;
+  border: 0px solid transparent;
+}

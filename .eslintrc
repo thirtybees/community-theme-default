@@ -8,7 +8,8 @@
   "globals": {
     "$": true,
     "window": true,
-    "document": true
+    "document": true,
+    "PrestaShop": true
   },
   "rules": {
     "max-len": ["error", 800],

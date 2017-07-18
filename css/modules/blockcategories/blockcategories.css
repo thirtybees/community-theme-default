@@ -70,7 +70,7 @@
 }
 
 .blockcategories .ilvl-1:hover {
-  background-color: #337ab7;
+  background-color: #3e3e3e;
   color: #fff;
   border-color: #ddd;
 }
@@ -78,11 +78,11 @@
 .blockcategories .ilvl-1:hover.active, .blockcategories .ilvl-1:hover:hover, .blockcategories .ilvl-1:hover:focus {
   color: #fff;
   border-color: #ddd;
-  background-color: #3071a9;
+  background-color: #353535;
 }
 
 .blockcategories .ilvl-2 {
-  background-color: #5094ce;
+  background-color: #585858;
   color: #fff;
   border-color: #ddd;
 }
@@ -90,7 +90,7 @@
 .blockcategories .ilvl-2.active, .blockcategories .ilvl-2:hover, .blockcategories .ilvl-2:focus {
   color: #fff;
   border-color: #ddd;
-  background-color: #428bca;
+  background-color: #4f4f4f;
 }
 
 .blockcategories .ilvl-2:hover {
@@ -98,7 +98,7 @@
 }
 
 .blockcategories .ilvl-3 {
-  background-color: #78acd9;
+  background-color: #717171;
   color: #fff;
   border-color: #ddd;
 }
@@ -106,7 +106,7 @@
 .blockcategories .ilvl-3.active, .blockcategories .ilvl-3:hover, .blockcategories .ilvl-3:focus {
   color: #fff;
   border-color: #ddd;
-  background-color: #6aa3d5;
+  background-color: #686868;
 }
 
 .blockcategories .ilvl-3:hover {
@@ -114,7 +114,7 @@
 }
 
 .blockcategories .list-group-item-wrapper.active > .ilvl-1 {
-  background-color: #337ab7;
+  background-color: #3e3e3e;
   color: #fff;
   border-color: #ddd;
 }
@@ -122,11 +122,11 @@
 .blockcategories .list-group-item-wrapper.active > .ilvl-1.active, .blockcategories .list-group-item-wrapper.active > .ilvl-1:hover, .blockcategories .list-group-item-wrapper.active > .ilvl-1:focus {
   color: #fff;
   border-color: #ddd;
-  background-color: #3071a9;
+  background-color: #353535;
 }
 
 .blockcategories .list-group-item-wrapper.active > .ilvl-2 {
-  background-color: #5094ce;
+  background-color: #585858;
   color: #fff;
   border-color: #ddd;
 }
@@ -134,11 +134,11 @@
 .blockcategories .list-group-item-wrapper.active > .ilvl-2.active, .blockcategories .list-group-item-wrapper.active > .ilvl-2:hover, .blockcategories .list-group-item-wrapper.active > .ilvl-2:focus {
   color: #fff;
   border-color: #ddd;
-  background-color: #428bca;
+  background-color: #4f4f4f;
 }
 
 .blockcategories .list-group-item-wrapper.active > .ilvl-3 {
-  background-color: #78acd9;
+  background-color: #717171;
   color: #fff;
   border-color: #ddd;
 }
@@ -146,5 +146,5 @@
 .blockcategories .list-group-item-wrapper.active > .ilvl-3.active, .blockcategories .list-group-item-wrapper.active > .ilvl-3:hover, .blockcategories .list-group-item-wrapper.active > .ilvl-3:focus {
   color: #fff;
   border-color: #ddd;
-  background-color: #6aa3d5;
+  background-color: #686868;
 }

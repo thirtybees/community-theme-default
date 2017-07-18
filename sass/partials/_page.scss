@@ -1,5 +1,5 @@
-$header-banner-bg: #000;
-$page-body-bg: #edecec;
+$header-banner-bg: #222;
+$page-body-bg: #fff;
 $page-content-bg: #fff;
 
 body {
@@ -10,9 +10,9 @@ body {
 }
 
 #header-blocks {
-  background-color: $page-content-bg;
-  padding-top: 15px;
   position: relative;
+  top: -25px;
+  margin-bottom: -25px;
 }
 
 #columns {
@@ -30,4 +30,9 @@ body {
   .navbar {
     margin-bottom: 0;
   }
+}
+
+#shop-logo > a > img {
+	max-width: 324px;
+	float: left;
 }

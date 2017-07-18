@@ -128,11 +128,13 @@
         <nav>
           <ul class="pager">
             <li class="previous">
-              <a href="#" class="continue">&laquo; {l s='Continue shopping' mod='blockcart'}</a>
+              <a href="#" class="continue">
+                  {if isset($isRtl) && $isRtl}&raquo;{else}&laquo;{/if} {l s='Continue shopping' mod='blockcart'}
+              </a>
             </li>
             <li class="next">
               <a href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
-                {l s='Proceed to checkout' mod='blockcart'} &raquo;
+                {l s='Proceed to checkout' mod='blockcart'} {if isset($isRtl) && $isRtl}&laquo;{else}&raquo;{/if}
               </a>
             </li>
           </ul>
