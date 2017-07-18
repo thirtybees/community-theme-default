@@ -803,6 +803,7 @@ function updatePrice() {
 
   var $oldPriceElements = $('#old_price, #old_price_display, #old_price_display_taxes');
   var $ourPriceDisplay = $('#our_price_display');
+  var $oldPriceDisplay = $('#old_price_display');
 
   // Hide everything then show what needs to be shown
   $reductionPercent.hide();
@@ -813,13 +814,17 @@ function updatePrice() {
 
   if (priceWithDiscountsDisplay > 0) {
     $ourPriceDisplay.text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
+    $oldPriceDisplay.text(formatCurrency(basePriceDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
     if (findSpecificPrice()) {
       $('#our_price_display').text(findSpecificPrice()).trigger('change');
+      $('#old_price_display').text(findSpecificPrice()).trigger('change');
     } else {
       $('#our_price_display').text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
+      $('#old_price_display').text(formatCurrency(basePriceDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
     }
   } else {
     $ourPriceDisplay.text(formatCurrency(0, currencyFormat, currencySign, currencyBlank)).trigger('change');
+    $oldPriceDisplay.text(formatCurrency(0, currencyFormat, currencySign, currencyBlank)).trigger('change');
   }
 
   // If the calculated price (after all discounts) is different than the base price
