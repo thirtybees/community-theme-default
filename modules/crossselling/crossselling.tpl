@@ -1,4 +1,4 @@
-{if isset($orderProducts) && && is_array($orderProducts) && !empty($orderProducts)}
+{if isset($orderProducts) && is_array($orderProducts) && !empty($orderProducts)}
     <section id="crossselling" class="page-product-box">
         <h2 class="productscategory_h2 page-product-heading">
             {if $page_name == 'product'}
@@ -26,25 +26,30 @@
                                     </a>
                                 </h3>
 
-              {if isset($orderProduct.description_short)}<p>{$orderProduct.description_short|strip_tags:'UTF-8'|truncate:50:'...'}</p>{/if}
-            </div>
-            {if $crossDisplayPrice AND $orderProduct.show_price == 1 AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
-              <p class="price_display">
-                <span class="price">{convertPrice price=$orderProduct.displayed_price}</span>
-              </p>
-            {/if}
-            <div class="clearfix" style="margin-top:5px">
-              {if !$PS_CATALOG_MODE && ($orderProduct.allow_oosp || $orderProduct.quantity > 0)}
-                <div class="no-print">
-                  <a class="button ajax_add_to_cart_button" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$orderProduct.id_product|intval}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}" data-id-product="{$orderProduct.id_product|intval}" title="{l s='Add to cart' mod='crossselling'}">
-                    <span>{l s='Add to cart' mod='crossselling'}</span>
-                  </a>
-                </div>
-              {/if}
-            </div>
-          </li>
-        {/foreach}
-      </ul>
-    </div>
-  </section>
+                                {if isset($orderProduct.description_short)}
+                                    <p>{$orderProduct.description_short|strip_tags:'UTF-8'|truncate:50:'...'}</p>{/if}
+                            </div>
+                            {if $crossDisplayPrice && $orderProduct.show_price == 1 && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
+                                <p class="price_display">
+                                    <span class="price">{convertPrice price=$orderProduct.displayed_price}</span>
+                                </p>
+                            {/if}
+                            <div class="clearfix" style="margin-top:5px">
+                                {if !$PS_CATALOG_MODE && ($orderProduct.allow_oosp || $orderProduct.quantity > 0)}
+                                    <div class="no-print">
+                                        <a class="button ajax_add_to_cart_button"
+                                           href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$orderProduct.id_product|intval}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}"
+                                           data-id-product="{$orderProduct.id_product|intval}"
+                                           title="{l s='Add to cart' mod='crossselling'}">
+                                            <span>{l s='Add to cart' mod='crossselling'}</span>
+                                        </a>
+                                    </div>
+                                {/if}
+                            </div>
+                        </article>
+                    </li>
+                {/foreach}
+            </ul>
+        </div>
+    </section>
 {/if}
