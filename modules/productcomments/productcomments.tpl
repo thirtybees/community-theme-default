@@ -141,7 +141,7 @@
         <button id="submitNewMessage" name="submitMessage" type="submit" class="btn btn-success">
           {l s='Submit' mod='productcomments'}
         </button>
-        <a class="closefb btn btn-link" href="#">
+        <a class="closefb btn btn-link" href="#" onclick="$.fancybox.close();return false;">
           {l s='Cancel' mod='productcomments'}
         </a>
       </div>
