@@ -59,7 +59,10 @@ function oosHookJsCodeMailAlert() {
   $.ajax({
     type: 'POST',
     url: mailalerts_url_check,
-    data: 'id_product=' + id_product + '&id_product_attribute=' + $('#idCombination').val(),
+    data: {
+      'id_product': id_product,
+      'id_product_attribute': $('#idCombination').val()
+    },
     success: function(msg) {
       if (msg == '0') {
         $('#mailalert_link').show();
@@ -79,7 +82,11 @@ function  addNotification() {
   $.ajax({
     type: 'POST',
     url: mailalerts_url_add,
-    data: 'id_product=' + id_product + '&id_product_attribute=' + $('#idCombination').val() + '&customer_email=' + $('#oos_customer_email').val() + '',
+    data: {
+      'id_product': id_product,
+      'id_product_attribute': $('#idCombination').val(),
+      'customer_email': $('#oos_customer_email').val()
+    },
     success: function(msg) {
       if (msg == '1') {
         $('#mailalert_link').hide();
