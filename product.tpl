@@ -58,7 +58,7 @@
               <img id="bigpic" class="img-responsive center-block" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}" />
                 <meta itemprop="contentUrl" content="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" />
                 <meta itemprop="name" content="{$product->name|escape:'html':'UTF-8'}"/>
-                <meta itemprop="description" content="{$cover.legend|escape:'html':'UTF-8'}"/>
+                <meta itemprop="caption" content="{$cover.legend|escape:'html':'UTF-8'}"/>
                 <meta itemprop="width" content="{$largeSize.width}" />
                 <meta itemprop="height" content="{$largeSize.height}" />
                 <meta itemprop="representativeOfPage" content="true" />
@@ -74,7 +74,7 @@
               <img id="bigpic" class="img-responsive center-block" src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg" title="{$product->name|escape:'html':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}"/>
                 <meta itemprop="contentUrl" content="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" />
                 <meta itemprop="name" content="{$product->name|escape:'html':'UTF-8'}"/>
-                <meta itemprop="description" content="{$cover.legend|escape:'html':'UTF-8'}"/>
+                <meta itemprop="caption" content="{$cover.legend|escape:'html':'UTF-8'}"/>
                 <meta itemprop="width" content="{$largeSize.width}" />
                 <meta itemprop="height" content="{$largeSize.height}" />
                 <meta itemprop="representativeOfPage" content="true" />
@@ -101,13 +101,13 @@
                         <a itemprop="thumbnailUrl" href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" class="thumbnail {if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
                           <img itemprop="thumbnail" class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} />
                             <meta itemprop="name" content="{$product->name|escape:'html':'UTF-8'}"/>
-                            <meta itemprop="description" content="{$cover.legend|escape:'html':'UTF-8'}"/>
+                            <meta itemprop="caption" content="{$cover.legend|escape:'html':'UTF-8'}"/>
                         </a>
                       {else}
                         <a itemprop="thumbnailUrl" href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" data-fancybox-group="other-views" class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
                           <img itemprop="thumbnail" class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} />
                             <meta itemprop="name" content="{$product->name|escape:'html':'UTF-8'}"/>
-                            <meta itemprop="description" content="{$cover.legend|escape:'html':'UTF-8'}"/>
+                            <meta itemprop="caption" content="{$cover.legend|escape:'html':'UTF-8'}"/>
                         </a>
                       {/if}
                     </li>
