@@ -306,6 +306,7 @@ $(document).on('click', '#customizedDatas input', function() {
 $(document).on('click', '.color_pick', function(e) {
   e.preventDefault();
   colorPickerClick($(this));
+  findCombination();
   getProductAttribute();
 });
 
@@ -331,6 +332,7 @@ $(document).on('change', '.attribute_select', function(e) {
 
 $(document).on('click', '.attribute_radio', function(e) {
   e.preventDefault();
+  findCombination();
   getProductAttribute();
 });
 
@@ -923,7 +925,8 @@ function updateDiscountTable(newPrice) {
       discountUpTo = discount * quantity;
     }
 
-    if (displayDiscountPrice != 0) {
+    if (discountedPrice != 0) {
+      $(this).attr('data-real-discount-value', formatCurrency(discountedPrice * currencyRate, currencyFormat, currencySign, currencyBlank));
       $(this).children('td').eq(1).text(formatCurrency(discountedPrice * currencyRate, currencyFormat, currencySign, currencyBlank));
     }
     $(this).children('td').eq(2).text(upToTxt + ' ' + formatCurrency(discountUpTo * currencyRate, currencyFormat, currencySign, currencyBlank));
