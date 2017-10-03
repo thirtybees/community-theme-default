@@ -15,6 +15,9 @@
 
   <div itemscope itemtype="https://schema.org/Product">
     <meta itemprop="url" content="{$link->getProductLink($product)}">
+      {assign var=pname value="{$path|strip_tags|replace:" > {$product->name|escape:'html':'UTF-8'}":''}"}
+    <meta itemprop="category" content="{$pname}" />
+
     <div class="primary_block row">
 
       {if isset($adminActionDisplay) && $adminActionDisplay}
@@ -51,8 +54,15 @@
           </div>
 
           {if $have_image}
-            <span id="view_full_size">
-              <img id="bigpic" class="img-responsive center-block" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}"/>
+            <span id="view_full_size" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+              <img id="bigpic" class="img-responsive center-block" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}" />
+                <meta itemprop="contentUrl" content="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" />
+                <meta itemprop="name" content="{$product->name|escape:'html':'UTF-8'}"/>
+                <meta itemprop="caption" content="{$cover.legend|escape:'html':'UTF-8'}"/>
+                <meta itemprop="width" content="{$largeSize.width}" />
+                <meta itemprop="height" content="{$largeSize.height}" />
+                <meta itemprop="representativeOfPage" content="true" />
+
               {if !$jqZoomEnabled && !$content_only}
                 <span class="span_link" title="{l s='Zoom in'}">
                   <i class="icon icon-search-plus"></i>
@@ -60,8 +70,14 @@
               {/if}
             </span>
           {else}
-            <span id="view_full_size">
-              <img id="bigpic" class="img-responsive center-block" itemprop="image" src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg" title="{$product->name|escape:'html':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}"/>
+            <span id="view_full_size" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+              <img id="bigpic" class="img-responsive center-block" src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg" title="{$product->name|escape:'html':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}"/>
+                <meta itemprop="contentUrl" content="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" />
+                <meta itemprop="name" content="{$product->name|escape:'html':'UTF-8'}"/>
+                <meta itemprop="caption" content="{$cover.legend|escape:'html':'UTF-8'}"/>
+                <meta itemprop="width" content="{$largeSize.width}" />
+                <meta itemprop="height" content="{$largeSize.height}" />
+                <meta itemprop="representativeOfPage" content="true" />
             </span>
           {/if}
         </div>
@@ -69,7 +85,7 @@
         {if !empty($images)}
           <div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
             <div id="thumbs_list">
-              <ul id="thumbs_list_frame" class="list-unstyled row">
+              <ul id="thumbs_list_frame" class="list-unstyled row" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                 {if isset($images)}
                   {foreach from=$images item=image name=thumbnails}
 
@@ -82,12 +98,16 @@
 
                     <li data-slide-num="{$smarty.foreach.thumbnails.iteration|intval}" id="thumbnail_{$image.id_image}" class="col-xs-6 col-sm-4 col-md-3">
                       {if $jqZoomEnabled && $have_image && !$content_only}
-                        <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" class="thumbnail {if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
-                          <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
+                        <a itemprop="thumbnailUrl" href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" class="thumbnail {if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
+                          <img itemprop="thumbnail" class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} />
+                            <meta itemprop="name" content="{$product->name|escape:'html':'UTF-8'}"/>
+                            <meta itemprop="caption" content="{$cover.legend|escape:'html':'UTF-8'}"/>
                         </a>
                       {else}
-                        <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" data-fancybox-group="other-views" class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
-                          <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
+                        <a itemprop="thumbnailUrl" href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" data-fancybox-group="other-views" class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
+                          <img itemprop="thumbnail" class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} />
+                            <meta itemprop="name" content="{$product->name|escape:'html':'UTF-8'}"/>
+                            <meta itemprop="caption" content="{$cover.legend|escape:'html':'UTF-8'}"/>
                         </a>
                       {/if}
                     </li>
@@ -206,6 +226,7 @@
                           {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
                             {if $priceDisplay == 1} {l s='tax excl.'}{else} {l s='tax incl.'}{/if}
                           {/if}
+                          <meta itemprop="category" content="{$pname}" />
                           <meta itemprop="priceCurrency" content="{$currency->iso_code}" />
                           {hook h="displayProductPriceBlock" product=$product type="price"}
                         {/if}
