@@ -10,11 +10,12 @@ $product-grid-item-hover-bg: #f6f6f6;
 //
 .product_list {
   .show-if-product-item-hover {
-    display: none;
+    opacity: 0;
+	transition: .3s ease-in-out;
   }
   .product-container:hover {
     .show-if-product-item-hover {
-      display: block;
+      opacity: 1;
     }
   }
 }
@@ -99,8 +100,17 @@ $product-grid-item-hover-bg: #f6f6f6;
 
 .product-image-container {
   position: relative;
-  background-color: #fff;
+  .img-responsive.center-block {
+  	padding: 20px;
+	transition: padding 0.3s ease-in-out;
+  }  
+  &:hover {
+    .img-responsive.center-block {
+  	  padding: 0;
+	}  
+  }
 }
+
 
 .product-actions-container {
   position: relative;
@@ -114,6 +124,10 @@ $product-grid-item-hover-bg: #f6f6f6;
   .availability {
     margin-bottom: 10px;
 	display:none; // don't show "in stock", "out of stock",... on product listing
+  }
+  .ajax_add_to_cart_button.btn.btn-primary {
+	text-transform: uppercase;
+	letter-spacing: 2px;
   }
 }
 

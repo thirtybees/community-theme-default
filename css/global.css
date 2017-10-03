@@ -313,7 +313,7 @@ html {
 }
 
 body {
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Noto Sans", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -5842,7 +5842,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Noto Sans", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -5976,7 +5976,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Noto Sans", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -9462,11 +9462,6 @@ body.content_only {
 
 #header .navbar {
   margin-bottom: 0;
-}
-
-#shop-logo > a > img {
-  max-width: 324px;
-  float: left;
 }
 
 #footer {

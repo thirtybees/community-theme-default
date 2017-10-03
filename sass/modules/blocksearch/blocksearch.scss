@@ -9,12 +9,19 @@
 	
   @media (max-width: $screen-xs-max) {
     margin-top: 15px;
+	left: 0;
   }
   @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-    margin-top: 10px;
+    margin-top: 11px;
+	left: 0;
   }
   @media (min-width: $screen-md) and (max-width: $screen-md-max) {
     margin-top: 20px;
+	left: 40px;
+  }
+  @media (min-width: $screen-md-max) and (max-width: 1400px) {
+	margin-top: 30px;
+	left: 35px;
   }
 }
 
