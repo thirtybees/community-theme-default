@@ -1,12 +1,11 @@
 <article>
     <div class="product-container" itemscope itemtype="https://schema.org/Product">
-
         <div class="product-image-container">
             <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}"
                title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
-                <img class="replace-2x img-responsive center-block"
-                     src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}"
-                     srcset="
+                <img class="tb-lazy-image replace-2x img-responsive center-block"
+                     {if $lazy_load}data-src{else}src{/if}="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}"
+                     {if $lazy_load}data-srcset{else}srcset{/if}="
            {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest')|escape:'html':'UTF-8'} 211w,
            {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller')|escape:'html':'UTF-8'} 218w,
            {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'} 250w
