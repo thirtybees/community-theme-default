@@ -205,7 +205,7 @@ function reloadContent(paramsPlus) {
   window.ajaxQuery = $.ajax({
     type: 'GET',
     url: window.baseDir + 'modules/blocklayered/blocklayered-ajax.php',
-    data: data + paramsPlus + n,
+	data: data + '&' + paramsPlus + n,
     dataType: 'json',
     cache: false, // @todo see a way to use cache and to add a timestamps parameter to refresh cache each 10 minutes for example
     success: function (result) {
