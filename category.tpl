@@ -10,8 +10,8 @@
         <section id="category-info">
             {if $category->id_image}
                 <div id="category-banner">
-                    <img class="img-responsive"
-                         src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}"
+                    <img class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}"
+                         {if !empty($lazy_load)}data-{/if}src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}"
                          alt="{$category->name|escape:'html':'UTF-8'}" title="{$category->name|escape:'html':'UTF-8'}">
                 </div>
             {/if}

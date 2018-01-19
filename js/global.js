@@ -43,11 +43,8 @@ var PrestaShop = (function() {
 })();
 
 $(function() {
-
   var touch = !!isTouchDevice();
   $('body').toggleClass('touch', touch).toggleClass('no-touch', !touch);
-
-  highdpiInit();
 
   if (typeof quickView !== 'undefined' && quickView) {
     quick_view();
@@ -112,27 +109,7 @@ $(function() {
       prev: '<a title="' + FancyboxI18nPrev + '" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
     });
   }
-
 });
-
-function highdpiInit() {
-  if (typeof highDPI === 'undefined') {
-    return;
-  }
-
-  if (highDPI && $('.replace-2x').css('font-size') == '1px') {
-    var els = $('img.replace-2x').get();
-    for (var i = 0; i < els.length; i++) {
-      src = els[i].src;
-      extension = src.substr((src.lastIndexOf('.') + 1));
-      src = src.replace('.' + extension, '2x.' + extension);
-
-      var img = new Image();
-      img.src = src;
-      els[i].src = img.height != 0 ? src : els[i].src;
-    }
-  }
-}
 
 function quick_view() {
   $(document).on('click', '.quick-view', function(e) {
