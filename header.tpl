@@ -32,13 +32,19 @@
             {if $css_uri == 'lteIE9'}
                 <!--[if lte IE 9]>
                 {foreach from=$css_files[$css_uri] key=css_uriie9 item=mediaie9}
-                <link rel="stylesheet" href="{$css_uriie9|escape:'html':'UTF-8'}" type="text/css"
-                      media="{$mediaie9|escape:'html':'UTF-8'}"/>
+                  <link rel="stylesheet"
+                        href="{$css_uriie9|escape:'html':'UTF-8'}"
+                        type="text/css"
+                        media="{$mediaie9|escape:'html':'UTF-8'}"
+                  />
                 {/foreach}
                 <![endif]-->
             {else}
-                <link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css"
-                      media="{$media|escape:'html':'UTF-8'}"/>
+                <link rel="stylesheet"
+                      href="{$css_uri|escape:'html':'UTF-8'}"
+                      type="text/css"
+                      media="{$media|escape:'html':'UTF-8'}"
+                />
             {/if}
         {/foreach}
     {/if}
@@ -51,7 +57,7 @@
     {$HOOK_HEADER}
     <!--[if IE 8]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" async></script>
     <![endif]-->
 </head>
 <body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if}

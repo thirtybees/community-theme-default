@@ -39,7 +39,9 @@
   function fetchImage(src, srcset, callback) {
     var image = new Image();
     image.src = src;
-    image.srcset = srcset;
+    if (srcset) {
+      image.srcset = srcset;
+    }
     image.onload = callback.resolve;
     image.onerror = callback.reject;
   }

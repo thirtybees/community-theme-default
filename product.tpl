@@ -52,16 +52,31 @@
 
           {if $have_image}
             <span id="view_full_size">
-              <img id="bigpic" class="img-responsive center-block" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}"/>
+              <img id="bigpic"
+                   class="img-responsive center-block{if !empty($lazy_load)} tb-lazy-image{/if}"
+                   itemprop="image"
+                   {if !empty($lazy_load)}data-{/if}src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}{if !empty($webp)}.webp{/if}"
+                   title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
+                   alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
+                   width="{$largeSize.width}"
+                   height="{$largeSize.height}"
+              />
               {if !$jqZoomEnabled && !$content_only}
                 <span class="span_link" title="{l s='Zoom in'}">
-                  <i class="icon icon-search-plus"></i>
-                </span>
+                    <i class="icon icon-search-plus"></i>
+                  </span>
               {/if}
             </span>
           {else}
             <span id="view_full_size">
-              <img id="bigpic" class="img-responsive center-block" itemprop="image" src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg" title="{$product->name|escape:'html':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}"/>
+              <img id="bigpic"
+                   class="img-responsive center-block{if !empty($lazy_load)} tb-lazy-image{/if}"
+                   itemprop="image"
+                   {if !empty($lazy_load)}data-{/if}src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg{if !empty($webp)}.webp{/if}"
+                   title="{$product->name|escape:'html':'UTF-8'}"
+                   width="{$largeSize.width}"
+                   height="{$largeSize.height}"
+              />
             </span>
           {/if}
         </div>
@@ -83,11 +98,11 @@
                     <li data-slide-num="{$smarty.foreach.thumbnails.iteration|intval}" id="thumbnail_{$image.id_image}" class="col-xs-6 col-sm-4 col-md-3">
                       {if $jqZoomEnabled && $have_image && !$content_only}
                         <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" class="thumbnail {if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
-                          <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
+                          <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}{if !empty($webp)}.webp{/if}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
                         </a>
                       {else}
                         <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" data-fancybox-group="other-views" class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
-                          <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
+                          <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}{if !empty($webp)}.webp{/if}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
                         </a>
                       {/if}
                     </li>

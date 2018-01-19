@@ -4,12 +4,12 @@
             <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}"
                title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
                 <img class="{if $lazy_load}tb-lazy-image {/if}replace-2x img-responsive center-block"
-                     {if $lazy_load}data-src{else}src{/if}="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}"
-                     {if $lazy_load}data-srcset{else}srcset{/if}="
-           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest')|escape:'html':'UTF-8'} 211w,
-           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller')|escape:'html':'UTF-8'} 218w,
-           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'} 250w
-           "
+                     {if !empty($lazy_load)}src="" srcset=""{/if}
+                     {if !empty($lazy_load)}data-{/if}src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}{if !empty($webp)}.webp{/if}"
+                     {if !empty($lazy_load)}data-{/if}srcset="
+                     {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest')|escape:'html':'UTF-8'}{if !empty($webp)}.webp{/if} 211w,
+                     {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller')|escape:'html':'UTF-8'}{if !empty($webp)}.webp{/if} 218w,
+                     {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}{if !empty($webp)}.webp{/if} 250w"
                      sizes="(min-width: 1200px) 250px, (min-width: 992px) 218px, (min-width: 768px) 211px, 250px"
                      alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
                      title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
@@ -38,8 +38,7 @@
               {displayWtPrice p=$product.price_without_reduction}
             </span>
                             {if $product.specific_prices.reduction_type == 'percentage'}
-                                <span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}
-                                    %</span>
+                                <span class="price-percent-reduction">-{$product.specific_prices.reduction * 100} %</span>
                             {/if}
                         {/if}
                         {if $PS_STOCK_MANAGEMENT && isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}
