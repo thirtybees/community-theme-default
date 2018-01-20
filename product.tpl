@@ -129,20 +129,17 @@
                            title="{$imageTitle}"
                            rel="product"
                         >
-                          <picture class="img-responsive">
+                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}">
                             {if !empty($webp)}
-                              <source
-                                   id="thumb_{$image.id_image|intval}"
-                                   srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp')|escape:'html':'UTF-8'}"
-                                   alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
-                                   title="{$imageTitle|escape:'htmlall':'UTF-8'}"
-                                   {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
-                                   itemprop="image"
-                                   type="image/webp"
+                              <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp')|escape:'html':'UTF-8'}"
+                                      alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
+                                      title="{$imageTitle|escape:'htmlall':'UTF-8'}"
+                                      {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
+                                      itemprop="image"
+                                      type="image/webp"
                               />
                             {/if}
                             <img class="img-responsive"
-                                 id="thumb_{$image.id_image|intval}"
                                  srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}"
                                  alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                  title="{$imageTitle|escape:'htmlall':'UTF-8'}"
@@ -157,11 +154,10 @@
                            title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                            rel="product"
                         >
-                          <picture class="img-responsive">
+                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}"
+                          >
                             {if !empty($webp)}
-                              <source
-                                      id="thumb_{$image.id_image|intval}"
-                                      srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp')|escape:'html':'UTF-8'}"
+                              <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp')|escape:'html':'UTF-8'}"
                                       alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                       title="{$imageTitle}"
                                       {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
@@ -169,15 +165,13 @@
                                       type="image/webp"
                               />
                             {/if}
-                            <img
-                                    id="thumb_{$image.id_image|intval}"
-                                    srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}"
-                                    alt="{$imageTitle}"
-                                    title="{$imageTitle}"
-                                    {if isset($cartSize)}
-                                    height="{$cartSize.height}"
-                                    width="{$cartSize.width}"{/if}
-                                    itemprop="image"
+                            <img srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}"
+                                 alt="{$imageTitle}"
+                                 title="{$imageTitle}"
+                                 {if isset($cartSize)}
+                                 height="{$cartSize.height}"
+                                 width="{$cartSize.width}"{/if}
+                                 itemprop="image"
                             />
                           </picture>
                         </a>
