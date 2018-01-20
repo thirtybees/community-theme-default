@@ -38,7 +38,9 @@
    */
   function fetchImage(src, srcset, callback) {
     var image = new Image();
-    image.src = src;
+    if (src) {
+      image.src = src;
+    }
     if (srcset) {
       image.srcset = srcset;
     }
@@ -51,13 +53,32 @@
    * @param {object} image
    */
   function preloadImage(image) {
-    var src = image.getAttribute('data-src');
-    var srcset = image.getAttribute('data-srcset');
-    if (!src) {
-      return;
+    if (image.tagName === 'PICTURE') {
+      // This picture contains several SOURCEs and IMGs
+      [].slice.call(image.childNodes).forEach(function (childNode) {
+        if (['IMG', 'SOURCE'].indexOf(childNode.tagName) < 0) {
+          return;
+        }
+
+        var src = childNode.getAttribute('data-src');
+        var srcset = childNode.getAttribute('data-srcset');
+        if (!src && !srcset) {
+          return;
+        }
+
+        applyImage(childNode, src, srcset);
+      });
+
+      image.className += ' tb-lazy-image--handled';
+    } else {
+      var src = image.getAttribute('data-src');
+      var srcset = image.getAttribute('data-srcset');
+      if (!src && !srcset) {
+        return;
+      }
     }
 
-    return fetchImage(src, srcset, {
+    fetchImage(src, srcset, {
       resolve: function () {
         applyImage(image, src, srcset);
       },
@@ -74,7 +95,9 @@
   function applyImage(img, src, srcset) {
     // Prevent this from being lazy loaded a second time.
     img.className += ' tb-lazy-image--handled';
-    img.src = src;
+    if (src) {
+      img.src = src;
+    }
     if (srcset) {
       img.srcset = srcset;
     }

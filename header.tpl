@@ -59,6 +59,12 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" async></script>
     <![endif]-->
+  <script type="text/javascript" data-keepinline>
+    // Picture element HTML5 shiv
+    document.createElement( "picture" );
+  </script>
+  <script src="{$tpl_uri|escape:'htmlall':'UTF-8'}js/vendor/picturefill.min.js" data-keepinline async></script>
+
 </head>
 <body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if}
         class="{if isset($page_name)}{$page_name|escape:'html':'UTF-8'}{/if}{if isset($body_classes) && $body_classes|@count} {implode value=$body_classes separator=' '}{/if}{if $hide_left_column} hide-left-column{else} show-left-column{/if}{if $hide_right_column} hide-right-column{else} show-right-column{/if}{if isset($content_only) && $content_only} content_only{/if} lang_{$lang_iso}">
