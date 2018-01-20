@@ -95,17 +95,22 @@
   function applyImage(img, src, srcset) {
     // Prevent this from being lazy loaded a second time.
     img.className += ' tb-lazy-image--handled';
-    if (src) {
-      img.src = src;
-    }
-    if (srcset) {
-      img.srcset = srcset;
-    }
-    img.className += ' tb-lazy-fade-in';
     img.removeAttribute('data-src');
     img.removeAttribute('data-srcset');
-  }
+    if (src) {
+      img.setAttribute('src', src);
+    }
+    if (srcset) {
+      img.setAttribute('srcset', srcset);
+    }
+    img.className += ' tb-lazy-fade-in';
 
+    if ('picturefill' in window) {
+      picturefill({
+        elements: [img]
+      });
+    }
+  }
 
   function onIntersection(entries) {
     // Loop through the entries
@@ -120,7 +125,9 @@
     });
   }
 
-  var observer = new IntersectionObserver(onIntersection, config);
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(onIntersection, config);
+  }
 
   lazyloadImages();
   setInterval(lazyloadImages, 500);

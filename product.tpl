@@ -57,6 +57,7 @@
                   href="1"
             >
               <picture id="bigpic">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}
                   <source class="img-responsive center-block"
                        itemprop="image"
@@ -68,6 +69,7 @@
                        type="image/webp"
                   />
                 {/if}
+                <!--[if IE 9]></video><![endif]-->
                 <img class="img-responsive center-block"
                      itemprop="image"
                      srcset="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}"
@@ -86,19 +88,23 @@
           {else}
             <span id="view_full_size">
               <picture id="bigpic">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                {if (!empty($webp))}
+                  <source class="img-responsive center-block"
+                       itemprop="image"
+                       srcset="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.webp"
+                       title="{$product->name|escape:'html':'UTF-8'}"
+                       width="{$largeSize.width|intval}"
+                       height="{$largeSize.height|intval}"
+                  />
+                {/if}
+                <!--[if IE 9]></video><![endif]-->
                 <img class="img-responsive center-block"
                      itemprop="image"
-                     srcset="{$img_prod_dir}{$lang_iso}-default-large_default.jpg"
+                     srcset="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.jpg"
                      title="{$product->name|escape:'html':'UTF-8'}"
-                     width="{$largeSize.width}"
-                     height="{$largeSize.height}"
-                />
-                <img class="img-responsive center-block"
-                     itemprop="image"
-                     srcset="{$img_prod_dir}{$lang_iso}-default-large_default.jpg"
-                     title="{$product->name|escape:'html':'UTF-8'}"
-                     width="{$largeSize.width}"
-                     height="{$largeSize.height}"
+                     width="{$largeSize.width|intval}"
+                     height="{$largeSize.height|intval}"
                 />
               </picture>
             </span>
@@ -130,6 +136,7 @@
                            rel="product"
                         >
                           <picture class="img-responsive" id="thumb_{$image.id_image|intval}">
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
                             {if !empty($webp)}
                               <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp')|escape:'html':'UTF-8'}"
                                       alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
@@ -139,6 +146,7 @@
                                       type="image/webp"
                               />
                             {/if}
+                            <!--[if IE 9]></video><![endif]-->
                             <img class="img-responsive"
                                  srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}"
                                  alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
@@ -156,6 +164,7 @@
                         >
                           <picture class="img-responsive" id="thumb_{$image.id_image|intval}"
                           >
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
                             {if !empty($webp)}
                               <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp')|escape:'html':'UTF-8'}"
                                       alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
@@ -165,6 +174,7 @@
                                       type="image/webp"
                               />
                             {/if}
+                            <!--[if IE 9]></video><![endif]-->
                             <img srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}"
                                  alt="{$imageTitle}"
                                  title="{$imageTitle}"

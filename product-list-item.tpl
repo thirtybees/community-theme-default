@@ -4,6 +4,7 @@
             <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}"
                title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
               <picture {if $lazy_load}class="tb-lazy-image{/if}">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}
                   <source class="replace-2x img-responsive center-block"
                        {if !empty($lazy_load)}data-{/if}srcset="
@@ -14,8 +15,10 @@
                        alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
                        title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
                        type="image/webp"
-                       itemprop="image"/>
+                       itemprop="image"
+                  />
                 {/if}
+                <!--[if IE 9]></video><![endif]-->
                 <img class="replace-2x img-responsive center-block"
                      {if !empty($lazy_load)}data-{/if}srcset="
                      {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest')|escape:'html':'UTF-8'} 211w,
@@ -24,7 +27,8 @@
                      sizes="(min-width: 1200px) 250px, (min-width: 992px) 218px, (min-width: 768px) 211px, 250px"
                      alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
                      title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
-                     itemprop="image"/>
+                     itemprop="image"
+                />
               </picture>
             </a>
 
