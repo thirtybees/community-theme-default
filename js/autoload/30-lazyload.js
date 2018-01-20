@@ -110,8 +110,9 @@
   function onIntersection(entries) {
     // Loop through the entries
     entries.forEach(function (entry) {
+      console.log(entry);
       // Are we in viewport?
-      if (entry.intersectionRatio > 0) {
+      if (entry.isIntersecting) {
         // Stop watching and load the image
         observer.unobserve(entry.target);
         preloadImage(entry.target);
