@@ -59,11 +59,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" async></script>
     <![endif]-->
-  <script type="text/javascript" data-keepinline>
-    // Picture element HTML5 shiv
-    document.createElement( "picture" );
-  </script>
-  <script src="{$tpl_uri|escape:'htmlall':'UTF-8'}js/vendor/picturefill.min.js" data-keepinline async></script>
+    <script type="text/javascript" data-keepinline>
+      // Picture element HTML5 shiv
+      document.createElement('picture');
+    </script>
+    <script src="{$tpl_uri|escape:'htmlall':'UTF-8'}js/vendor/picturefill.min.js" data-keepinline async></script>
 
 </head>
 <body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if}
@@ -72,8 +72,9 @@
 
 {if isset($restricted_country_mode) && $restricted_country_mode}
     <div id="restricted-country">
-        <p>{l s='You cannot place a new order from your country.'}{if isset($geolocation_country) && $geolocation_country}
-                <span class="bold">{$geolocation_country|escape:'html':'UTF-8'}</span>{/if}</p>
+        <p>{l s='You cannot place a new order from your country.'}
+          {if isset($geolocation_country) && $geolocation_country}<span class="bold">{$geolocation_country|escape:'html':'UTF-8'}</span>{/if}
+        </p>
     </div>
 {/if}
 
