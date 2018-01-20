@@ -3,7 +3,7 @@
         <div class="product-image-container">
             <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}"
                title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
-              <picture class="{if $lazy_load}tb-lazy-image {/if}">
+              <picture {if $lazy_load}class="tb-lazy-image{/if}">
                 {if !empty($webp)}
                   <source class="replace-2x img-responsive center-block"
                        {if !empty($lazy_load)}data-{/if}srcset="
