@@ -123,12 +123,26 @@ $(function() {
 
   initProductImages();
 
-  if (typeof(contentOnly) != 'undefined') {
+  if (typeof contentOnly !== 'undefined') {
+    Modernizr.on('webp', function (result) {
+      if (result) {
+        $('span.fancybox, a.fancybox').each(function (index, elem) {
+          if (elem.href == null) {
+            return;
+          }
+
+          if (elem.href.indexOf('jpg') > -1) {
+            elem.href = elem.href.slice(0, -3) + 'webp';
+          }
+        });
+      }
+    });
     if (!contentOnly && !!$.prototype.fancybox) {
-      $('li:visible .fancybox, .fancybox.shown').fancybox({
-        'hideOnContentClick': true,
-        'openEffect': 'elastic',
-        'closeEffect': 'elastic'
+      $('span.fancybox, a.fancybox')
+      $('span.fancybox, a.fancybox').fancybox({
+        hideOnContentClick: true,
+        openEffect: 'elastic',
+        closeEffect: 'elastic'
       });
     } else if (contentOnly) {
       $('#buy_block').attr('target', '_top');
@@ -163,31 +177,43 @@ function initProductImages() {
   }
 
   // Init zoom on load
-  initZoom(
-    $('#bigpic').attr('src').replace('large', 'thickbox')
-  );
+  if (Modernizr.webp) {
+    initZoom(
+      $('#bigpic > source').attr('srcset').replace('large', 'thickbox')
+    );
+  } else {
+    initZoom(
+      $('#bigpic > img').attr('srcset').replace('large', 'thickbox')
+    );
+  }
 }
 
 function initZoom(src) {
-  if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
+  if (typeof jqZoomEnabled !== 'undefined' && jqZoomEnabled) {
     var touchDevice = isTouchDevice() || $(window).width() < 768;
     $('#image-block').zoom({
       on: touchDevice ? 'click' : 'mouseover',
-      url: src
+      url: src,
       // @see http://www.jacklmoore.com/zoom/
+      hide: function () {
+
+      }
     });
   }
 }
 
 // Update display of the large image
 function displayImage($thumbAnchor) {
-
   var imgSrcThickBox = $thumbAnchor.attr('href');
   var imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
   var imgTitle = $thumbAnchor.attr('title');
-  var $img = $('#bigpic');
+  if (Modernizr.webp) {
+    var $img = $('#bigpic > source');
+  } else {
+    var $img = $('#bigpic > img');
+  }
 
-  if ($img.attr('src') == imgSrcLarge) {
+  if ($img.attr('srcset') == imgSrcLarge) {
     return;
   }
 
@@ -211,7 +237,7 @@ function refreshProductImages(id_product_attribute) {
 
   var combinationHash = getCurrentCombinationHash();
 
-  if (typeof(window.combinationsHashSet) != 'undefined') {
+  if (typeof window.combinationsHashSet !== 'undefined') {
     var combination = window.combinationsHashSet[combinationHash];
     if (combination) {
       // Show the large image in relation to the selected combination
@@ -221,7 +247,7 @@ function refreshProductImages(id_product_attribute) {
 
         if (thumbSlider !== false) {
           var $thumbLi = $thumbAnchor.parent();
-          var slideNumber = parseInt($thumbLi.data('slide-num')) || 0;
+          var slideNumber = parseInt($thumbLi.data('slide-num'), 10) || 0;
           thumbSlider.goToSlide(slideNumber);
         }
       }
@@ -229,7 +255,7 @@ function refreshProductImages(id_product_attribute) {
   }
 }
 
-if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
+if (typeof jqZoomEnabled !== 'undefined' && jqZoomEnabled) {
   $(document).on('click', '#views_block li a', function(e) {
     e.preventDefault();
     displayImage($(this));
