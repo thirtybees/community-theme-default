@@ -56,6 +56,18 @@
                   id="view_full_size"
                   href="1"
             >
+              {if !empty($lazy_load)}
+                <noscript>
+                  <img class="img-responsive center-block"
+                       itemprop="image"
+                       src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                       title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
+                       alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
+                       width="{$largeSize.width|intval}"
+                       height="{$largeSize.height|intval}"
+                  />
+                </noscript>
+              {/if}
               <picture id="bigpic">
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}
@@ -87,6 +99,17 @@
             </span>
           {else}
             <span id="view_full_size">
+              {if !empty($lazy_load)}
+                <noscript>
+                  <img class="img-responsive center-block"
+                       itemprop="image"
+                       src="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.jpg"
+                       title="{$product->name|escape:'html':'UTF-8'}"
+                       width="{$largeSize.width|intval}"
+                       height="{$largeSize.height|intval}"
+                  />
+                </noscript>
+              {/if}
               <picture id="bigpic">
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if (!empty($webp))}
@@ -136,6 +159,17 @@
                            title="{$imageTitle}"
                            rel="product"
                         >
+                          {if !empty($lazy_load)}
+                            <noscript>
+                              <img class="img-responsive"
+                                   src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                                   alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
+                                   title="{$imageTitle|escape:'htmlall':'UTF-8'}"
+                                   {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
+                                   itemprop="image"
+                              />
+                            </noscript>
+                          {/if}
                           <picture class="img-responsive" id="thumb_{$image.id_image|intval}">
                             <!--[if IE 9]><video style="display: none;"><![endif]-->
                             {if !empty($webp)}
@@ -163,6 +197,19 @@
                            title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                            rel="product"
                         >
+                          {if !empty($lazy_load)}
+                            <noscript>
+                              <img src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                                   alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
+                                   title="{$imageTitle|escape:'htmlall':'UTF-8'}"
+                                   {if isset($cartSize)}
+                                     height="{$cartSize.height|intval}"
+                                     width="{$cartSize.width|intval}"
+                                   {/if}
+                                   itemprop="image"
+                              />
+                            </noscript>
+                          {/if}
                           <picture class="img-responsive" id="thumb_{$image.id_image|intval}"
                           >
                             <!--[if IE 9]><video style="display: none;"><![endif]-->

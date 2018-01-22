@@ -12,6 +12,13 @@
                             <article>
                                 <a href="{$product.link|escape:'html'}" title="{$product.legend|escape:'html':'UTF-8'}"
                                    class="products-block-image content_img clearfix">
+                                  {if !empty($lazy_load)}
+                                    <noscript>
+                                      <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html'}"
+                                           alt="{$product.legend|escape:'html':'UTF-8'}"
+                                      />
+                                    </noscript>
+                                  {/if}
                                   <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
                                     <!--[if IE 9]><video style="display: none;"><![endif]-->
                                     {if !empty($webp)}

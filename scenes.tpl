@@ -13,6 +13,11 @@
             <div id="scene_products_cluetip_{$scene_key}_{$product_key}_{$product.id_product}" style="display:none;">
               <div class="product-image-container">
                 {if isset($imageIds)}
+                  {if !empty($lazy_load)}
+                    <noscript>
+                      <img src="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}" alt="" />
+                    </noscript>
+                  {/if}
                   <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
                     <!--[if IE 9]><video style="display: none;"><![endif]-->
                     {if !empty($webp)}

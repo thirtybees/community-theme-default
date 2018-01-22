@@ -13,6 +13,14 @@
                         <article>
                             <a class="products-block-image" href="{$special.link|escape:'html':'UTF-8'}"
                                title="{$special.name|escape:'html':'UTF-8'}">
+                              {if !empty($lazy_load)}
+                                <noscript>
+                                  <img src="{$link->getImageLink($special.link_rewrite, $special.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                                       alt="{$special.legend|escape:'html':'UTF-8'}"
+                                       title="{$special.name|escape:'html':'UTF-8'}"
+                                  >
+                                </noscript>
+                              {/if}
                               <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
                                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                                 {if !empty($webp)}
@@ -20,13 +28,13 @@
                                           alt="{$special.legend|escape:'html':'UTF-8'}"
                                           title="{$special.name|escape:'html':'UTF-8'}"
                                           type="image/webp"
-                                  />
+                                  >
                                 {/if}
                                 <!--[if IE 9]></video><![endif]-->
                                 <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($special.link_rewrite, $special.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                      alt="{$special.legend|escape:'html':'UTF-8'}"
                                      title="{$special.name|escape:'html':'UTF-8'}"
-                                />
+                                >
                               </picture>
 
                             </a>

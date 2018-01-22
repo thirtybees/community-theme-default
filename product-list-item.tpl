@@ -3,6 +3,21 @@
         <div class="product-image-container">
             <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}"
                title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
+              {if !empty($lazy_load)}
+                <noscript>
+                  <img class="img-responsive center-block"
+                       src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                       srcset="
+                     {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'} 211w,
+                     {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'} 218w,
+                     {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'} 250w"
+                       sizes="(min-width: 1200px) 250px, (min-width: 992px) 218px, (min-width: 768px) 211px, 250px"
+                       alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
+                       title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
+                       itemprop="image"
+                  />
+                </noscript>
+              {/if}
               <picture {if $lazy_load}class="tb-lazy-image{/if}">
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}

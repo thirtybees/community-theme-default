@@ -9,6 +9,13 @@
 
           <dt data-id="cart_block_product_{$product.id_product|intval}_{if $product.id_product_attribute}{$product.id_product_attribute|intval}{else}0{/if}_{if $product.id_address_delivery}{$product.id_address_delivery|intval}{else}0{/if}" class="clearfix">
             <a class="cart-images" href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category)|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}">
+              {if !empty($lazy_load)}
+                <noscript>
+                  <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'cart_default', 'webp', ImageManager::retinaSupport())}"
+                       alt="{$product.name|escape:'html':'UTF-8'}"
+                  >
+                </noscript>
+              {/if}
               <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}

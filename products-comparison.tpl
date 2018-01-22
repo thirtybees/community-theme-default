@@ -20,6 +20,11 @@
             </div>
             <div class="product-image-container">
               <a class="product_image" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{$product->name|escape:'html':'UTF-8'}">
+                {if !empty($lazy_load)}
+                  <noscript>
+                    <img src="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}">
+                  </noscript>
+                {/if}
                 <picture class="img-responsive center-block{if !empty($lazy_load)} tb-lazy-image{/if}">
                   <!--[if IE 9]><video style="display: none;"><![endif]-->
                   {if !empty($webp)}
