@@ -10,11 +10,10 @@
 
         <div class="product clearfix col-xs-12 col-sm-6">
           <div class="thumbnail">
-            <picture>
+            <picture class="img-responsive{if !empty($lazy_load)}tb-lazy-image{/if}">
               <!--[if IE 9]><video style="display: none;"><![endif]-->
               {if !empty($webp)}
-                <source class="img-responsive"
-                        srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', 'webp')|escape:'html':'UTF-8'}"
+                <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                         height="{$homeSize.height|intval}"
                         width="{$homeSize.width|intval}"
                         alt="{$stf_product->name|escape:'html':'UTF-8'}"
@@ -22,8 +21,7 @@
                 />
               {/if}
               <!--[if IE 9]></video><![endif]-->
-              <img class="img-responsive"
-                   srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default')|escape:'html':'UTF-8'}"
+              <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                    height="{$homeSize.height|intval}"
                    width="{$homeSize.width|intval}"
                    alt="{$stf_product->name|escape:'html':'UTF-8'}"

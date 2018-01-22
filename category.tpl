@@ -10,9 +10,20 @@
         <section id="category-info">
             {if $category->id_image}
                 <div id="category-banner">
-                    <img class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}"
-                         {if !empty($lazy_load)}data-{/if}src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}"
-                         alt="{$category->name|escape:'html':'UTF-8'}" title="{$category->name|escape:'html':'UTF-8'}">
+                    <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
+                      <!--[if IE 9]><video style="display: none;"><![endif]-->
+                      {if !empty($webp)}
+                        <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                                alt="{$category->name|escape:'html':'UTF-8'}"
+                                title="{$category->name|escape:'html':'UTF-8'}"
+                                type="image/webp"
+                        >
+                      {/if}
+                      <!--[if IE 9]></video><![endif]-->
+                      <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}"
+                           alt="{$category->name|escape:'html':'UTF-8'}"
+                           title="{$category->name|escape:'html':'UTF-8'}">
+                    </picture>
                 </div>
             {/if}
 

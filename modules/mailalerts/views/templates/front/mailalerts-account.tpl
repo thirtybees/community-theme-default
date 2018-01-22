@@ -11,7 +11,9 @@
       <ul>
         {foreach from=$mailAlerts item=mailAlert name=myLoop}
           <li class="clearfix">
-            <a class="products-block-image" href="{$link->getProductLink($mailAlert.id_product, null, null, null, null, $mailAlert.id_shop)}" title="{$mailAlert.name|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($mailAlert.link_rewrite, $mailAlert.cover, 'small_default')|escape:'html'}" alt=""/></a>
+            <a class="products-block-image" href="{$link->getProductLink($mailAlert.id_product, null, null, null, null, $mailAlert.id_shop)}" title="{$mailAlert.name|escape:'html':'UTF-8'}">
+              <img src="{$link->getImageLink($mailAlert.link_rewrite, $mailAlert.cover, 'small_default')|escape:'html'}" alt=""/>
+            </a>
             <div class="product-content">
             <span class="remove">
               <i class="icon icon-remove" rel="ajax_id_mailalert_{$mailAlert.id_product}_{$mailAlert.id_product_attribute}"></i>

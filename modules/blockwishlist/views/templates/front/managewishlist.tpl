@@ -45,8 +45,22 @@
           <div class="row">
             <div class="col-xs-6 col-sm-12">
               <div class="product_image">
-                <a href="{$link->getProductlink($product.id_product, $product.link_rewrite, $product.category_rewrite)|escape:'html':'UTF-8'}" title="{l s='Product detail' mod='blockwishlist'}">
-                  <img class="replace-2x img-responsive"  src="{$link->getImageLink($product.link_rewrite, $product.cover, 'home_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}"/>
+                <a href="{$link->getProductlink($product.id_product, $product.link_rewrite, $product.category_rewrite)|escape:'html':'UTF-8'}"
+                   title="{l s='Product detail' mod='blockwishlist'}"
+                >
+                  <picture class="replace-2x img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    {if !empty($webp)}
+                      <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.cover, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                              alt="{$product.name|escape:'html':'UTF-8'}"
+                              type="image/webp"
+                      />
+                    {/if}
+                    <!--[if IE 9]></video><![endif]-->
+                    <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.cover, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                         alt="{$product.name|escape:'html':'UTF-8'}"
+                    />
+                  </picture>
                 </a>
               </div>
             </div>
@@ -173,9 +187,19 @@
                 <tr>
                   <td>
                     <span style="float:left;">
-                      <img
-                        src="{$link->getImageLink($product.link_rewrite, $product.cover, 'small_default')|escape:'html':'UTF-8'}"
-                        alt="{$product.name|escape:'html':'UTF-8'}"/>
+                      <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        {if !empty($webp)}
+                          <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.cover, 'small_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                                  alt="{$product.name|escape:'html':'UTF-8'}"
+                                  type="image/webp"
+                          />
+                        {/if}
+                        <!--[if IE 9]></video><![endif]-->
+                        <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.cover, 'small_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                             alt="{$product.name|escape:'html':'UTF-8'}"
+                        />
+                        </picture>
                     </span>
                     <span style="float:left;">
                       {$product.name|truncate:40:'...'|escape:'html':'UTF-8'}
