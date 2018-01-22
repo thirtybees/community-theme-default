@@ -16,14 +16,14 @@
                               <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
                                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                                 {if !empty($webp)}
-                                  <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($special.link_rewrite, $special.id_image, 'small_default')|escape:'html':'UTF-8'}"
+                                  <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($special.link_rewrite, $special.id_image, 'small_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                           alt="{$special.legend|escape:'html':'UTF-8'}"
                                           title="{$special.name|escape:'html':'UTF-8'}"
                                           type="image/webp"
                                   />
                                 {/if}
                                 <!--[if IE 9]></video><![endif]-->
-                                <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($special.link_rewrite, $special.id_image, 'small_default')|escape:'html':'UTF-8'}"
+                                <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($special.link_rewrite, $special.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                      alt="{$special.legend|escape:'html':'UTF-8'}"
                                      title="{$special.name|escape:'html':'UTF-8'}"
                                 />

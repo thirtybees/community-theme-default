@@ -20,7 +20,7 @@
                         >
                       {/if}
                       <!--[if IE 9]></video><![endif]-->
-                      <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}"
+                      <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                            alt="{$category->name|escape:'html':'UTF-8'}"
                            title="{$category->name|escape:'html':'UTF-8'}">
                     </picture>

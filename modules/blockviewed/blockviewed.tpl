@@ -18,7 +18,7 @@
                                   />
                                 {/if}
                                 <!--[if IE 9]></video><![endif]-->
-                                <img {if !empty($lazy_load)}data-{/if}src="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default')}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
+                                <img {if !empty($lazy_load)}data-{/if}src="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', null, ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
                                      alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
                                 />
                               </picture>
