@@ -192,7 +192,9 @@
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your addresses'}</a>
+      <a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
+        {if $isRtl}&rarr;{else}&larr;{/if} {l s='Back to your addresses'}
+      </a>
     </li>
   </ul>
 </nav>

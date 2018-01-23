@@ -30,7 +30,7 @@
               {l s='#%s' sprintf=$slip.id_order|string_format:"%06d"}
             </a>
           </td>
-          <td class="bold"  data-value="{$slip.date_add|regex_replace:"/[\-\:\ ]/":""}">
+          <td class="bold" data-value="{$slip.date_add|regex_replace:"/[\-\:\ ]/":""}">
             {dateFormat date=$slip.date_add full=0}
           </td>
           <td class="history_invoice">
@@ -51,7 +51,9 @@
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account'}</a>
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+        {if $isRtl}&rarr;{else}&larr;{/if} {l s='Back to your account'}
+      </a>
     </li>
   </ul>
 </nav>
