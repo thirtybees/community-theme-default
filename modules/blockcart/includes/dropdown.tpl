@@ -29,7 +29,6 @@
                      alt="{$product.name|escape:'html':'UTF-8'}"
                 >
               </picture>
-              />
             </a>
             <div class="cart-info">
               <div class="product-name">
