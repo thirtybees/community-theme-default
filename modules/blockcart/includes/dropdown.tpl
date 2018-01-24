@@ -25,7 +25,7 @@
                 >
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
-                <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'cart_default', 'webp', ImageManager::retinaSupport())}"
+                <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'cart_default', null, ImageManager::retinaSupport())}"
                      alt="{$product.name|escape:'html':'UTF-8'}"
                 >
               </picture>
