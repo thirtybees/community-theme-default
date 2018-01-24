@@ -197,7 +197,9 @@
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Continue Shopping'}</a>
+      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+        {if $isRtl}&rarr;{else}&larr;{/if} {l s='Continue Shopping'}
+      </a>
     </li>
   </ul>
 </nav>
