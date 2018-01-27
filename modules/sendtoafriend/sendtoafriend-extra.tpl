@@ -13,18 +13,16 @@
             {if !empty($lazy_load)}
               <noscript>
                 <img src="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-                     height="{$homeSize.height|intval}"
-                     width="{$homeSize.width|intval}"
                      alt="{$stf_product->name|escape:'html':'UTF-8'}"
+                     style="width: {$homeSize.width|intval}px; height: {$homeSize.height|intval}px"
                 >
               </noscript>
             {/if}
-            <picture class="img-responsive{if !empty($lazy_load)}tb-lazy-image{/if}">
+            <picture class="img-responsive{if !empty($lazy_load)}tb-lazy-image{/if}" style="width: {$homeSize.width|intval}px; height: {$homeSize.height|intval}px">
               <!--[if IE 9]><video style="display: none;"><![endif]-->
               {if !empty($webp)}
                 <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-                        height="{$homeSize.height|intval}"
-                        width="{$homeSize.width|intval}"
+                        style="width: {$homeSize.width|intval}px; height: {$homeSize.height|intval}px"
                         alt="{$stf_product->name|escape:'html':'UTF-8'}"
                         type="image/webp"
                 >

@@ -63,12 +63,11 @@
                        src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                        title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                        alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
-                       width="{$largeSize.width|intval}"
-                       height="{$largeSize.height|intval}"
+                       style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px"
                   />
                 </noscript>
               {/if}
-              <picture id="bigpic">
+              <picture id="bigpic" style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px">
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}
                   <source class="img-responsive center-block"
@@ -76,8 +75,7 @@
                        srcset="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                        title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                        alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
-                       width="{$largeSize.width|intval}"
-                       height="{$largeSize.height|intval}"
+                       style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px"
                        type="image/webp"
                   />
                 {/if}
@@ -87,8 +85,7 @@
                      srcset="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                      title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                      alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
-                     width="{$largeSize.width|intval}"
-                     height="{$largeSize.height|intval}"
+                     style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px"
                 />
               </picture>
               {if !$jqZoomEnabled && !$content_only}
@@ -105,8 +102,7 @@
                        itemprop="image"
                        src="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.jpg"
                        title="{$product->name|escape:'html':'UTF-8'}"
-                       width="{$largeSize.width|intval}"
-                       height="{$largeSize.height|intval}"
+                       style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px"
                   />
                 </noscript>
               {/if}
@@ -170,7 +166,7 @@
                               />
                             </noscript>
                           {/if}
-                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}">
+                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}" {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}>
                             <!--[if IE 9]><video style="display: none;"><![endif]-->
                             {if !empty($webp)}
                               <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
@@ -202,16 +198,12 @@
                               <img src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                    alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    title="{$imageTitle|escape:'htmlall':'UTF-8'}"
-                                   {if isset($cartSize)}
-                                     height="{$cartSize.height|intval}"
-                                     width="{$cartSize.width|intval}"
-                                   {/if}
+                                   {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
                                    itemprop="image"
                               />
                             </noscript>
                           {/if}
-                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}"
-                          >
+                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}" {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}>
                             <!--[if IE 9]><video style="display: none;"><![endif]-->
                             {if !empty($webp)}
                               <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
@@ -226,9 +218,7 @@
                             <img srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                  alt="{$imageTitle}"
                                  title="{$imageTitle}"
-                                 {if isset($cartSize)}
-                                 height="{$cartSize.height}"
-                                 width="{$cartSize.width}"{/if}
+                                 {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
                                  itemprop="image"
                             />
                           </picture>

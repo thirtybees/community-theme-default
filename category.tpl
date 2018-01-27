@@ -60,13 +60,15 @@
                                              src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium_default')|escape:'html':'UTF-8'}"
                                              alt="{$subcategory.name|escape:'html':'UTF-8'}"
                                              title="{$subcategory.name|escape:'html':'UTF-8'}"
-                                             width="{$mediumSize.width}" height="{$mediumSize.height}"/>
+                                             style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height}px"
+                                        >
                                     {else}
                                         <img class="replace-2x img-responsive"
                                              src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg"
                                              alt="{$subcategory.name|escape:'html':'UTF-8'}"
                                              title="{$subcategory.name|escape:'html':'UTF-8'}"
-                                             width="{$mediumSize.width}" height="{$mediumSize.height}"/>
+                                             style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height}px"
+                                        />
                                     {/if}
                                 </a>
                                 <div class="caption">
