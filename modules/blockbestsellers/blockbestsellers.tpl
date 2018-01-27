@@ -12,9 +12,25 @@
                             <article>
                                 <a href="{$product.link|escape:'html'}" title="{$product.legend|escape:'html':'UTF-8'}"
                                    class="products-block-image content_img clearfix">
-                                    <img class="replace-2x img-responsive"
-                                         src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html'}"
+                                  {if !empty($lazy_load)}
+                                    <noscript>
+                                      <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html'}"
+                                           alt="{$product.legend|escape:'html':'UTF-8'}"
+                                      />
+                                    </noscript>
+                                  {/if}
+                                  <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
+                                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                    {if !empty($webp)}
+                                    <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', 'webp', ImageManager::retinaSupport())|escape:'html'}"
+                                            alt="{$product.legend|escape:'html':'UTF-8'}"
+                                            type="image/webp"
+                                    />
+                                    {/if}
+                                    <!--[if IE 9]></video><![endif]-->
+                                    <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html'}"
                                          alt="{$product.legend|escape:'html':'UTF-8'}"/>
+                                  </picture>
                                 </a>
                                 <div class="product-content">
                                     <h5>

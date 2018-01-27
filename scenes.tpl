@@ -2,7 +2,7 @@
   <div id="scenes">
     <div>
       {foreach $scenes as $scene_key=>$scene}
-        <div class="screen_scene" id="screen_scene_{$scene->id}" style="background:transparent url({$base_dir}img/scenes/{$scene->id}-scene_default.jpg); height:{$largeSceneImageType.height}px; width:{$largeSceneImageType.width}px;{if !$scene@first} display:none;{/if}">
+        <div class="screen_scene" id="screen_scene_{$scene->id}" style="background:transparent url({$base_dir}img/scenes/{$scene->id}-scene_default.jpg); height:{$largeSceneImageType.height|intval}px; width:{$largeSceneImageType.width|intval}px;{if !$scene@first} display:none;{/if}">
           {foreach $scene->products as $product_key=>$product}
             {if isset($product.id_image)}
               {assign var=imageIds value="`$product.id_product`-`$product.id_image`"}
@@ -13,17 +13,32 @@
             <div id="scene_products_cluetip_{$scene_key}_{$product_key}_{$product.id_product}" style="display:none;">
               <div class="product-image-container">
                 {if isset($imageIds)}
-                  <img class="img-responsive replace-2x" src="{$link->getImageLink($product.id_product, $imageIds, 'home_default')|escape:'html':'UTF-8'}" alt="" />
+                  {if !empty($lazy_load)}
+                    <noscript>
+                      <img src="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}" alt="" />
+                    </noscript>
+                  {/if}
+                  <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    {if !empty($webp)}
+                      <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.id_product, $imageIds, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                              alt=""
+                              type="image/webp"
+                      />
+                    {/if}
+                    <!--[if IE 9]></video><![endif]-->
+                    <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}" alt="" />
+                  </picture>
                 {/if}
               </div>
-              <p class="product-name"><span class="product_name">{$product.details->name}</span></p>
+              <p class="product-name"><span class="product_name">{$product.details->name|escape:'html':'UTF-8'}</span></p>
               <div class="description">{$product.details->description_short|strip_tags|truncate:170:'...'}</div>
-              {if !$PS_CATALOG_MODE AND $product.details->show_price}
+              {if !$PS_CATALOG_MODE && $product.details->show_price}
                 <div class="prices">
-                  {if isset($product.details->online_only) AND $product.details->online_only}
+                  {if isset($product.details->online_only) && $product.details->online_only}
                     <span class="product-label product-label-online">{l s='Online only'}</span>
                   {/if}
-                  {if isset($product.details->new) AND $product.details->new}
+                  {if isset($product.details->new) && $product.details->new}
                     <span class="product-label product-label-new">{l s='New'}</span>
                   {/if}
                   <p class="price product-price">{if $priceDisplay}{convertPrice price=$product.details->getPrice(false, $product.details->getDefaultAttribute($product.id_product))}{else}{convertPrice price=$product.details->getPrice(true, $product.details->getDefaultAttribute($product.id_product))}{/if}</p>

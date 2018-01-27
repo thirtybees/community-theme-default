@@ -23,7 +23,10 @@
           <td class="logo">
             {if $store.has_picture}
               <div class="store-image">
-                <img src="{$img_store_dir}{$store.id_store}-medium_default.jpg" alt="{$store.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}"/>
+                <img src="{$img_store_dir}{$store.id_store}-medium_default.jpg"
+                     alt="{$store.name|escape:'html':'UTF-8'}"
+                     style="width: {$mediumSize.width}px; height: {$mediumSize.height}px"
+                />
               </div>
             {/if}
           </td>

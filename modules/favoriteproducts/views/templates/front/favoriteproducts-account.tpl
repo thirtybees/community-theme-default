@@ -15,10 +15,24 @@
           <div class="favoriteproduct clearfix inner-content">
             <a
               class="product_img_link"
-              href="{$link->getProductLink($favoriteProduct.id_product, null, null, null, null, $favoriteProduct.id_shop)|escape:'html':'UTF-8'}">
-              <img
-                src="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
-                alt=""/>
+              href="{$link->getProductLink($favoriteProduct.id_product, null, null, null, null, $favoriteProduct.id_shop)|escape:'html':'UTF-8'}"
+            >
+              {if !empty($lazy_load)}
+                <noscript>
+                  <img src="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
+                       alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
+                  >
+                </noscript>
+              {/if}
+              <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
+                <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
+                     alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
+                     type="image/webp"
+                >
+                <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
+                     alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
+                >
+              </picture>
             </a>
             <p class="s_title_block">
               <a href="{$link->getProductLink($favoriteProduct.id_product, null, null, null, null, $favoriteProduct.id_shop)|escape:'html':'UTF-8'}">
@@ -44,7 +58,9 @@
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account' mod='favoriteproducts'}</a>
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+        {if $isRtl}&rarr;{else}&larr;{/if} {l s='Back to your account' mod='favoriteproducts'}
+      </a>
     </li>
   </ul>
 </nav>

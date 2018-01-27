@@ -20,7 +20,21 @@
             </div>
             <div class="product-image-container">
               <a class="product_image" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{$product->name|escape:'html':'UTF-8'}">
-                <img class="img-responsive center-block" src="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default')|escape:'html':'UTF-8'}">
+                {if !empty($lazy_load)}
+                  <noscript>
+                    <img src="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}">
+                  </noscript>
+                {/if}
+                <picture class="img-responsive center-block{if !empty($lazy_load)} tb-lazy-image{/if}">
+                  <!--[if IE 9]><video style="display: none;"><![endif]-->
+                  {if !empty($webp)}
+                    <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                            type="image/webp"
+                    >
+                  {/if}
+                  <!--[if IE 9]></video><![endif]-->
+                  <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}">
+                </picture>
               </a>
               <div class="product-label-container">
                 {if (!$PS_CATALOG_MODE AND ((isset($product->show_price) && $product->show_price) || (isset($product->available_for_order) && $product->available_for_order)))}
@@ -183,7 +197,9 @@
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Continue Shopping'}</a>
+      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+        {if $isRtl}&rarr;{else}&larr;{/if} {l s='Continue Shopping'}
+      </a>
     </li>
   </ul>
 </nav>

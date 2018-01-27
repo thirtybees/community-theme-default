@@ -10,9 +10,28 @@
         <section id="category-info">
             {if $category->id_image}
                 <div id="category-banner">
-                    <img class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}"
-                         {if !empty($lazy_load)}data-{/if}src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}"
-                         alt="{$category->name|escape:'html':'UTF-8'}" title="{$category->name|escape:'html':'UTF-8'}">
+                  {if !empty($lazy_load)}
+                    <noscript>
+                      <img src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                           alt="{$category->name|escape:'html':'UTF-8'}"
+                           title="{$category->name|escape:'html':'UTF-8'}"
+                      >
+                    </noscript>
+                  {/if}
+                  <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    {if !empty($webp)}
+                      <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                              alt="{$category->name|escape:'html':'UTF-8'}"
+                              title="{$category->name|escape:'html':'UTF-8'}"
+                              type="image/webp"
+                      >
+                    {/if}
+                    <!--[if IE 9]></video><![endif]-->
+                    <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                         alt="{$category->name|escape:'html':'UTF-8'}"
+                         title="{$category->name|escape:'html':'UTF-8'}">
+                  </picture>
                 </div>
             {/if}
 
@@ -41,13 +60,15 @@
                                              src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium_default')|escape:'html':'UTF-8'}"
                                              alt="{$subcategory.name|escape:'html':'UTF-8'}"
                                              title="{$subcategory.name|escape:'html':'UTF-8'}"
-                                             width="{$mediumSize.width}" height="{$mediumSize.height}"/>
+                                             style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height}px"
+                                        >
                                     {else}
                                         <img class="replace-2x img-responsive"
                                              src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg"
                                              alt="{$subcategory.name|escape:'html':'UTF-8'}"
                                              title="{$subcategory.name|escape:'html':'UTF-8'}"
-                                             width="{$mediumSize.width}" height="{$mediumSize.height}"/>
+                                             style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height}px"
+                                        />
                                     {/if}
                                 </a>
                                 <div class="caption">

@@ -6,13 +6,30 @@
                 {foreach from=$productsViewedObj item=viewedProduct name=myLoop}
                     <li class="clearfix">
                         <article>
-                            <a
-                                    class="products-block-image"
-                                    href="{$viewedProduct->product_link|escape:'html':'UTF-8'}"
-                                    title="{l s='More about %s' mod='blockviewed' sprintf=[$viewedProduct->name|escape:'html':'UTF-8']}">
-                                <img
-                                        src="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default')}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
-                                        alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"/>
+                            <a class="products-block-image"
+                               href="{$viewedProduct->product_link|escape:'html':'UTF-8'}"
+                               title="{l s='More about %s' mod='blockviewed' sprintf=[$viewedProduct->name|escape:'html':'UTF-8']}"
+                            >
+                              {if !empty($lazy_load)}
+                                <noscript>
+                                  <img src="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', null, ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
+                                       alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
+                                  >
+                                </noscript>
+                              {/if}
+                              <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
+                                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                {if !empty($webp)}
+                                  <source {if !empty($lazy_load)}data-{/if}srcset="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', 'webp', ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.webp{/if}"
+                                          alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
+                                          type="image/webp"
+                                  >
+                                {/if}
+                                <!--[if IE 9]></video><![endif]-->
+                                <img {if !empty($lazy_load)}data-{/if}srcset="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', null, ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
+                                     alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
+                                >
+                              </picture>
                             </a>
                             <div class="product-content">
             <span>

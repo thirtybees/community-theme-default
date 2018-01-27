@@ -11,7 +11,31 @@
       <ul id="bxslider1" class="bxslider clearfix">
         {foreach from=$categoryProducts item='categoryProduct' name=categoryProduct}
           <li class="product-box">
-            <a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)}" class="lnk_img product-image" title="{$categoryProduct.name|htmlspecialchars}"><img src="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$categoryProduct.name|htmlspecialchars}" /></a>
+            <a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)}"
+               class="lnk_img product-image"
+               title="{$categoryProduct.name|htmlspecialchars}"
+            >
+              {if !empty($lazy_load)}
+                <noscript>
+                  <img src="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                       alt="{$categoryProduct.name|htmlspecialchars}"
+                  >
+                </noscript>
+              {/if}
+              <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                {if !empty($webp)}
+                  <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                          alt="{$categoryProduct.name|htmlspecialchars}"
+                          type="image/webp"
+                  >
+                {/if}
+                <!--[if IE 9]></video><![endif]-->
+                <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                     alt="{$categoryProduct.name|htmlspecialchars}"
+                >
+              </picture>
+            </a>
             <h5 itemprop="name" class="product-name">
               <a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)|escape:'html':'UTF-8'}" title="{$categoryProduct.name|htmlspecialchars}">{$categoryProduct.name|truncate:14:'...'|escape:'html':'UTF-8'}</a>
             </h5>

@@ -18,7 +18,9 @@
 <nav>
   <ul class="pager">
     <li>
-      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}">&larr; {l s='Home page'}</a>
+      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}">
+        {if $isRtl}&rarr;{else}&larr;{/if} {l s='Home page'}
+      </a>
     </li>
   </ul>
 </nav>
