@@ -63,7 +63,8 @@
                        src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                        title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                        alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
-                       style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px"
+                       width="{$largeSize.width|intval}"
+                       height="{$largeSize.height|intval}"
                   />
                 </noscript>
               {/if}
@@ -75,7 +76,8 @@
                        srcset="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                        title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                        alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
-                       style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px"
+                       width="{$largeSize.width|intval}"
+                       height="{$largeSize.height|intval}"
                        type="image/webp"
                   />
                 {/if}
@@ -85,7 +87,8 @@
                      srcset="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                      title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                      alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
-                     style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px"
+                     width="{$largeSize.width|intval}"
+                     height="{$largeSize.height|intval}"
                 />
               </picture>
               {if !$jqZoomEnabled && !$content_only}

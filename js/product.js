@@ -204,24 +204,42 @@ function initZoom(src) {
 
 // Update display of the large image
 function displayImage($thumbAnchor) {
-  var imgSrcThickBox = $thumbAnchor.attr('href');
-  var imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
-  var imgTitle = $thumbAnchor.attr('title');
+  // Traverse to parent first
+  var $thumb = $.extend({}, true, $thumbAnchor);
+  $thumb = $thumb.closest('a');
+  var imgSrcThickBox;
+  var imgSrcLarge;
   if (Modernizr.webp) {
-    var $img = $('#bigpic > source');
+    imgSrcThickBox = $thumb.attr('href').replace('.jpg', '.webp');
+    imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
   } else {
-    var $img = $('#bigpic > img');
+    imgSrcThickBox = $thumb.attr('href');
+    imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
   }
+  var imgTitle = $thumb.attr('title');
 
-  if ($img.attr('srcset') == imgSrcLarge) {
+  // Target image element
+  var $img = $('#bigpic').find('> img');
+  if ($img.attr('src') === imgSrcLarge) {
     return;
   }
 
   $img.attr({
-    'src': imgSrcLarge,
-    'alt': imgTitle,
-    'title': imgTitle
+    src: imgSrcLarge,
+    srcset: imgSrcLarge,
+    alt: imgTitle,
+    title: imgTitle
   });
+
+  if (Modernizr.webp) {
+    var $source = $('#bigpic').find('> source');
+    $source.attr({
+      src: imgSrcLarge,
+      srcset: imgSrcLarge,
+      alt: imgTitle,
+      title: imgTitle
+    });
+  }
 
   // There is no API to change zoom src, need to reinit
   $('#image-block').trigger('zoom.destroy');
