@@ -93,8 +93,8 @@
               </picture>
               {if !$jqZoomEnabled && !$content_only}
                 <span class="span_link" title="{l s='Zoom in'}">
-                    <i class="icon icon-search-plus"></i>
-                  </span>
+                  <i class="icon icon-search-plus"></i>
+                </span>
               {/if}
             </span>
           {else}
@@ -105,7 +105,8 @@
                        itemprop="image"
                        src="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.jpg"
                        title="{$product->name|escape:'html':'UTF-8'}"
-                       style="width: {$largeSize.width|intval}px; height: {$largeSize.height|intval}px"
+                       width="{$largeSize.width|intval}"
+                       height="{$largeSize.height|intval}"
                   />
                 </noscript>
               {/if}
@@ -154,8 +155,8 @@
                     >
                       {if $jqZoomEnabled && $have_image && !$content_only}
                         <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-                           class="thumbnail fancybox"
-                           title="{$imageTitle}"
+                           class="thumbnail" {if $image.id_image == $cover.id_image} shown{/if}"
+                           title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                            rel="product"
                         >
                           {if !empty($lazy_load)}
@@ -169,7 +170,7 @@
                               />
                             </noscript>
                           {/if}
-                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}" {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}>
+                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}" {if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if}>
                             <!--[if IE 9]><video style="display: none;"><![endif]-->
                             {if !empty($webp)}
                               <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
@@ -185,20 +186,22 @@
                                  srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                  alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                  title="{$imageTitle|escape:'htmlall':'UTF-8'}"
-                                 {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
+                                 {if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if}
                                  itemprop="image"
                             />
                           </picture>
                         </a>
                       {else}
                         <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                           data-fancybox-group="other-views" 
                            class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}"
                            title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                            rel="product"
                         >
                           {if !empty($lazy_load)}
                             <noscript>
-                              <img src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                              <img class="img-responsive"
+                                   src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                    alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
@@ -206,22 +209,23 @@
                               />
                             </noscript>
                           {/if}
-                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}" {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}>
+                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}" {if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if}>
                             <!--[if IE 9]><video style="display: none;"><![endif]-->
                             {if !empty($webp)}
                               <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                       alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
-                                      title="{$imageTitle}"
+                                      title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                       {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
                                       itemprop="image"
                                       type="image/webp"
                               />
                             {/if}
                             <!--[if IE 9]></video><![endif]-->
-                            <img srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-                                 alt="{$imageTitle}"
-                                 title="{$imageTitle}"
-                                 {if isset($cartSize)}style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"{/if}
+                            <img class="img-responsive"
+                                 srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                                 alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
+                                 title="{$imageTitle|escape:'htmlall':'UTF-8'}"
+                                 {if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if}
                                  itemprop="image"
                             />
                           </picture>
