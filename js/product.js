@@ -1039,7 +1039,7 @@ function getCurrentCombinationAttributes() {
   var attributeIds = [];
 
   $attributes.find('select, input[type=hidden], ' + radio_inputs).each(function() {
-    attributeIds.push(parseInt($(this).val()), 10);
+    attributeIds.push(parseInt($(this).val(), 10));
   });
 
   return attributeIds;
