@@ -1,8 +1,11 @@
 <article>
     <div class="product-container" itemscope itemtype="https://schema.org/Product">
         <div class="product-image-container">
-            <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}"
-               title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
+            <a class="product_img_link"
+               href="{$product.link|escape:'html':'UTF-8'}"
+               title="{$product.name|escape:'html':'UTF-8'}"
+               itemprop="url"
+            >
               {if !empty($lazy_load)}
                 <noscript>
                   <img class="img-responsive center-block"
@@ -15,6 +18,8 @@
                        alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
                        title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
                        itemprop="image"
+                       width="{getWidthSize|intval type='home_default'}"
+                       height="{getHeightSize|intval type='home_default'}"
                   />
                 </noscript>
               {/if}
@@ -22,19 +27,19 @@
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}
                   <source class="img-responsive center-block"
-                       {if !empty($lazy_load)}data-{/if}srcset="
-                       {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 211w,
-                       {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 218w,
-                       {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 250w"
-                       sizes="(min-width: 1200px) 250px, (min-width: 992px) 218px, (min-width: 768px) 211px, 250px"
-                       alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
-                       title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
-                       type="image/webp"
-                       itemprop="image"
+                          {if !empty($lazy_load)}data-{/if}srcset="
+                          {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 211w,
+                          {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 218w,
+                          {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 250w"
+                          sizes="(min-width: 1200px) 250px, (min-width: 992px) 218px, (min-width: 768px) 211px, 250px"
+                          title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
+                          type="image/webp"
+                          itemprop="image"
                   />
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
                 <img class="img-responsive center-block"
+                     {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
                      {if !empty($lazy_load)}data-{/if}srcset="
                      {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'} 211w,
                      {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'} 218w,
@@ -43,6 +48,8 @@
                      alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
                      title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}"
                      itemprop="image"
+                     width="{getWidthSize|intval type='home_default'}"
+                     height="{getHeightSize|intval type='home_default'}"
                 />
               </picture>
             </a>

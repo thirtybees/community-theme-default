@@ -13,6 +13,8 @@
                 <noscript>
                   <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'cart_default', 'webp', ImageManager::retinaSupport())}"
                        alt="{$product.name|escape:'html':'UTF-8'}"
+                       width="{getWidthSize|intval type='cart_default'}"
+                       height="{getHeightSize|intval type='cart_default'}"
                   >
                 </noscript>
               {/if}
@@ -26,14 +28,17 @@
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
                 <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'cart_default', null, ImageManager::retinaSupport())}"
+                     {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
                      alt="{$product.name|escape:'html':'UTF-8'}"
+                     width="{getWidthSize|intval type='cart_default'}"
+                     height="{getHeightSize|intval type='cart_default'}"
                 >
               </picture>
             </a>
             <div class="cart-info">
               <div class="product-name">
                 <span class="quantity-formatted">
-                  <span class="quantity">{$product.cart_quantity}</span> &times;
+                  <span class="quantity">{$product.cart_quantity|intval}</span> &times;
                 </span>
                 <a class="cart_block_product_name" href="{$link->getProductLink($product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute)|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}">
                   {$product.name|truncate:13:'...'|escape:'html':'UTF-8'}

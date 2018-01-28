@@ -21,6 +21,8 @@
                 <noscript>
                   <img src="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
                        alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
+                       width="{getWidthSize|intval type='medium_default'}"
+                       height="{getHeightSize|intval type='medium_default'}"
                   >
                 </noscript>
               {/if}
@@ -30,7 +32,10 @@
                      type="image/webp"
                 >
                 <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
+                     {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
                      alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
+                     width="{getWidthSize|intval type='medium_default'}"
+                     height="{getHeightSize|intval type='medium_default'}"
                 >
               </picture>
             </a>

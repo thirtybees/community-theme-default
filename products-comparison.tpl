@@ -22,7 +22,10 @@
               <a class="product_image" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{$product->name|escape:'html':'UTF-8'}">
                 {if !empty($lazy_load)}
                   <noscript>
-                    <img src="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}">
+                    <img src="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                         width="{getWidthSize|intval type='home_default'}"
+                         height="{getHeightSize|intval type='home_default'}"
+                    >
                   </noscript>
                 {/if}
                 <picture class="img-responsive center-block{if !empty($lazy_load)} tb-lazy-image{/if}">
@@ -33,7 +36,11 @@
                     >
                   {/if}
                   <!--[if IE 9]></video><![endif]-->
-                  <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}">
+                  <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                       {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+                       width="{getWidthSize|intval type='home_default'}"
+                       height="{getHeightSize|intval type='home_default'}"
+                  >
                 </picture>
               </a>
               <div class="product-label-container">

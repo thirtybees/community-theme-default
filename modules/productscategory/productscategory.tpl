@@ -19,6 +19,8 @@
                 <noscript>
                   <img src="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                        alt="{$categoryProduct.name|htmlspecialchars}"
+                       width="{getWidthSize|intval type='home_default'}"
+                       height="{getHeightSize|intval type='home_default'}"
                   >
                 </noscript>
               {/if}
@@ -32,7 +34,10 @@
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
                 <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                     {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
                      alt="{$categoryProduct.name|htmlspecialchars}"
+                     width="{getWidthSize|intval type='home_default'}"
+                     height="{getHeightSize|intval type='home_default'}"
                 >
               </picture>
             </a>
