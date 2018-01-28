@@ -12,6 +12,10 @@
     {assign var='productPrice' value=$product->getPrice(false, $smarty.const.NULL, 6)}
     {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
   {/if}
+  {assign var='cartDefaultWidth' value={getWidthSize|intval type='cart_default'}}
+  {assign var='cartDefaultHeight' value={getHeightSize|intval type='cart_default'}}
+  {assign var='largeDefaultWidth' value={getWidthSize|intval type='large_default'}}
+  {assign var='largeDefaultHeight' value={getHeightSize|intval type='large_default'}}
 
   <div itemscope itemtype="https://schema.org/Product">
     <meta itemprop="url" content="{$link->getProductLink($product)|escape:'htmlall':'UTF-8'}">
@@ -63,8 +67,8 @@
                        src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                        title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                        alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
-                       width="{getWidthSize type='large_default'}"
-                       height="{getHeightSize type='large_default'}"
+                       width="{$largeDefaultWidth|intval}"
+                       height="{$largeDefaultHeight|intval}"
                   />
                 </noscript>
               {/if}
@@ -86,8 +90,8 @@
                      srcset="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                      title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                      alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
-                     width="{getWidthSize|intval type='large_default'}"
-                     height="{getHeightSize|intval type='large_default'}"
+                     width="{$largeDefaultWidth|intval}"
+                     height="{$largeDefaultHeight|intval}"
                 />
               </picture>
               {if !$jqZoomEnabled && !$content_only}
@@ -104,8 +108,8 @@
                        itemprop="image"
                        src="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.jpg"
                        title="{$product->name|escape:'html':'UTF-8'}"
-                       width="{getWidthSize|intval type='large_default'}"
-                       height="{getHeightSize|intval type='large_default'}"
+                       width="{$largeDefaultWidth|intval}"
+                       height="{$largeDefaultHeight|intval}"
                   />
                 </noscript>
               {/if}
@@ -124,8 +128,8 @@
                      itemprop="image"
                      srcset="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.jpg"
                      title="{$product->name|escape:'html':'UTF-8'}"
-                     width="{getWidthSize|intval type='large_default'}"
-                     height="{getHeightSize|intval type='large_default'}"
+                     width="{$largeDefaultWidth|intval}"
+                     height="{$largeDefaultHeight|intval}"
                 />
               </picture>
             </span>
@@ -135,7 +139,7 @@
         {if !empty($images)}
           <div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
             <div id="thumbs_list">
-              <ul id="thumbs_list_frame" class="list-unstyled row">
+              <ul id="thumbs_list_frame" class="list-unstyled">
                 {if isset($images)}
                   {foreach from=$images item=image name=thumbnails}
 
@@ -148,14 +152,14 @@
 
                     <li data-slide-num="{$smarty.foreach.thumbnails.iteration|intval}"
                         id="thumbnail_{$image.id_image|intval}"
-                        class="col-xs-6 col-sm-4 col-md-3"
+                        style="display: inline-block"
                     >
                       {if $jqZoomEnabled && $have_image && !$content_only}
                         <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                            class="thumbnail fancybox"
                            title="{$imageTitle}"
                            rel="product"
-                           style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"
+                           style="height: {$cartDefaultHeight + 6}px; width: {$cartDefaultWidth + 6}px"
                         >
                           {if !empty($lazy_load)}
                             <noscript>
@@ -164,12 +168,12 @@
                                    alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    itemprop="image"
-                                   width="{$cartSize.width|intval}"
-                                   height="{$cartSize.height|intval}"
+                                   width="{$cartDefaultWidth|intval}"
+                                   height="{$cartDefaultHeight|intval}"
                               />
                             </noscript>
                           {/if}
-                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}" style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px">
+                          <picture class="img-responsive" id="thumb_{$image.id_image|intval}">
                             <!--[if IE 9]><video style="display: none;"><![endif]-->
                             {if !empty($webp)}
                               <source srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
@@ -183,8 +187,8 @@
                                  alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                  title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                  itemprop="image"
-                                 width="{$cartSize.width|intval}"
-                                 height="{$cartSize.height|intval}"
+                                 width="{$cartDefaultWidth|intval}"
+                                 height="{$cartDefaultHeight|intval}"
                             />
                           </picture>
                         </a>
@@ -193,7 +197,7 @@
                            class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}"
                            title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                            rel="product"
-                           style="height: {$cartSize.height|intval}px; width: {$cartSize.width|intval}px"
+                           style="height: {$cartDefaultHeight + 6}px; width: {$cartDefaultWidth + 6}px"
                         >
                           {if !empty($lazy_load)}
                             <noscript>
@@ -202,8 +206,8 @@
                                    alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    itemprop="image"
-                                   width="{$cartSize.width|intval}"
-                                   height="{$cartSize.height|intval}"
+                                   width="{$cartDefaultWidth|intval}"
+                                   height="{$cartDefaultHeight|intval}"
                               />
                             </noscript>
                           {/if}
@@ -221,8 +225,8 @@
                                  alt="{$imageTitle}"
                                  title="{$imageTitle}"
                                  itemprop="image"
-                                 width="{$cartSize.width|intval}"
-                                 height="{$cartSize.height|intval}"
+                                 width="{$cartDefaultWidth|intval}"
+                                 height="{$cartDefaultHeight|intval}"
                             />
                           </picture>
                         </a>
