@@ -4,7 +4,10 @@
   margin: 0 0 20px;
   border-bottom: 1px solid $ps-border-color;
 
-  // &.product-listing {}
+   &.product-listing > h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+   }
   // .heading-counter {}
 
   @include clearfix(); // .heading-counter is using float-right;

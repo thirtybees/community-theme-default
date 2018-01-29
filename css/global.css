@@ -9406,6 +9406,11 @@ a:hover {
   border-bottom: 1px solid #d6d4d4;
 }
 
+.page-heading.product-listing > h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .page-heading:before, .page-heading:after {
   content: " ";
   display: table;

@@ -136,14 +136,14 @@
                       <form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
                         <fieldset>
                           <h4>{l s='Vouchers'}</h4>
-                          <input type="text" id="discount_name" class="form-control" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-                          <input type="hidden" name="submitDiscount" />
+                          <input type="text" id="discount_name" class="form-control" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}">
+                          <input type="hidden" name="submitDiscount">
                           <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='ok'}</span></button>
                           {if $displayVouchers}
                             <p id="title" class="title_offers">{l s='Take advantage of our offers:'}</p>
                             <div id="display_cart_vouchers">
                               {foreach from=$displayVouchers item=voucher}
-                                <span onclick="$('#discount_name').val('{$voucher.name}');return false;" class="voucher_name">{$voucher.name}</span> - {$voucher.description} <br />
+                                <span onclick="$('#discount_name').val('{$voucher.name}');return false;" class="voucher_name">{$voucher.name}</span> - {$voucher.description} <br>
                               {/foreach}
                             </div>
                           {/if}
@@ -186,7 +186,7 @@
                           <ul class="customizationUploaded">
                             {foreach from=$datas item='picture'}
                               <li>
-                                <img src="{$pic_dir}{$picture.value}_small" alt="" class="customizationUploaded" />
+                                <img src="{$pic_dir}{$picture.value}_small" alt="" class="customizationUploaded">
                               </li>
                             {/foreach}
                           </ul>

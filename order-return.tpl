@@ -37,7 +37,7 @@
                   {if $type == Product::CUSTOMIZE_FILE}
                     <ul class="customizationUploaded">
                       {foreach from=$datas item='data'}
-                        <li><img src="{$pic_dir}{$data.value}_small" alt="" class="customizationUploaded" /></li>
+                        <li><img src="{$pic_dir}{$data.value}_small" alt="" class="customizationUploaded"></li>
                       {/foreach}
                     </ul>
                   {elseif $type == Product::CUSTOMIZE_TEXTFIELD}
@@ -76,8 +76,8 @@
         <li>{l s='Please see the PDF return slip'} (<a href="{$link->getPageLink('pdf-order-return', true, NULL, "id_order_return={$orderRet->id|intval}")|escape:'html':'UTF-8'}">{l s='for the correct address.'}</a>)</li>
       </ul>
       {l s='When we receive your package, we will notify you by email. We will then begin processing order reimbursement.'}
-      <br /><br /><a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}">{l s='Please let us know if you have any questions.'}</a>
-      <br />
+      <br><br><a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}">{l s='Please let us know if you have any questions.'}</a>
+      <br>
       <p class="bold">{l s='If the conditions of return listed above are not respected, we reserve the right to refuse your package and/or reimbursement.'}</p>
     </div>
   {elseif $orderRet->state == 1}

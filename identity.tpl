@@ -12,7 +12,7 @@
   {if isset($confirmation) && $confirmation}
     <div class="alert alert-success">
       {l s='Your personal information has been successfully updated.'}
-      {if isset($pwd_changed)}<br />{l s='Your password has been sent to your email:'} {$email}{/if}
+      {if isset($pwd_changed)}<br>{l s='Your password has been sent to your email:'} {$email}{/if}
     </div>
   {else}
     <p>
@@ -28,7 +28,7 @@
           <div>
             {foreach from=$genders key=k item=gender}
               <label for="id_gender{$gender->id}" class="radio-inline">
-                <input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id|intval}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
+                <input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id|intval}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if}>
                 {$gender->name}
               </label>
             {/foreach}
@@ -36,15 +36,15 @@
         </div>
         <div class="required form-group">
           <label for="firstname" class="required">{l s='First name'}</label>
-          <input class="is_required validate form-control" data-validate="isName" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" required/>
+          <input class="is_required validate form-control" data-validate="isName" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" required>
         </div>
         <div class="required form-group">
           <label for="lastname" class="required">{l s='Last name'}</label>
-          <input class="is_required validate form-control" data-validate="isName" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" required/>
+          <input class="is_required validate form-control" data-validate="isName" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" required>
         </div>
         <div class="required form-group">
           <label for="email" class="required">{l s='E-mail address'}</label>
-          <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" required/>
+          <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" required>
         </div>
         <div class="form-group date-select">
           <label>{l s='Date of Birth'}</label>
@@ -91,20 +91,20 @@
         </div>
         <div class="required form-group">
           <label for="old_passwd" class="required">{l s='Current Password'}</label>
-          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="old_passwd" id="old_passwd" required/>
+          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="old_passwd" id="old_passwd" required>
         </div>
         <div class="password form-group">
           <label for="passwd">{l s='New Password'}</label>
-          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="passwd" id="passwd" />
+          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="passwd" id="passwd">
         </div>
         <div class="password form-group">
           <label for="confirmation">{l s='Confirmation'}</label>
-          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="confirmation" id="confirmation" />
+          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="confirmation" id="confirmation">
         </div>
         {if isset($newsletter) && $newsletter}
           <div class="checkbox">
             <label for="newsletter">
-              <input type="checkbox" id="newsletter" name="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == 1} checked="checked"{/if}/>
+              <input type="checkbox" id="newsletter" name="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == 1} checked="checked"{/if}>
               {l s='Sign up for our newsletter!'}
               {if isset($required_fields) && array_key_exists('newsletter', $field_required)}
                 <sup> *</sup>
@@ -115,7 +115,7 @@
         {if isset($optin) && $optin}
           <div class="checkbox">
             <label for="optin">
-              <input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) && $smarty.post.optin == 1} checked="checked"{/if}/>
+              <input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) && $smarty.post.optin == 1} checked="checked"{/if}>
               {l s='Receive special offers from our partners!'}
               {if isset($required_fields) && array_key_exists('optin', $field_required)}
                 <sup> *</sup>
@@ -127,19 +127,19 @@
           <h1 class="page-subheading">{l s='Your company information'}</h1>
           <div class="form-group">
             <label for="company">{l s='Company'}</label>
-            <input type="text" class="form-control" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}" />
+            <input type="text" class="form-control" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}">
           </div>
           <div class="form-group">
             <label for="siret">{l s='SIRET'}</label>
-            <input type="text" class="form-control" id="siret" name="siret" value="{if isset($smarty.post.siret)}{$smarty.post.siret}{/if}" />
+            <input type="text" class="form-control" id="siret" name="siret" value="{if isset($smarty.post.siret)}{$smarty.post.siret}{/if}">
           </div>
           <div class="form-group">
             <label for="ape">{l s='APE'}</label>
-            <input type="text" class="form-control" id="ape" name="ape" value="{if isset($smarty.post.ape)}{$smarty.post.ape}{/if}" />
+            <input type="text" class="form-control" id="ape" name="ape" value="{if isset($smarty.post.ape)}{$smarty.post.ape}{/if}">
           </div>
           <div class="form-group">
             <label for="website">{l s='Website'}</label>
-            <input type="text" class="form-control" id="website" name="website" value="{if isset($smarty.post.website)}{$smarty.post.website}{/if}" />
+            <input type="text" class="form-control" id="website" name="website" value="{if isset($smarty.post.website)}{$smarty.post.website}{/if}">
           </div>
         {/if}
         {if isset($HOOK_CUSTOMER_IDENTITY_FORM)}

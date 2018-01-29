@@ -1,7 +1,15 @@
 {capture name=path}{l s='Suppliers:'}{/capture}
 
-<h1 class="page-heading product-listing">
-  {l s='Suppliers:'}
+{assign var='mediumDefaultWidth' value={getWidthSize|intval type='medium_default'}}
+{assign var='mediumDefaultHeight' value={getHeightSize|intval type='medium_default'}}
+{if ImageManager::retinaSupport()}
+  {assign var='mediumDefaultWidth' value=$mediumDefaultWidth * 2}
+  {assign var='mediumDefaultHeight' value=$mediumDefaultHeight * 2}
+{/if}
+
+
+<div class="product-listing page-heading">
+  <h1 class="pull-left product-listing-title">{l s='Suppliers:'}</h1>
   <div class="pull-right">
     <span class="heading-counter badge">
       {if $nbSuppliers == 0}{l s='There are no suppliers.'}
@@ -14,7 +22,8 @@
       {/if}
     </span>
   </div>
-</h1>
+</div>
+
 
 {if !empty($errors)}
   {include file="$tpl_dir./errors.tpl"}
@@ -39,11 +48,41 @@
       {foreach from=$suppliers_list item=supplier}
         <li class="col-xs-6 col-sm-4 col-md-3">
           <div class="thumbnail">
+            {if !empty($lazy_load)}
+              <noscript>
+                <img src="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                     alt="{$supplier.name|escape:'htmlall':'UTF-8'}"
+                     width="{$mediumDefaultWidth}"
+                     height="{$mediumDefaultHeight}"
+                >
+              </noscript>
+            {/if}
+            <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
+              <!--[if IE 9]>
+              <video style="display: none;"><![endif]-->
+              {if !empty($webp)}
+                <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
+                        data-{/if}srcset="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                        sizes="1px"
+                        type="image/webp"
+                />
+              {/if}
+              <!--[if IE 9]></video><![endif]-->
+              <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
+                   data-{/if}srcset="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                   {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
+                   sizes="1px"
+                   alt="{$supplier.name|escape:'htmlall':'UTF-8'}"
+                   width="{$mediumDefaultWidth}"
+                   height="{$mediumDefaultHeight}"
+              >
+            </picture>
             <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}" title="{$supplier.name|escape:'html':'UTF-8'}">
               <img class="img-responsive"
                    src="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default.jpg"
+                   alt="{$supplier.name|escape:'html':'UTF-8'}"
                    style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height|intval}px"
-              />
+              >
             </a>
             <div class="caption">
               <h3 class="text-center">

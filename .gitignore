@@ -50,7 +50,7 @@ jspm_packages
 
 # Yarn Integrity file
 .yarn-integrity
-
+yarn.lock
 .idea/
 
 #bug fix for jscsrc

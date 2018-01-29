@@ -32,7 +32,7 @@
         <div class="left">{l s='Last product added'}</div>
       </div>
       <a class="cart_last_product_img" href="{$link->getProductLink($lastProductAdded.id_product, $lastProductAdded.link_rewrite, $lastProductAdded.category, null, null, $lastProductAdded.id_shop)|escape:'html':'UTF-8'}">
-        <img src="{$link->getImageLink($lastProductAdded.link_rewrite, $lastProductAdded.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$lastProductAdded.name|escape:'html':'UTF-8'}"/>
+        <img src="{$link->getImageLink($lastProductAdded.link_rewrite, $lastProductAdded.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$lastProductAdded.name|escape:'html':'UTF-8'}">
       </a>
       <div class="cart_last_product_content">
         <p class="product-name">
@@ -106,8 +106,8 @@
                 <form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
                   <fieldset>
                     <h4>{l s='Vouchers'}</h4>
-                    <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-                    <input type="hidden" name="submitDiscount" />
+                    <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}">
+                    <input type="hidden" name="submitDiscount">
                     <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                   </fieldset>
                 </form>
@@ -115,7 +115,7 @@
                   <p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
                   <div id="display_cart_vouchers">
                     {foreach $displayVouchers as $voucher}
-                      {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
+                      {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br>
                     {/foreach}
                   </div>
                 {/if}
@@ -131,8 +131,8 @@
                 <form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
                   <fieldset>
                     <h4>{l s='Vouchers'}</h4>
-                    <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-                    <input type="hidden" name="submitDiscount" />
+                    <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}">
+                    <input type="hidden" name="submitDiscount">
                     <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                   </fieldset>
                 </form>
@@ -140,7 +140,7 @@
                   <p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
                   <div id="display_cart_vouchers">
                     {foreach $displayVouchers as $voucher}
-                      {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
+                      {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br>
                     {/foreach}
                   </div>
                 {/if}
@@ -157,8 +157,8 @@
               <form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
                 <fieldset>
                   <h4>{l s='Vouchers'}</h4>
-                  <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-                  <input type="hidden" name="submitDiscount" />
+                  <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}">
+                  <input type="hidden" name="submitDiscount">
                   <button type="submit" name="submitAddDiscount" class="btn btn-primary">
                     <span>{l s='OK'}</span>
                   </button>
@@ -168,7 +168,7 @@
                 <p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
                 <div id="display_cart_vouchers">
                   {foreach $displayVouchers as $voucher}
-                    {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
+                    {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br>
                   {/foreach}
                 </div>
               {/if}
@@ -301,7 +301,7 @@
                     <div class="customizationUploaded">
                       <ul class="customizationUploaded">
                         {foreach $custom_data as $picture}
-                          <li><img src="{$pic_dir}{$picture.value}_small" alt="" class="customizationUploaded" /></li>
+                          <li><img src="{$pic_dir}{$picture.value}_small" alt="" class="customizationUploaded"></li>
                         {/foreach}
                       </ul>
                     </div>
@@ -325,8 +325,8 @@
                 {if isset($cannotModify) AND $cannotModify == 1}
                   <span>{if $quantityDisplayed == 0 AND isset($customizedDatas.$productId.$productAttributeId)}{$customizedDatas.$productId.$productAttributeId|@count}{else}{$product.cart_quantity-$quantityDisplayed}{/if}</span>
                 {else}
-                  <input type="hidden" value="{$customization.quantity}" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}_hidden"/>
-                  <input type="text" value="{$customization.quantity}" class="cart_quantity_input form-control text-center" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"/>
+                  <input type="hidden" value="{$customization.quantity}" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}_hidden">
+                  <input type="text" value="{$customization.quantity}" class="cart_quantity_input form-control text-center" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}">
                   <div class="cart_quantity_button clearfix">
                     {if $product.minimal_quantity < ($customization.quantity -$quantityDisplayed) OR $product.minimal_quantity <= 1}
                       <a
@@ -430,7 +430,7 @@
   {if $show_option_allow_separate_package}
     <div class="checkbox">
       <label for="allow_seperated_package" class="inline">
-        <input type="checkbox" name="allow_seperated_package" id="allow_seperated_package" {if $cart->allow_seperated_package}checked="checked"{/if} autocomplete="off"/>
+        <input type="checkbox" name="allow_seperated_package" id="allow_seperated_package" {if $cart->allow_seperated_package}checked="checked"{/if} autocomplete="off">
         {l s='Send available products first'}
       </label>
     </div>

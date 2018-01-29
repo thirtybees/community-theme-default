@@ -25,14 +25,13 @@
                   <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
                     <!--[if IE 9]><video style="display: none;"><![endif]-->
                     {if !empty($webp)}
-                      <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.id_product, $imageIds, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-                              alt=""
+                      <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($product.id_product, $imageIds, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                               type="image/webp"
-                      />
+                      >
                     {/if}
                     <!--[if IE 9]></video><![endif]-->
-                    <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-                         {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+                    <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                         {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
                          alt=""
                          width="{getWidthSize|intval type='home_default'}"
                          height="{getWidthSize|intval type='home_default'}"
@@ -73,7 +72,7 @@
             {foreach $scenes as $scene}
               <li id="scene_thumb_{$scene->id}" style="{if !$scene@last} padding-right:10px;{/if}">
                 <a style="width:{$thumbSceneImageType.width}px; height:{$thumbSceneImageType.height}px" title="{$scene->name|escape:'html':'UTF-8'}" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" data-id_scene="{$scene->id|intval}" class="scene_thumb">
-                  <img alt="{$scene->name|escape:'html':'UTF-8'}" src="{$content_dir}img/scenes/thumbs/{$scene->id}-m_scene_default.jpg" width="{$thumbSceneSize.width}" height="{$thumbSceneSize.height}" />
+                  <img alt="{$scene->name|escape:'html':'UTF-8'}" src="{$content_dir}img/scenes/thumbs/{$scene->id}-m_scene_default.jpg" width="{$thumbSceneSize.width}" height="{$thumbSceneSize.height}">
                 </a>
               </li>
             {/foreach}

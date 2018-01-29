@@ -13,20 +13,20 @@
       {/if}><![endif]-->
 <html{if isset($language_code) && $language_code} lang="{$language_code|escape:'html':'UTF-8'}"{/if}{if isset($isRtl) && $isRtl} dir="rtl"{/if}>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
     <title>{$meta_title|escape:'html':'UTF-8'}</title>
     {if isset($meta_description) AND $meta_description}
-        <meta name="description" content="{$meta_description|escape:'html':'UTF-8'}"/>
+        <meta name="description" content="{$meta_description|escape:'html':'UTF-8'}">
     {/if}
     {if isset($meta_keywords) AND $meta_keywords}
-        <meta name="keywords" content="{$meta_keywords|escape:'html':'UTF-8'}"/>
+        <meta name="keywords" content="{$meta_keywords|escape:'html':'UTF-8'}">
     {/if}
-    <meta name="generator" content="thirty bees"/>
-    <meta name="robots" content="{if isset($nobots)}no{/if}index,{if isset($nofollow) && $nofollow}no{/if}follow"/>
-    <meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=5, initial-scale=1.0"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" type="image/vnd.microsoft.icon" href="{$favicon_url}?{$img_update_time}"/>
-    <link rel="shortcut icon" type="image/x-icon" href="{$favicon_url}?{$img_update_time}"/>
+    <meta name="generator" content="thirty bees">
+    <meta name="robots" content="{if isset($nobots)}no{/if}index,{if isset($nofollow) && $nofollow}no{/if}follow">
+    <meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=5, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{$favicon_url}?{$img_update_time}">
+    <link rel="shortcut icon" type="image/x-icon" href="{$favicon_url}?{$img_update_time}">
     {if isset($css_files)}
         {foreach from=$css_files key=css_uri item=media}
             {if $css_uri == 'lteIE9'}
@@ -36,7 +36,7 @@
                         href="{$css_uriie9|escape:'html':'UTF-8'}"
                         type="text/css"
                         media="{$mediaie9|escape:'html':'UTF-8'}"
-                  />
+                  >
                 {/foreach}
                 <![endif]-->
             {else}
@@ -44,7 +44,7 @@
                       href="{$css_uri|escape:'html':'UTF-8'}"
                       type="text/css"
                       media="{$media|escape:'html':'UTF-8'}"
-                />
+                >
             {/if}
         {/foreach}
     {/if}
@@ -125,7 +125,7 @@
                 <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}"
                    title="{$shop_name|escape:'html':'UTF-8'}">
                     <img class="img-responsive center-block" src="{$logo_url}" alt="{$shop_name|escape:'html':'UTF-8'}"
-                         title="{$shop_name|escape:'html':'UTF-8'}"{if isset($logo_image_width) && $logo_image_width} width="{$logo_image_width}"{/if}{if isset($logo_image_height) && $logo_image_height} height="{$logo_image_height}"{/if}/>
+                         title="{$shop_name|escape:'html':'UTF-8'}"{if isset($logo_image_width) && $logo_image_width} width="{$logo_image_width}"{/if}{if isset($logo_image_height) && $logo_image_height} height="{$logo_image_height}"{/if}>
                 </a>
             </div>
             {if !empty($HOOK_TOP)}{$HOOK_TOP}{/if}

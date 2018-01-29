@@ -7,24 +7,24 @@
                alt="{$product.name|escape:'html':'UTF-8'}"
                width="{getWidthSize|intval type='small_default'}"
                height="{getHeightSize|intval type='small_default'}"
-          />
+          >
         </noscript>
       {/if}
       <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
         <!--[if IE 9]><video style="display: none;"><![endif]-->
         {if !empty($webp)}
-          <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+          <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                   alt="{$product.name|escape:'html':'UTF-8'}"
                   type="image/webp"
-          />
+          >
         {/if}
         <!--[if IE 9]></video><![endif]-->
-        <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-             {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+        <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+             {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
              alt="{$product.name|escape:'html':'UTF-8'}"
              width="{getWidthSize|intval type='small_default'}"
              height="{getHeightSize|intval type='small_default'}"
-        />
+        >
       </picture>
     </a>
   </td>
@@ -94,8 +94,8 @@
       {/if}
       {if !isset($customizedDatas.$productId.$productAttributeId) OR $quantityDisplayed > 0}
 
-        <input type="hidden" value="{if $quantityDisplayed == 0 AND isset($customizedDatas.$productId.$productAttributeId)}{$customizedDatas.$productId.$productAttributeId|@count}{else}{$product.cart_quantity-$quantityDisplayed}{/if}" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{if $quantityDisplayed > 0}nocustom{else}0{/if}_{$product.id_address_delivery|intval}_hidden" />
-        <input size="2" type="text" autocomplete="off" class="cart_quantity_input form-control text-center" value="{if $quantityDisplayed == 0 AND isset($customizedDatas.$productId.$productAttributeId)}{$customizedDatas.$productId.$productAttributeId|@count}{else}{$product.cart_quantity-$quantityDisplayed}{/if}"  name="quantity_{$product.id_product}_{$product.id_product_attribute}_{if $quantityDisplayed > 0}nocustom{else}0{/if}_{$product.id_address_delivery|intval}" />
+        <input type="hidden" value="{if $quantityDisplayed == 0 AND isset($customizedDatas.$productId.$productAttributeId)}{$customizedDatas.$productId.$productAttributeId|@count}{else}{$product.cart_quantity-$quantityDisplayed}{/if}" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{if $quantityDisplayed > 0}nocustom{else}0{/if}_{$product.id_address_delivery|intval}_hidden">
+        <input size="2" type="text" autocomplete="off" class="cart_quantity_input form-control text-center" value="{if $quantityDisplayed == 0 AND isset($customizedDatas.$productId.$productAttributeId)}{$customizedDatas.$productId.$productAttributeId|@count}{else}{$product.cart_quantity-$quantityDisplayed}{/if}"  name="quantity_{$product.id_product}_{$product.id_product_attribute}_{if $quantityDisplayed > 0}nocustom{else}0{/if}_{$product.id_address_delivery|intval}">
         <div class="cart_quantity_button clearfix">
           {if $product.minimal_quantity < ($product.cart_quantity-$quantityDisplayed) OR $product.minimal_quantity <= 1}
             <a rel="nofollow" class="cart_quantity_down btn btn-default button-minus" id="cart_quantity_down_{$product.id_product}_{$product.id_product_attribute}_{if $quantityDisplayed > 0}nocustom{else}0{/if}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "add=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_address_delivery={$product.id_address_delivery|intval}&amp;op=down&amp;token={$token_cart}")|escape:'html':'UTF-8'}" title="{l s='Subtract'}">

@@ -14,7 +14,7 @@
 {/if}
 <div class="order_carrier_content box">
   {if isset($virtual_cart) && $virtual_cart}
-    <input id="input_virtual_carrier" class="hidden" type="hidden" name="id_carrier" value="0" />
+    <input id="input_virtual_carrier" class="hidden" type="hidden" name="id_carrier" value="0">
   {else}
     <div id="HOOK_BEFORECARRIER">
       {if isset($carriers) && isset($HOOK_BEFORECARRIER)}
@@ -41,12 +41,12 @@
                     <table class="resume table table-bordered{if !$option.unique_carrier} hide{/if}">
                       <tr>
                         <td class="delivery_option_radio">
-                          <input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if} />
+                          <input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if}>
                         </td>
                         <td class="delivery_option_logo">
                           {foreach $option.carrier_list as $carrier}
                             {if $carrier.logo}
-                              <img class="order_carrier_logo" src="{$carrier.logo|escape:'htmlall':'UTF-8'}" alt="{$carrier.instance->name|escape:'htmlall':'UTF-8'}"/>
+                              <img class="order_carrier_logo" src="{$carrier.logo|escape:'htmlall':'UTF-8'}" alt="{$carrier.instance->name|escape:'htmlall':'UTF-8'}">
                             {elseif !$option.unique_carrier}
                               {$carrier.instance->name|escape:'htmlall':'UTF-8'}
                               {if !$carrier@last} - {/if}
@@ -59,11 +59,11 @@
                               <strong>{$carrier.instance->name|escape:'htmlall':'UTF-8'}</strong>
                             {/foreach}
                             {if isset($carrier.instance->delay[$cookie->id_lang])}
-                              <br />{l s='Delivery time:'}&nbsp;{$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
+                              <br>{l s='Delivery time:'}&nbsp;{$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
                             {/if}
                           {/if}
                           {if count($option_list) > 1}
-                            <br />
+                            <br>
                             {if $option.is_best_grade}
                               {if $option.is_best_price}
                                 <span class="best_grade best_grade_price best_grade_speed">{l s='The best price and speed'}</span>
@@ -99,19 +99,19 @@
                         <tr>
                           {if !$option.unique_carrier}
                             <td rowspan="{$option.carrier_list|@count}" class="delivery_option_radio">
-                              <input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if} />
+                              <input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if}>
                             </td>
                           {/if}
                           {assign var="first" value=current($option.carrier_list)}
                           <td class="delivery_option_logo{if $first.product_list[0].carrier_list[0] eq 0} hide{/if}">
                             {if $first.logo}
-                              <img class="order_carrier_logo" src="{$first.logo|escape:'htmlall':'UTF-8'}" alt="{$first.instance->name|escape:'htmlall':'UTF-8'}"/>
+                              <img class="order_carrier_logo" src="{$first.logo|escape:'htmlall':'UTF-8'}" alt="{$first.instance->name|escape:'htmlall':'UTF-8'}">
                             {elseif !$option.unique_carrier}
                               {$first.instance->name|escape:'htmlall':'UTF-8'}
                             {/if}
                           </td>
                           <td class="{if $first.product_list[0].carrier_list[0] eq 0} hide{/if}">
-                            <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
+                            <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier">
                             {if isset($first.instance->delay[$cookie->id_lang])}
                               <i class="icon icon-info-sign"></i>
                               {strip}
@@ -176,13 +176,13 @@
                             <tr>
                               <td class="delivery_option_logo{if $carrier.product_list[0].carrier_list[0] eq 0} hide{/if}">
                                 {if $carrier.logo}
-                                  <img class="order_carrier_logo" src="{$carrier.logo|escape:'htmlall':'UTF-8'}" alt="{$carrier.instance->name|escape:'htmlall':'UTF-8'}"/>
+                                  <img class="order_carrier_logo" src="{$carrier.logo|escape:'htmlall':'UTF-8'}" alt="{$carrier.instance->name|escape:'htmlall':'UTF-8'}">
                                 {elseif !$option.unique_carrier}
                                   {$carrier.instance->name|escape:'htmlall':'UTF-8'}
                                 {/if}
                               </td>
                               <td class="{if $carrier.product_list[0].carrier_list[0] eq 0} hide{/if}">
-                                <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
+                                <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier">
                                 {if isset($carrier.instance->delay[$cookie->id_lang])}
                                   <i class="icon icon-info-sign"></i>
                                   {strip}
@@ -261,7 +261,7 @@
                   {/if}
                 {/if}
                 {if !$address@last}
-                  <br />
+                  <br>
                 {/if}
                 {foreachelse}
                 {l s='No carriers available.'}
@@ -284,19 +284,19 @@
         <p class="carrier_title">{l s='Recyclable Packaging'}</p>
         <div class="checkbox recyclable">
           <label for="recyclable">
-            <input type="checkbox" name="recyclable" id="recyclable" value="1"{if $recyclable == 1} checked="checked"{/if} />
+            <input type="checkbox" name="recyclable" id="recyclable" value="1"{if $recyclable == 1} checked="checked"{/if}>
             {l s='I would like to receive my order in recycled packaging.'}
           </label>
         </div>
       {/if}
       {if $giftAllowed}
         {if $opc}
-          <hr style="" />
+          <hr style="">
         {/if}
         <p class="carrier_title">{l s='Gift'}</p>
         <div class="checkbox gift">
           <label for="gift">
-            <input type="checkbox" name="gift" id="gift" value="1"{if $cart->gift == 1} checked="checked"{/if} />
+            <input type="checkbox" name="gift" id="gift" value="1"{if $cart->gift == 1} checked="checked"{/if}>
             {l s='I would like my order to be gift wrapped.'}
             {if $gift_wrapping_price > 0}
               &nbsp;<i>({l s='Additional cost of'}
@@ -327,7 +327,7 @@
   {/if}
   {if $conditions && $cms_id && !$advanced_payment_api}
     {if $opc}
-      <hr style="" />
+      <hr style="">
     {/if}
     {if $override_tos_display }
       {$override_tos_display}
@@ -335,7 +335,7 @@
       <div class="box">
         <div class="checkbox">
           <label for="cgv">
-            <input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if} />
+            <input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if}>
             {l s='I agree to the terms of service and will adhere to them unconditionally.'}
           </label>
           <a href="{$link_conditions|escape:'html':'UTF-8'}" class="iframe" rel="nofollow">{l s='(Read the Terms of Service)'}</a>
@@ -346,8 +346,8 @@
 </div>
 {if !$opc}
     <p class="cart_navigation clearfix">
-      <input type="hidden" name="step" value="3" />
-      <input type="hidden" name="back" value="{$back}" />
+      <input type="hidden" name="step" value="3">
+      <input type="hidden" name="back" value="{$back}">
       {if !$is_guest}
         {if $back}
           <a href="{$link->getPageLink('order', true, NULL, "step=1&back={$back}{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">

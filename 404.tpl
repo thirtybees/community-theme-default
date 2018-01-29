@@ -6,7 +6,7 @@
     <div>
       <label for="search_query">{l s='Search our product catalog:'}</label>
       <div class="input-group">
-        <input id="search_query" name="search_query" type="text" class="form-control" />
+        <input id="search_query" name="search_query" type="text" class="form-control">
         <span class="input-group-btn">
           <button type="submit" name="Submit" value="OK" class="btn btn-primary"><i class="icon icon-search"></i></button>
         </span>

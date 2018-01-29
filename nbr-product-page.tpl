@@ -18,17 +18,17 @@
     <form action="{if !is_array($requestNb)}{$requestNb|escape:'html':'UTF-8'}{else}{$requestNb.requestUrl|escape:'html':'UTF-8'}{/if}" method="get" class="nbrItemPage">
 
       {if !empty($search_query)}
-        <input type="hidden" name="search_query" value="{$search_query|escape:'html':'UTF-8'}" />
+        <input type="hidden" name="search_query" value="{$search_query|escape:'html':'UTF-8'}">
       {/if}
 
       {if !empty($tag) && !is_array($tag)}
-        <input type="hidden" name="tag" value="{$tag|escape:'html':'UTF-8'}" />
+        <input type="hidden" name="tag" value="{$tag|escape:'html':'UTF-8'}">
       {/if}
 
       {if is_array($requestNb)}
         {foreach from=$requestNb item=requestValue key=requestKey}
           {if $requestKey != 'requestUrl'}
-            <input type="hidden" name="{$requestKey|escape:'html':'UTF-8'}" value="{$requestValue|escape:'html':'UTF-8'}" />
+            <input type="hidden" name="{$requestKey|escape:'html':'UTF-8'}" value="{$requestValue|escape:'html':'UTF-8'}">
           {/if}
         {/foreach}
       {/if}

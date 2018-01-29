@@ -27,12 +27,12 @@
                 </noscript>
               {/if}
               <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
-                <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
+                <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
                      alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
                      type="image/webp"
                 >
-                <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
-                     {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+                <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
+                     {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
                      alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
                      width="{getWidthSize|intval type='medium_default'}"
                      height="{getHeightSize|intval type='medium_default'}"

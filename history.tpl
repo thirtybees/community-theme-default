@@ -31,7 +31,7 @@
           <tr>
             <td class="history_link bold">
               {if isset($order.invoice) && $order.invoice && isset($order.virtual) && $order.virtual}
-                <img class="icon" src="{$img_dir}icon/download_product.gif" alt="{l s='Products to download'}" title="{l s='Products to download'}" />
+                <img class="icon" src="{$img_dir}icon/download_product.gif" alt="{l s='Products to download'}" title="{l s='Products to download'}">
               {/if}
               <a class="color-myaccount" href="javascript:showOrder(1, {$order.id_order|intval}, '{$link->getPageLink('order-detail', true, NULL, "id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}');">
                 {Order::getUniqReferenceOf($order.id_order)}
