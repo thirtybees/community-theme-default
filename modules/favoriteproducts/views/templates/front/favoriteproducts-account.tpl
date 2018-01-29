@@ -27,11 +27,11 @@
                 </noscript>
               {/if}
               <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
-                <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
+                <source {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w" data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
                      alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
                      type="image/webp"
                 >
-                <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
+                <img {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w" data-{/if}srcset="{$link->getImageLink($favoriteProduct.link_rewrite, $favoriteProduct.image, 'medium_default')|escape:'html':'UTF-8'}"
                      {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
                      alt="{favoriteProduct.name|escape:'htmlall':'UTF-8'}"
                      width="{getWidthSize|intval type='medium_default'}"

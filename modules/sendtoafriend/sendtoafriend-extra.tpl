@@ -22,12 +22,12 @@
             <picture class="img-responsive{if !empty($lazy_load)}tb-lazy-image{/if}" style="width: {$homeSize.width|intval}px; height: {$homeSize.height|intval}px">
               <!--[if IE 9]><video style="display: none;"><![endif]-->
               {if !empty($webp)}
-                <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                <source {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w" data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                         type="image/webp"
                 >
               {/if}
               <!--[if IE 9]></video><![endif]-->
-              <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+              <img {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w" data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                    {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
                    alt="{$stf_product->name|escape:'html':'UTF-8'}"
                    width="{getWidthSize|intval type='home_default'}"
