@@ -50,7 +50,7 @@
     {/foreach}
 {else}
     <section id="blockcms-footer" class="blockcms-block col-xs-12 col-sm-3">
-        <h1 class="footer-title title_block section-title-footer">{l s='Information' mod='blockcms'}</h1>
+        <h2 class="footer-title title_block section-title-footer">{l s='Information' mod='blockcms'}</h2>
         <nav>
             <ul class="list-unstyled">
                 {if isset($show_price_drop) && $show_price_drop && !$PS_CATALOG_MODE}

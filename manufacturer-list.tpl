@@ -1,21 +1,28 @@
 {capture name=path}{l s='Manufacturers:'}{/capture}
 
-<h1 class="page-heading product-listing">
-  {l s='Brands'}
+{assign var='mediumDefaultWidth' value={getWidthSize|intval type='medium_default'}}
+{assign var='mediumDefaultHeight' value={getHeightSize|intval type='medium_default'}}
+{if ImageManager::retinaSupport()}
+  {assign var='mediumDefaultWidth' value=$mediumDefaultWidth * 2}
+  {assign var='mediumDefaultHeight' value=$mediumDefaultHeight * 2}
+{/if}
+
+<div class="product-listing page-heading">
+  <h1 class="pull-left product-listing-title">{l s='Brands'}</h1>
   <div class="pull-right">
-    <span class="heading-counter badge">
-      {if $nbManufacturers == 0}
-        {l s='There are no manufacturers.'}
-      {else}
-        {if $nbManufacturers == 1}
-          {l s='There is 1 brand'}
+      <span class="heading-counter badge">
+        {if $nbManufacturers == 0}
+          {l s='There are no manufacturers.'}
         {else}
-          {l s='There are %d brands' sprintf=$nbManufacturers}
+          {if $nbManufacturers == 1}
+            {l s='There is 1 brand'}
+          {else}
+            {l s='There are %d brands' sprintf=$nbManufacturers}
+          {/if}
         {/if}
-      {/if}
-    </span>
+      </span>
   </div>
-</h1>
+</div>
 
 {if isset($errors) AND $errors}
   {include file="$tpl_dir./errors.tpl"}
@@ -39,7 +46,35 @@
         <li class="col-xs-6 col-sm-4 col-md-3">
           <div class="thumbnail">
             <a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}" title="{$manufacturer.name|escape:'html':'UTF-8'}">
-              <img class="img-responsive" src="{$img_manu_dir}{$manufacturer.image|escape:'html':'UTF-8'}-medium_default.jpg" alt="{$manufacturer.name|escape:'html':'UTF-8'}">
+              {if !empty($lazy_load)}
+                <noscript>
+                  <img src="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                       alt="{$manufacturer.name|escape:'htmlall':'UTF-8'}"
+                       width="{$mediumDefaultWidth}"
+                       height="{$mediumDefaultHeight}"
+                  >
+                </noscript>
+              {/if}
+              <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
+                <!--[if IE 9]>
+                <video style="display: none;"><![endif]-->
+                {if !empty($webp)}
+                  <source {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w"
+                          data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.webp"
+                          sizes="1px"
+                          type="image/webp"
+                  />
+                {/if}
+                <!--[if IE 9]></video><![endif]-->
+                <img {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w"
+                     data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                     {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+                     sizes="1px"
+                     alt="{$manufacturer.name|escape:'htmlall':'UTF-8'}"
+                     width="{$mediumDefaultWidth}"
+                     height="{$mediumDefaultHeight}"
+                >
+              </picture>
             </a>
             <div class="caption">
               <h3 class="text-center">

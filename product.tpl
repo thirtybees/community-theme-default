@@ -55,10 +55,11 @@
           </div>
 
           {if $have_image}
-            <span class="fancybox"
-                  rel="product"
+            <a class="fancybox"
+                  data-fancybox-group="product"
                   id="view_full_size"
                   href="1"
+                  onclick="return false;"
             >
               <noscript>
                 <img class="img-responsive center-block"
@@ -96,7 +97,7 @@
                     <i class="icon icon-search-plus"></i>
                   </span>
               {/if}
-            </span>
+            </a>
           {else}
             <span id="view_full_size">
               <noscript>
@@ -121,6 +122,7 @@
                 <!--[if IE 9]></video><![endif]-->
                 <img class="img-responsive center-block"
                      itemprop="image"
+                     src="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.jpg"
                      srcset="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.jpg"
                      title="{$product->name|escape:'html':'UTF-8'}"
                      width="{$largeDefaultWidth|intval}"
@@ -153,7 +155,7 @@
                         <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                            class="thumbnail fancybox"
                            title="{$imageTitle}"
-                           rel="product"
+                           data-fancybox-group="product"
                            style="height: {$cartDefaultHeight + 10}px; width: {$cartDefaultWidth + 10}px"
                         >
                           <noscript>
@@ -176,7 +178,7 @@
                               >
                             {/if}
                             <!--[if IE 9]></video><![endif]-->
-                            <img srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                            <img src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                  alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                  title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                  itemprop="image"
@@ -189,13 +191,14 @@
                         <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                            class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}"
                            title="{$imageTitle|escape:'htmlall':'UTF-8'}"
-                           rel="product"
+                           data-fancybox-group="product"
                            style="height: {$cartDefaultHeight + 10}px; width: {$cartDefaultWidth + 10}px"
                         >
                           {if !empty($lazy_load)}
                             <noscript>
                               <img class="img-responsive"
                                    src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                                   srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                    alt="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                    itemprop="image"
@@ -214,7 +217,8 @@
                               >
                             {/if}
                             <!--[if IE 9]></video><![endif]-->
-                            <img srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                            <img src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                                 srcset="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                                  alt="{$imageTitle}"
                                  title="{$imageTitle}"
                                  itemprop="image"
@@ -239,7 +243,8 @@
         <h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
         <p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
           <b>{l s='Reference:'}</b>
-          <span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
+          <meta itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>
+          <span class="editable">{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
         </p>
 
         {if !$product->is_virtual && $product->condition && $show_condition}
@@ -336,7 +341,8 @@
                     <p class="our_price_display" itemprop="offers" itemscope itemtype="https://schema.org/Offer">{strip}
                         {if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock">{/if}
                         {if $priceDisplay >= 0 && $priceDisplay <= 2}
-                          <span id="our_price_display" class="price" itemprop="price" content="{$productPrice}">{convertPrice price=$productPrice|floatval}</span>
+                          <meta itemprop="price" content="{$productPrice}">
+                          <span id="our_price_display" class="price">{convertPrice price=$productPrice|floatval}</span>
                           {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
                             {if $priceDisplay == 1} {l s='tax excl.'}{else} {l s='tax incl.'}{/if}
                           {/if}
@@ -434,7 +440,7 @@
                                 {foreach from=$group.attributes key=id_attribute item=group_attribute}
                                   {assign var='img_color_exists' value=file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
                                   <li{if $group.default == $id_attribute} class="selected"{/if}>
-                                    <a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" name="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
+                                    <a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
                                       {if $img_color_exists}
                                         <img src="{$img_col_dir}{$id_attribute|intval}.jpg" alt="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" width="20" height="20">
                                       {/if}

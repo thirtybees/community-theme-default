@@ -27,7 +27,7 @@
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}
                   <source class="img-responsive center-block"
-                          {if !empty($lazy_load)}data-{/if}srcset="
+                          {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w" data-{/if}srcset="
                           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 211w,
                           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 218w,
                           {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'} 250w"
@@ -40,7 +40,7 @@
                 <!--[if IE 9]></video><![endif]-->
                 <img class="img-responsive center-block"
                      {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
-                     {if !empty($lazy_load)}data-{/if}srcset="
+                     {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w" data-{/if}srcset="
                      {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smallest', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'} 211w,
                      {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default_smaller', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'} 218w,
                      {$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'} 250w"
@@ -55,8 +55,11 @@
             </a>
 
             {if isset($quick_view) && $quick_view}
-                <a class="quick-view show-if-product-item-hover" href="{$product.link|escape:'html':'UTF-8'}"
-                   title="{l s='Open quick view window'}" rel="{$product.link|escape:'html':'UTF-8'}">
+                <a class="quick-view show-if-product-item-hover"
+                   href="{$product.link|escape:'html':'UTF-8'}"
+                   title="{l s='Open quick view window'}"
+                   data-fancybox-target="{$product.link|escape:'html':'UTF-8'}"
+                >
                     <i class="icon icon-eye-open"></i>
                 </a>
             {/if}

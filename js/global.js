@@ -114,7 +114,7 @@ $(function() {
 function quick_view() {
   $(document).on('click', '.quick-view', function(e) {
     e.preventDefault();
-    var url = this.rel;
+    var url = this.getAttribute('data-fancybox-target');
     var anchor = '';
 
     if (url.indexOf('#') != -1) {
