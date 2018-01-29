@@ -63,7 +63,7 @@
                           data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.webp"
                           sizes="1px"
                           type="image/webp"
-                  />
+                  >
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
                 <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"

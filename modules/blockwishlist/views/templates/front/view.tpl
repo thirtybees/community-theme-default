@@ -87,7 +87,7 @@
                     </label>
                     <input class="form-control" type="text"
                            id="quantity_{$product.id_product}_{$product.id_product_attribute}"
-                           value="{$product.quantity|intval}" size="3"/>
+                           value="{$product.quantity|intval}" size="3">
                   </div>
 
                   <div class="form-group selector1">
@@ -102,12 +102,12 @@
                           <p class="hidden">
                             <input type="hidden" name="id_product"
                                    value="{$product.id_product|intval}"
-                                   id="product_page_product_id"/>
-                            <input type="hidden" name="add" value="1"/>
-                            <input type="hidden" name="token" value="{$token}"/>
+                                   id="product_page_product_id">
+                            <input type="hidden" name="add" value="1">
+                            <input type="hidden" name="token" value="{$token}">
                             <input type="hidden" name="id_product_attribute"
                                    id="idCombination"
-                                   value="{$product.id_product_attribute|intval}"/>
+                                   value="{$product.id_product_attribute|intval}">
                           </p>
                         </form>
                       {/if}

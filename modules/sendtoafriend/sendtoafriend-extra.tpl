@@ -46,13 +46,13 @@
             <label for="friend_name">
               {l s='Name of your friend' mod='sendtoafriend'} <sup class="required">*</sup> :
             </label>
-            <input id="friend_name" class="form-control" name="friend_name" type="text" value="" required/>
+            <input id="friend_name" class="form-control" name="friend_name" type="text" value="" required>
           </div>
           <div class="form-group">
             <label for="friend_email">
               {l s='E-mail address of your friend' mod='sendtoafriend'} <sup class="required">*</sup> :
             </label>
-            <input id="friend_email" class="form-control" name="friend_email" type="email" value="" required/>
+            <input id="friend_email" class="form-control" name="friend_email" type="email" value="" required>
           </div>
           <div class="form-group">
             <div class="help-block">
