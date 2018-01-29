@@ -2,8 +2,8 @@
   <div class="box clearfix">
     {if isset($reorderingAllowed) && $reorderingAllowed}
       <form id="submitReorder" action="{if isset($opc) && $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" class="submit">
-        <input type="hidden" value="{$order->id}" name="id_order"/>
-        <input type="hidden" value="" name="submitReorder"/>
+        <input type="hidden" value="{$order->id}" name="id_order">
+        <input type="hidden" value="" name="submitReorder">
 
         <a href="#" onclick="$(this).closest('form').submit(); return false;" class="btn btn-lg btn-success pull-right"><span>{l s='Reorder'} <i class="icon icon-chevron-right"></i></span></a>
       </form>
@@ -95,7 +95,7 @@
     <table class="table table-bordered">
       <thead>
       <tr>
-        {if $return_allowed}<th><input type="checkbox" /></th>{/if}
+        {if $return_allowed}<th><input type="checkbox"></th>{/if}
         <th>{l s='Reference'}</th>
         <th>{l s='Product'}</th>
         <th>{l s='Quantity'}</th>
@@ -181,7 +181,7 @@
                 <label for="cb_{$product.id_order_detail|intval}">{$product.product_name|escape:'html':'UTF-8'}</label>
               </td>
               <td>
-                <input class="order_qte_input form-control text-center"  name="order_qte_input[{$smarty.foreach.products.index}]" type="text" size="2" value="{$product.customizationQuantityTotal|intval}" />
+                <input class="order_qte_input form-control text-center"  name="order_qte_input[{$smarty.foreach.products.index}]" type="text" size="2" value="{$product.customizationQuantityTotal|intval}">
                 <div class="clearfix return_quantity_buttons">
                   <a href="#" class="return_quantity_down btn btn-default button-minus"><i class="icon icon-fw icon-minus"></i></a>
                   <a href="#" class="return_quantity_up btn btn-default button-plus"><i class="icon icon-fw icon-plus"></i></a>
@@ -222,13 +222,13 @@
             {foreach $product.customizedDatas  as $customizationPerAddress}
               {foreach $customizationPerAddress as $customizationId => $customization}
                 <tr>
-                  {if $return_allowed}<td class="order_cb"><input type="checkbox" id="cb_{$product.id_order_detail|intval}" name="customization_ids[{$product.id_order_detail|intval}][]" value="{$customizationId|intval}" /></td>{/if}
+                  {if $return_allowed}<td class="order_cb"><input type="checkbox" id="cb_{$product.id_order_detail|intval}" name="customization_ids[{$product.id_order_detail|intval}][]" value="{$customizationId|intval}"></td>{/if}
                   <td colspan="2">
                     {foreach from=$customization.datas key='type' item='datas'}
                       {if $type == $CUSTOMIZE_FILE}
                         <ul class="customizationUploaded">
                           {foreach from=$datas item='data'}
-                            <li><img src="{$pic_dir}{$data.value}_small" alt="" class="customizationUploaded" /></li>
+                            <li><img src="{$pic_dir}{$data.value}_small" alt="" class="customizationUploaded"></li>
                           {/foreach}
                         </ul>
                       {elseif $type == $CUSTOMIZE_TEXTFIELD}
@@ -242,7 +242,7 @@
                     {/foreach}
                   </td>
                   <td>
-                    <input class="order_qte_input form-control text-center" name="customization_qty_input[{$customizationId|intval}]" type="text" size="2" value="{$customization.quantity|intval}" />
+                    <input class="order_qte_input form-control text-center" name="customization_qty_input[{$customizationId|intval}]" type="text" size="2" value="{$customization.quantity|intval}">
                     <div class="clearfix return_quantity_buttons">
                       <a href="#" class="return_quantity_down btn btn-default button-minus"><i class="icon icon-fw icon-minus"></i></a>
                       <a href="#" class="return_quantity_up btn btn-default button-plus"><i class="icon icon-fw icon-plus"></i></a>
@@ -257,7 +257,7 @@
 
           {if $product.product_quantity > $product.customizationQuantityTotal}
             <tr>
-              {if $return_allowed}<td class="order_cb"><input type="checkbox" id="cb_{$product.id_order_detail|intval}" name="ids_order_detail[{$product.id_order_detail|intval}]" value="{$product.id_order_detail|intval}" /></td>{/if}
+              {if $return_allowed}<td class="order_cb"><input type="checkbox" id="cb_{$product.id_order_detail|intval}" name="ids_order_detail[{$product.id_order_detail|intval}]" value="{$product.id_order_detail|intval}"></td>{/if}
               <td><label for="cb_{$product.id_order_detail|intval}">{if $product.product_reference}{$product.product_reference|escape:'html':'UTF-8'}{else}--{/if}</label></td>
               <td class="bold">
                 <label for="cb_{$product.id_order_detail|intval}">
@@ -267,7 +267,7 @@
                     {else}
                     <a href="{$link->getPageLink('get-file', true, NULL, "key={$product.filename|escape:'html':'UTF-8'}-{$product.download_hash|escape:'html':'UTF-8'}")|escape:'html':'UTF-8'}" title="{l s='Download this product'}">
                       {/if}
-                      <img src="{$img_dir}icon/download_product.gif" class="icon" alt="{l s='Download product'}" />
+                      <img src="{$img_dir}icon/download_product.gif" class="icon" alt="{l s='Download product'}">
                     </a>
                     {if isset($is_guest) && $is_guest}
                       <a href="{$link->getPageLink('get-file', true, NULL, "key={$product.filename|escape:'html':'UTF-8'}-{$product.download_hash|escape:'html':'UTF-8'}&id_order={$order->id}&secure_key={$order->secure_key}")|escape:'html':'UTF-8'}" title="{l s='Download this product'}"> {$product.product_name|escape:'html':'UTF-8'} </a>
@@ -280,7 +280,7 @@
                 </label>
               </td>
               <td class="return_quantity">
-                <input class="order_qte_input form-control text-center" name="order_qte_input[{$product.id_order_detail|intval}]" type="text" size="2" value="{$productQuantity|intval}" />
+                <input class="order_qte_input form-control text-center" name="order_qte_input[{$product.id_order_detail|intval}]" type="text" size="2" value="{$productQuantity|intval}">
                 <div class="clearfix return_quantity_buttons">
                   <a href="#" class="return_quantity_down btn btn-default button-minus"><i class="icon icon-fw icon-minus"></i></a>
                   <a href="#" class="return_quantity_up btn btn-default button-plus"><i class="icon icon-fw icon-plus"></i></a>
@@ -337,7 +337,7 @@
       </div>
       <div class="form-group">
         <button type="submit" name="submitReturnMerchandise" class="btn btn-success"><span>{l s='Make an RMA slip'} <i class="icon icon-chevron-right"></i></span></button>
-        <input type="hidden" class="hidden" value="{$order->id|intval}" name="id_order" />
+        <input type="hidden" class="hidden" value="{$order->id|intval}" name="id_order">
       </div>
     </div>
   {/if}
@@ -395,7 +395,7 @@
                     {$shop_name|escape:'html':'UTF-8'}
                   {/if}
                 </strong>
-                <br />
+                <br>
                 {dateFormat date=$message.date_add full=1}
               </td>
               <td>{$message.message|escape:'html':'UTF-8'|nl2br}</td>
@@ -436,8 +436,8 @@
         <textarea class="form-control" cols="67" rows="3" name="msgText"></textarea>
       </div>
       <div class="submit">
-        <input type="hidden" name="id_order" value="{$order->id|intval}" />
-        <input type="submit" class="unvisible" name="submitMessage" value="{l s='Send'}"/>
+        <input type="hidden" name="id_order" value="{$order->id|intval}">
+        <input type="submit" class="unvisible" name="submitMessage" value="{l s='Send'}">
         <button type="submit" name="submitMessage" class="btn btn-lg btn-success"><span>{l s='Send'} <i class="icon icon-chevron-right"></i></span></button>
       </div>
     </form>

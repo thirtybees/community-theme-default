@@ -28,7 +28,7 @@
       </div>
       <div class="checkbox addressesAreEquals"{if $cart->isVirtualCart()} style="display:none;"{/if}>
         <label for="addressesAreEquals">
-          <input type="checkbox" name="same" id="addressesAreEquals" value="1"{if $cart->id_address_invoice == $cart->id_address_delivery || $addresses|@count == 1} checked="checked"{/if} />
+          <input type="checkbox" name="same" id="addressesAreEquals" value="1"{if $cart->id_address_invoice == $cart->id_address_delivery || $addresses|@count == 1} checked="checked"{/if}>
           {l s='Use the delivery address as the billing address.'}
         </label>
       </div>
@@ -79,8 +79,8 @@
 </div>
 {if !$opc}
     <p class="cart_navigation clearfix">
-      <input type="hidden" class="hidden" name="step" value="2" />
-      <input type="hidden" name="back" value="{$back}" />
+      <input type="hidden" class="hidden" name="step" value="2">
+      <input type="hidden" name="back" value="{$back}">
       <a href="{$link->getPageLink($back_order_page, true, NULL, "{if $back}back={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
         <i class="icon icon-chevron-left"></i>
         {l s='Continue Shopping'}

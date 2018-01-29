@@ -24,7 +24,7 @@
       {if isset($adminActionDisplay) && $adminActionDisplay}
         <div id="admin-action" class="container">
           <div class="alert alert-info">{l s='This product is not visible to your customers.'}
-            <input type="hidden" id="admin-action-product-id" value="{$product->id|intval}" />
+            <input type="hidden" id="admin-action-product-id" value="{$product->id|intval}">
             <a id="publish_button" class="btn btn-success" href="#">{l s='Publish'}</a>
             <a id="lnk_view" class="btn btn-warning" href="#">{l s='Back'}</a>
           </div>
@@ -69,7 +69,7 @@
                      alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                      width="{$largeDefaultWidth|intval}"
                      height="{$largeDefaultHeight|intval}"
-                />
+                >
               </noscript>
               <picture id="bigpic">
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -79,7 +79,7 @@
                        srcset="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                        title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                        type="image/webp"
-                  />
+                  >
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
                 <img class="img-responsive center-block"
@@ -90,7 +90,7 @@
                      alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                      width="{$largeDefaultWidth|intval}"
                      height="{$largeDefaultHeight|intval}"
-                />
+                >
               </picture>
               {if !$jqZoomEnabled && !$content_only}
                 <span class="span_link" title="{l s='Zoom in'}">
@@ -107,7 +107,7 @@
                      title="{$product->name|escape:'html':'UTF-8'}"
                      width="{$largeDefaultWidth|intval}"
                      height="{$largeDefaultHeight|intval}"
-                />
+                >
               </noscript>
               <picture id="bigpic">
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -117,7 +117,7 @@
                           srcset="{$img_prod_dir|escape:'html':'UTF-8'}{$lang_iso|escape:'html':'UTF-8'}-default-large_default.webp"
                           title="{$product->name|escape:'html':'UTF-8'}"
                           type="image/webp"
-                  />
+                  >
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
                 <img class="img-responsive center-block"
@@ -127,7 +127,7 @@
                      title="{$product->name|escape:'html':'UTF-8'}"
                      width="{$largeDefaultWidth|intval}"
                      height="{$largeDefaultHeight|intval}"
-                />
+                >
               </picture>
             </span>
           {/if}
@@ -166,7 +166,7 @@
                                  itemprop="image"
                                  width="{$cartDefaultWidth|intval}"
                                  height="{$cartDefaultHeight|intval}"
-                            />
+                            >
                           </noscript>
                           <picture class="img-responsive" id="thumb_{$image.id_image|intval}">
                             <!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -175,7 +175,7 @@
                                       title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                                       itemprop="image"
                                       type="image/webp"
-                              />
+                              >
                             {/if}
                             <!--[if IE 9]></video><![endif]-->
                             <img src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
@@ -184,7 +184,7 @@
                                  itemprop="image"
                                  width="{$cartDefaultWidth|intval}"
                                  height="{$cartDefaultHeight|intval}"
-                            />
+                            >
                           </picture>
                         </a>
                       {else}
@@ -204,7 +204,7 @@
                                    itemprop="image"
                                    width="{$cartDefaultWidth|intval}"
                                    height="{$cartDefaultHeight|intval}"
-                              />
+                              >
                             </noscript>
                           {/if}
                           <picture class="img-responsive" id="thumb_{$image.id_image|intval}">
@@ -214,7 +214,7 @@
                                       title="{$imageTitle}"
                                       itemprop="image"
                                       type="image/webp"
-                              />
+                              >
                             {/if}
                             <!--[if IE 9]></video><![endif]-->
                             <img src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
@@ -224,7 +224,7 @@
                                  itemprop="image"
                                  width="{$cartDefaultWidth|intval}"
                                  height="{$cartDefaultHeight|intval}"
-                            />
+                            >
                           </picture>
                         </a>
                       {/if}
@@ -251,13 +251,13 @@
           <p id="product_condition">
             <b>{l s='Condition:'}</b>
             {if $product->condition == 'new'}
-              <link itemprop="itemCondition" href="https://schema.org/NewCondition"/>
+              <link itemprop="itemCondition" href="https://schema.org/NewCondition">
               <span class="editable">{l s='New product'}</span>
             {elseif $product->condition == 'used'}
-              <link itemprop="itemCondition" href="https://schema.org/UsedCondition"/>
+              <link itemprop="itemCondition" href="https://schema.org/UsedCondition">
               <span class="editable">{l s='Used'}</span>
             {elseif $product->condition == 'refurbished'}
-              <link itemprop="itemCondition" href="https://schema.org/RefurbishedCondition"/>
+              <link itemprop="itemCondition" href="https://schema.org/RefurbishedCondition">
               <span class="editable">{l s='Refurbished'}</span>
             {/if}
           </p>
@@ -329,24 +329,24 @@
 
           <form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
 
-            <input type="hidden" name="token" value="{$static_token}" />
-            <input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
-            <input type="hidden" name="add" value="1" />
-            <input type="hidden" name="id_product_attribute" id="idCombination" value="" />
+            <input type="hidden" name="token" value="{$static_token}">
+            <input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id">
+            <input type="hidden" name="add" value="1">
+            <input type="hidden" name="id_product_attribute" id="idCombination" value="">
 
             <div class="box-info-product">
               <div class="content_prices clearfix">
                 {if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
                   <div>
                     <p class="our_price_display" itemprop="offers" itemscope itemtype="https://schema.org/Offer">{strip}
-                        {if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock"/>{/if}
+                        {if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock">{/if}
                         {if $priceDisplay >= 0 && $priceDisplay <= 2}
                           <meta itemprop="price" content="{$productPrice}">
                           <span id="our_price_display" class="price">{convertPrice price=$productPrice|floatval}</span>
                           {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
                             {if $priceDisplay == 1} {l s='tax excl.'}{else} {l s='tax incl.'}{/if}
                           {/if}
-                          <meta itemprop="priceCurrency" content="{$currency->iso_code}" />
+                          <meta itemprop="priceCurrency" content="{$currency->iso_code}">
                           {hook h="displayProductPriceBlock" product=$product type="price"}
                         {/if}
                       {/strip}</p>
@@ -369,7 +369,7 @@
                         {/if}
                       {/strip}</p>
                     {if $priceDisplay == 2}
-                      <br />
+                      <br>
                       <span id="pretaxe_price">{strip}
                         <span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span> {l s='tax excl.'}
                       {/strip}</span>
@@ -381,7 +381,7 @@
                   {if $product->ecotax != 0}
                     <p class="price-ecotax">{l s='Including'} <span id="ecotax_price_display">{if $priceDisplay == 2}{$ecotax_tax_exc|convertAndFormatPrice}{else}{$ecotax_tax_inc|convertAndFormatPrice}{/if}</span> {l s='for ecotax'}
                       {if $product->specificPrice && $product->specificPrice.reduction}
-                        <br />{l s='(not impacted by the discount)'}
+                        <br>{l s='(not impacted by the discount)'}
                       {/if}
                     </p>
                   {/if}
@@ -406,7 +406,7 @@
                           <i class="icon icon-fw icon-minus"></i>
                         </a>
                       </div>
-                      <input type="number" min="1" name="qty" id="quantity_wanted" class="text text-center form-control" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
+                      <input type="number" min="1" name="qty" id="quantity_wanted" class="text text-center form-control" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}">
                       <div class="input-group-btn">
                         <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up" title="Increase" aria-label="Increase">
                           <i class="icon icon-fw icon-plus"></i>
@@ -442,7 +442,7 @@
                                   <li{if $group.default == $id_attribute} class="selected"{/if}>
                                     <a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
                                       {if $img_color_exists}
-                                        <img src="{$img_col_dir}{$id_attribute|intval}.jpg" alt="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" width="20" height="20" />
+                                        <img src="{$img_col_dir}{$id_attribute|intval}.jpg" alt="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" width="20" height="20">
                                       {/if}
                                     </a>
                                   </li>
@@ -451,12 +451,12 @@
                                   {/if}
                                 {/foreach}
                               </ul>
-                              <input type="hidden" class="color_pick_hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$default_colorpicker|intval}" />
+                              <input type="hidden" class="color_pick_hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$default_colorpicker|intval}">
                             {elseif ($group.group_type == 'radio')}
                               <ul>
                                 {foreach from=$group.attributes key=id_attribute item=group_attribute}
                                   <li>
-                                    <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} />
+                                    <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if}>
                                     <span>{$group_attribute|escape:'html':'UTF-8'}</span>
                                   </li>
                                 {/foreach}
@@ -653,9 +653,9 @@
                         <li class="customizationUploadLine form-group{if $field.required} required{/if}">{assign var='key' value='pictures_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
                           {if isset($pictures.$key)}
                             <div class="customizationUploadBrowse">
-                              <img src="{$pic_dir}{$pictures.$key}_small" alt="" />
+                              <img src="{$pic_dir}{$pictures.$key}_small" alt="">
                               <a href="{$link->getProductDeletePictureLink($product, $field.id_customization_field)|escape:'html':'UTF-8'}" title="{l s='Delete'}" >
-                                <img src="{$img_dir}icon/delete.gif" alt="{l s='Delete'}" class="customization_delete_icon" width="11" height="13" />
+                                <img src="{$img_dir}icon/delete.gif" alt="{l s='Delete'}" class="customization_delete_icon" width="11" height="13">
                               </a>
                             </div>
                           {/if}
@@ -668,7 +668,7 @@
                               {/if}
                               {if $field.required}<sup>*</sup>{/if}
                             </label>
-                            <input type="file" name="file{$field.id_customization_field}" id="img{$customizationField}" class="form-control customization_block_input {if isset($pictures.$key)}filled{/if}" />
+                            <input type="file" name="file{$field.id_customization_field}" id="img{$customizationField}" class="form-control customization_block_input {if isset($pictures.$key)}filled{/if}">
                           </div>
                         </li>
                         {counter}
@@ -706,13 +706,13 @@
                 </div>
               {/if}
               <div id="customizedDatas" class="form-group">
-                <input type="hidden" name="quantityBackup" id="quantityBackup" value="" />
-                <input type="hidden" name="submitCustomizedDatas" value="1" />
+                <input type="hidden" name="quantityBackup" id="quantityBackup" value="">
+                <input type="hidden" name="submitCustomizedDatas" value="1">
                 <button class="btn btn-lg btn-success" name="saveCustomization">
                   <span>{l s='Save'}</span>
                 </button>
                 <span id="ajax-loader" class="unvisible">
-                 <img src="{$img_ps_dir}loader.gif" alt="loader" />
+                 <img src="{$img_ps_dir}loader.gif" alt="loader">
                 </span>
               </div>
             </form>

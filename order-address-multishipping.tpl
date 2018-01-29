@@ -14,7 +14,7 @@
     <div id="opc_account-overlay" class="opc-overlay" style="display: none;"></div>
 {/if}
 <div class="addresses clearfix">
-  <input type="hidden" name="id_address_delivery" id="id_address_delivery" value="{$cart->id_address_delivery}"/>
+  <input type="hidden" name="id_address_delivery" id="id_address_delivery" value="{$cart->id_address_delivery}">
   <p id="address_invoice_form" class="select" {if $cart->id_address_invoice == $cart->id_address_delivery}style="display: none;"{/if}>
 
   {if $addresses|@count >= 1}
@@ -48,8 +48,8 @@
 </div>
 {if !$opc}
     <p class="cart_navigation clearfix">
-      <input type="hidden" class="hidden" name="step" value="2" />
-      <input type="hidden" name="back" value="{$back}" />
+      <input type="hidden" class="hidden" name="step" value="2">
+      <input type="hidden" name="back" value="{$back}">
       {if $back}
         <a href="{$link->getPageLink('order', true, NULL, "back={$back}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default"><i class="icon icon-chevron-left"></i> {l s='Continue Shopping'}</a>
       {else}

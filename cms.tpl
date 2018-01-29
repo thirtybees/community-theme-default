@@ -4,9 +4,9 @@
     <div id="admin-action-cms" class="well">
       <div>
         <div class="alert alert-info">{l s='This CMS page is not visible to your customers.'}</div>
-        <input type="hidden" id="admin-action-cms-id" value="{$cms->id}" />
-        <input type="submit" value="{l s='Publish'}" name="publish_button" class="btn btn-success"/>
-        <input type="submit" value="{l s='Back'}" name="lnk_view" class="btn btn-warning"/>
+        <input type="hidden" id="admin-action-cms-id" value="{$cms->id}">
+        <input type="submit" value="{l s='Publish'}" name="publish_button" class="btn btn-success">
+        <input type="submit" value="{l s='Back'}" name="lnk_view" class="btn btn-warning">
       </div>
       <div class="clear"></div>
       <div id="admin-action-result"></div>

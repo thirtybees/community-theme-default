@@ -80,8 +80,9 @@
             <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}" title="{$supplier.name|escape:'html':'UTF-8'}">
               <img class="img-responsive"
                    src="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default.jpg"
+                   alt="{$supplier.name|escape:'html':'UTF-8'}"
                    style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height|intval}px"
-              />
+              >
             </a>
             <div class="caption">
               <h3 class="text-center">

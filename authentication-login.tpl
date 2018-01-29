@@ -10,11 +10,11 @@
           <input type="email" class="is_required validate account_input form-control" data-validate="isEmail" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" required>
         </div>
         <div class="submit">
-          {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
+          {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}">{/if}
           <button class="btn btn-lg btn-success" type="submit" id="SubmitCreate" name="SubmitCreate">
             <i class="icon icon-user-plus"></i> {l s='Create an account'}
           </button>
-          <input type="hidden" class="hidden" name="SubmitCreate" value="{l s='Create an account'}" />
+          <input type="hidden" class="hidden" name="SubmitCreate" value="{l s='Create an account'}">
         </div>
       </div>
     </form>
@@ -33,7 +33,7 @@
         </div>
         <div class="lost_password form-group"><a href="{$link->getPageLink('password')|escape:'html':'UTF-8'}" title="{l s='Recover your forgotten password'}" rel="nofollow">{l s='Forgot your password?'}</a></div>
         <div class="submit">
-          {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
+          {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}">{/if}
           <button type="submit" id="SubmitLogin" name="SubmitLogin" class="btn btn-lg btn-success">
             <i class="icon icon-sign-in"></i> {l s='Sign in'}
           </button>

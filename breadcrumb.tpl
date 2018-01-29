@@ -22,7 +22,7 @@
     <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home Page'}" itemprop="item">
       <span itemprop="name">{l s='Home'}</span>
     </a>
-    <meta itemprop="position" content="1" />
+    <meta itemprop="position" content="1">
   </li>
   {if !empty($breadcrumbs)}
     {foreach from=$breadcrumbs item=breadcrumb name=crumbs}
@@ -34,7 +34,7 @@
         {else}
           <span itemprop="name">{$breadcrumb.title}</span>
         {/if}
-        <meta itemprop="position" content="{($smarty.foreach.crumbs.iteration|intval + 1)}" />
+        <meta itemprop="position" content="{($smarty.foreach.crumbs.iteration|intval + 1)}">
       </li>
     {/foreach}
   {/if}
