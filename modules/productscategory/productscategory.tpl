@@ -60,7 +60,7 @@
                 {/if}
               </p>
             {else}
-              <br />
+              <br>
             {/if}
             <div class="clearfix" style="margin-top:5px">
               {if !$PS_CATALOG_MODE && ($categoryProduct.allow_oosp || $categoryProduct.quantity > 0)}

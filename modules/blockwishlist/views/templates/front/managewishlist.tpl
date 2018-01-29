@@ -26,7 +26,7 @@
       </ul>
       <div class="wishlisturl form-group">
         <label>{l s='Permalink' mod='blockwishlist'}:</label>
-        <input type="text" class="form-control" value="{$link->getModuleLink('blockwishlist', 'view', ['token' => $token_wish])|escape:'html':'UTF-8'}" readonly="readonly"/>
+        <input type="text" class="form-control" value="{$link->getModuleLink('blockwishlist', 'view', ['token' => $token_wish])|escape:'html':'UTF-8'}" readonly="readonly">
       </div>
       <div class="submit">
         <div id="showSendWishlist">
@@ -96,7 +96,7 @@
                     <label for="quantity_{$product.id_product}_{$product.id_product_attribute}">
                       {l s='Quantity' mod='blockwishlist'}:
                     </label>
-                    <input type="text" class="form-control" id="quantity_{$product.id_product}_{$product.id_product_attribute}" value="{$product.quantity|intval}" size="3"/>
+                    <input type="text" class="form-control" id="quantity_{$product.id_product}_{$product.id_product_attribute}" value="{$product.quantity|intval}" size="3">
                   </div>
 
                   <div class="form-group">
@@ -160,13 +160,13 @@
       <fieldset>
         <div class="required form-group">
           <label for="email1">{l s='Email' mod='blockwishlist'}1 <sup>*</sup></label>
-          <input type="text" name="email1" id="email1" class="form-control"/>
+          <input type="text" name="email1" id="email1" class="form-control">
         </div>
         {section name=i loop=11 start=2}
           <div class="form-group">
             <label for="email{$smarty.section.i.index}">{l s='Email' mod='blockwishlist'}{$smarty.section.i.index}</label>
             <input type="text" name="email{$smarty.section.i.index}" id="email{$smarty.section.i.index}"
-                   class="form-control"/>
+                   class="form-control">
           </div>
         {/section}
         <div class="submit">
@@ -227,7 +227,7 @@
                     <span style="float:left;">
                       {$product.name|truncate:40:'...'|escape:'html':'UTF-8'}
                       {if isset($product.attributes_small)}
-                        <br/>
+                        <br>
                         <i>{$product.attributes_small|escape:'html':'UTF-8'}</i>
                       {/if}
                     </span>

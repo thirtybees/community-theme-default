@@ -18,7 +18,7 @@
                                            alt="{$product.legend|escape:'html':'UTF-8'}"
                                            width="{getWidthSize|intval type='small_default'}"
                                            height="{getHeightSize|intval type='small_default'}"
-                                      />
+                                      >
                                     </noscript>
                                   {/if}
                                   <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
@@ -27,7 +27,7 @@
                                     <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', 'webp', ImageManager::retinaSupport())|escape:'html'}"
                                             sizes="1px"
                                             type="image/webp"
-                                    />
+                                    >
                                     {/if}
                                     <!--[if IE 9]></video><![endif]-->
                                     <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html'}"
