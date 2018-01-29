@@ -5,8 +5,8 @@
       <button type="submit" class="btn btn-success bt_compare bt_compare{if isset($paginationId)}_{$paginationId}{/if}" disabled="disabled">
         <span>{l s='Compare'} (<strong class="total-compare-val">{count($compared_products)}</strong>) &raquo;</span>
       </button>
-      <input type="hidden" name="compare_product_count" class="compare_product_count" value="{count($compared_products)}" />
-      <input type="hidden" name="compare_product_list" class="compare_product_list" value="" />
+      <input type="hidden" name="compare_product_count" class="compare_product_count" value="{count($compared_products)}">
+      <input type="hidden" name="compare_product_list" class="compare_product_list" value="">
     </form>
   </div>
 

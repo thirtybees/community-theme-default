@@ -39,7 +39,7 @@
         <li class="col-xs-6 col-sm-4 col-md-3">
           <div class="thumbnail">
             <a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}" title="{$manufacturer.name|escape:'html':'UTF-8'}">
-              <img class="img-responsive" src="{$img_manu_dir}{$manufacturer.image|escape:'html':'UTF-8'}-medium_default.jpg">
+              <img class="img-responsive" src="{$img_manu_dir}{$manufacturer.image|escape:'html':'UTF-8'}-medium_default.jpg" alt="{$manufacturer.name|escape:'html':'UTF-8'}">
             </a>
             <div class="caption">
               <h3 class="text-center">

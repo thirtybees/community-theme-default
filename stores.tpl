@@ -26,7 +26,7 @@
                 <img src="{$img_store_dir}{$store.id_store}-medium_default.jpg"
                      alt="{$store.name|escape:'html':'UTF-8'}"
                      style="width: {$mediumSize.width}px; height: {$mediumSize.height}px"
-                />
+                >
               </div>
             {/if}
           </td>
@@ -43,11 +43,11 @@
                 </span>
               {/foreach}
             {/foreach}
-            <br/>
-            {if $store.phone}<br/>{l s='Phone:'} {$store.phone|escape:'html':'UTF-8'}{/if}
-            {if $store.fax}<br/>{l s='Fax:'} {$store.fax|escape:'html':'UTF-8'}{/if}
-            {if $store.email}<br/>{l s='Email:'} {$store.email|escape:'html':'UTF-8'}{/if}
-            {if $store.note}<br/><br/>{$store.note|escape:'html':'UTF-8'|nl2br}{/if}
+            <br>
+            {if $store.phone}<br>{l s='Phone:'} {$store.phone|escape:'html':'UTF-8'}{/if}
+            {if $store.fax}<br>{l s='Fax:'} {$store.fax|escape:'html':'UTF-8'}{/if}
+            {if $store.email}<br>{l s='Email:'} {$store.email|escape:'html':'UTF-8'}{/if}
+            {if $store.note}<br><br>{$store.note|escape:'html':'UTF-8'|nl2br}{/if}
           </td>
           <td class="store-hours">
             {if isset($store.working_hours)}{$store.working_hours}{/if}
@@ -68,7 +68,7 @@
 
     <div class="form-group">
       <label for="addressInput">{l s='Your location:'}</label>
-      <input class="form-control" type="text" name="location" id="addressInput" value="{l s='Address, zip / postal code, city, state or country'}" />
+      <input class="form-control" type="text" name="location" id="addressInput" value="{l s='Address, zip / postal code, city, state or country'}">
     </div>
 
     <div class="form-group">

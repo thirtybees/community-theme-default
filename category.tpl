@@ -73,7 +73,7 @@
                                              alt="{$subcategory.name|escape:'html':'UTF-8'}"
                                              title="{$subcategory.name|escape:'html':'UTF-8'}"
                                              style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height}px"
-                                        />
+                                        >
                                     {/if}
                                 </a>
                                 <div class="caption">

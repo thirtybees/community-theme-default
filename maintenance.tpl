@@ -17,7 +17,7 @@
 <body>
 
 <div id="maintenance" class="text-center">
-  <img class="center-block img-responsive" src="{$logo_url}" {if $logo_image_width}width="{$logo_image_width}"{/if} {if $logo_image_height}height="{$logo_image_height}"{/if}>
+  <img class="center-block img-responsive" src="{$logo_url}" alt="" {if $logo_image_width}width="{$logo_image_width}"{/if} {if $logo_image_height}height="{$logo_image_height}"{/if}>
   <h1>{l s='We\'ll be back soon.'}</h1>
   {$HOOK_MAINTENANCE}
   <p>

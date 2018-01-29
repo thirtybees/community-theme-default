@@ -56,8 +56,8 @@
               <form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
                 <fieldset>
                   <h4>{l s='Vouchers'}</h4>
-                  <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-                  <input type="hidden" name="submitDiscount" />
+                  <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}">
+                  <input type="hidden" name="submitDiscount">
                   <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                 </fieldset>
               </form>
@@ -65,7 +65,7 @@
                 <p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
                 <div id="display_cart_vouchers">
                   {foreach $displayVouchers as $voucher}
-                    {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
+                    {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br>
                   {/foreach}
                 </div>
               {/if}
@@ -81,8 +81,8 @@
               <form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
                 <fieldset>
                   <h4>{l s='Vouchers'}</h4>
-                  <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-                  <input type="hidden" name="submitDiscount" />
+                  <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}">
+                  <input type="hidden" name="submitDiscount">
                   <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                 </fieldset>
               </form>
@@ -90,7 +90,7 @@
                 <p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
                 <div id="display_cart_vouchers">
                   {foreach $displayVouchers as $voucher}
-                    {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
+                    {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br>
                   {/foreach}
                 </div>
               {/if}
@@ -107,8 +107,8 @@
             <form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
               <fieldset>
                 <h4>{l s='Vouchers'}</h4>
-                <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-                <input type="hidden" name="submitDiscount" />
+                <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}">
+                <input type="hidden" name="submitDiscount">
                 <button type="submit" name="submitAddDiscount" class="btn btn-primary">
                   <span>{l s='OK'}</span>
                 </button>
@@ -118,7 +118,7 @@
               <p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
               <div id="display_cart_vouchers">
                 {foreach $displayVouchers as $voucher}
-                  {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
+                  {if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br>
                 {/foreach}
               </div>
             {/if}
@@ -252,7 +252,7 @@
                   <div class="customizationUploaded">
                     <ul class="customizationUploaded">
                       {foreach $custom_data as $picture}
-                        <li><img src="{$pic_dir}{$picture.value}_small" alt="" class="customizationUploaded" /></li>
+                        <li><img src="{$pic_dir}{$picture.value}_small" alt="" class="customizationUploaded"></li>
                       {/foreach}
                     </ul>
                   </div>

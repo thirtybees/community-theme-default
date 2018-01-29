@@ -46,7 +46,7 @@
           <div class="col-xs-6 col-md-6">
             <p class="payment_module pointer-box">
               <a class="payment_module_adv">
-                <img class="payment_option_logo" src="{$paymentOption->getLogo()}"/>
+                <img class="payment_option_logo" src="{$paymentOption->getLogo()}" alt="">
                   <span class="payment_option_cta">
                     {$paymentOption->getCallToActionText()}
                   </span>
@@ -100,7 +100,7 @@
           <div class="box">
             <div class="checkbox">
               <label for="cgv">
-                <input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if} />
+                <input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if}>
                 {l s='I agree to the terms of service and will adhere to them unconditionally.'}
               </label>
               <a href="{$link_conditions|escape:'html':'UTF-8'}" class="iframe" rel="nofollow">{l s='(Read the Terms of Service)'}</a>
