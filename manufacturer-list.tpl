@@ -59,16 +59,16 @@
                 <!--[if IE 9]>
                 <video style="display: none;"><![endif]-->
                 {if !empty($webp)}
-                  <source {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w"
+                  <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
                           data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.webp"
                           sizes="1px"
                           type="image/webp"
                   />
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
-                <img {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w"
+                <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
                      data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
-                     {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+                     {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
                      sizes="1px"
                      alt="{$manufacturer.name|escape:'htmlall':'UTF-8'}"
                      width="{$mediumDefaultWidth}"

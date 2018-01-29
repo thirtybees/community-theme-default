@@ -61,16 +61,16 @@
               <!--[if IE 9]>
               <video style="display: none;"><![endif]-->
               {if !empty($webp)}
-                <source {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w"
+                <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
                         data-{/if}srcset="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
                         sizes="1px"
                         type="image/webp"
                 />
               {/if}
               <!--[if IE 9]></video><![endif]-->
-              <img {if !empty($lazy_load)}srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= 1w"
+              <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
                    data-{/if}srcset="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
-                   {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+                   {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
                    sizes="1px"
                    alt="{$supplier.name|escape:'htmlall':'UTF-8'}"
                    width="{$mediumDefaultWidth}"

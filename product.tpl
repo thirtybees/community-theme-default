@@ -84,7 +84,7 @@
                 <!--[if IE 9]></video><![endif]-->
                 <img class="img-responsive center-block"
                      itemprop="image"
-                     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                      srcset="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                      title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
                      alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"
