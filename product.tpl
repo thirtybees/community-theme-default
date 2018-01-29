@@ -154,7 +154,7 @@
                            class="thumbnail fancybox"
                            title="{$imageTitle}"
                            rel="product"
-                           style="height: {$cartDefaultHeight + 6}px; width: {$cartDefaultWidth + 6}px"
+                           style="height: {$cartDefaultHeight + 10}px; width: {$cartDefaultWidth + 10}px"
                         >
                           <noscript>
                             <img class="img-responsive"
@@ -190,7 +190,7 @@
                            class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}"
                            title="{$imageTitle|escape:'htmlall':'UTF-8'}"
                            rel="product"
-                           style="height: {$cartDefaultHeight + 6}px; width: {$cartDefaultWidth + 6}px"
+                           style="height: {$cartDefaultHeight + 10}px; width: {$cartDefaultWidth + 10}px"
                         >
                           {if !empty($lazy_load)}
                             <noscript>
