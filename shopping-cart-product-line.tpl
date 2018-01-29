@@ -5,23 +5,25 @@
         <noscript>
           <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                alt="{$product.name|escape:'html':'UTF-8'}"
-               {if isset($smallSize)}width="{$smallSize.width|intval}" height="{$smallSize.height|intval}" {/if}
+               width="{getWidthSize|intval type='small_default'}"
+               height="{getHeightSize|intval type='small_default'}"
           />
         </noscript>
       {/if}
-      <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if} {if isset($smallSize)}style="width: {$smallSize.width|intval}px; height: {$smallSize.height|intval}px"{/if}>
+      <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
         <!--[if IE 9]><video style="display: none;"><![endif]-->
         {if !empty($webp)}
           <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                   alt="{$product.name|escape:'html':'UTF-8'}"
-                  {if isset($smallSize)}style="width: {$smallSize.width|intval}px; height: {$smallSize.height|intval}px"{/if}
                   type="image/webp"
           />
         {/if}
         <!--[if IE 9]></video><![endif]-->
         <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+             {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
              alt="{$product.name|escape:'html':'UTF-8'}"
-             {if isset($smallSize)}style="width: {$smallSize.width|intval}px; height: {$smallSize.height|intval}px"{/if}
+             width="{getWidthSize|intval type='small_default'}"
+             height="{getHeightSize|intval type='small_default'}"
         />
       </picture>
     </a>

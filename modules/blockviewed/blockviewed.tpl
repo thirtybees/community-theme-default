@@ -14,6 +14,8 @@
                                 <noscript>
                                   <img src="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', null, ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
                                        alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
+                                       width="{getWidthSize|intval type='small_default'}"
+                                       height="{getHeightSize|intval type='small_default'}"
                                   >
                                 </noscript>
                               {/if}
@@ -21,13 +23,15 @@
                                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                                 {if !empty($webp)}
                                   <source {if !empty($lazy_load)}data-{/if}srcset="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', 'webp', ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.webp{/if}"
-                                          alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
                                           type="image/webp"
                                   >
                                 {/if}
                                 <!--[if IE 9]></video><![endif]-->
                                 <img {if !empty($lazy_load)}data-{/if}srcset="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', null, ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
+                                     {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
                                      alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
+                                     width="{getWidthSize|intval type='small_default'}"
+                                     height="{getHeightSize|intval type='small_default'}"
                                 >
                               </picture>
                             </a>

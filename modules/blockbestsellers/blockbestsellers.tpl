@@ -16,6 +16,8 @@
                                     <noscript>
                                       <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html'}"
                                            alt="{$product.legend|escape:'html':'UTF-8'}"
+                                           width="{getWidthSize|intval type='small_default'}"
+                                           height="{getHeightSize|intval type='small_default'}"
                                       />
                                     </noscript>
                                   {/if}
@@ -23,13 +25,16 @@
                                     <!--[if IE 9]><video style="display: none;"><![endif]-->
                                     {if !empty($webp)}
                                     <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', 'webp', ImageManager::retinaSupport())|escape:'html'}"
-                                            alt="{$product.legend|escape:'html':'UTF-8'}"
                                             type="image/webp"
                                     />
                                     {/if}
                                     <!--[if IE 9]></video><![endif]-->
                                     <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default', null, ImageManager::retinaSupport())|escape:'html'}"
-                                         alt="{$product.legend|escape:'html':'UTF-8'}"/>
+                                         {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+                                         alt="{$product.legend|escape:'html':'UTF-8'}"
+                                         width="{getWidthSize|intval type='small_default'}"
+                                         height="{getHeightSize|intval type='small_default'}"
+                                    >
                                   </picture>
                                 </a>
                                 <div class="product-content">

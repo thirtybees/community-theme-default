@@ -9,12 +9,13 @@
       <div class="row">
 
         <div class="product clearfix col-xs-12 col-sm-6">
-          <div class="thumbnail">
+          <div class="thumbnail" style="width: {$homeSize.width|intval}px; height: {$homeSize.height|intval}px">
             {if !empty($lazy_load)}
               <noscript>
                 <img src="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
                      alt="{$stf_product->name|escape:'html':'UTF-8'}"
-                     style="width: {$homeSize.width|intval}px; height: {$homeSize.height|intval}px"
+                     width="{getWidthSize|intval type='home_default'}"
+                     height="{getHeightSize|intval type='home_default'}"
                 >
               </noscript>
             {/if}
@@ -22,16 +23,15 @@
               <!--[if IE 9]><video style="display: none;"><![endif]-->
               {if !empty($webp)}
                 <source {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', 'webp', ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-                        style="width: {$homeSize.width|intval}px; height: {$homeSize.height|intval}px"
-                        alt="{$stf_product->name|escape:'html':'UTF-8'}"
                         type="image/webp"
                 >
               {/if}
               <!--[if IE 9]></video><![endif]-->
               <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
-                   height="{$homeSize.height|intval}"
-                   width="{$homeSize.width|intval}"
+                   {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
                    alt="{$stf_product->name|escape:'html':'UTF-8'}"
+                   width="{getWidthSize|intval type='home_default'}"
+                   height="{getHeightSize|intval type='home_default'}"
               >
             </picture>
           </div>

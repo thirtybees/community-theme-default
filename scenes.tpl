@@ -15,7 +15,11 @@
                 {if isset($imageIds)}
                   {if !empty($lazy_load)}
                     <noscript>
-                      <img src="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}" alt="" />
+                      <img src="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                           alt=""
+                           width="{getWidthSize|intval type='home_default'}"
+                           height="{getWidthSize|intval type='home_default'}"
+                      >
                     </noscript>
                   {/if}
                   <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
@@ -27,7 +31,12 @@
                       />
                     {/if}
                     <!--[if IE 9]></video><![endif]-->
-                    <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}" alt="" />
+                    <img {if !empty($lazy_load)}data-{/if}srcset="{$link->getImageLink($product.id_product, $imageIds, 'home_default', null, ImageManager::retinaSupport())|escape:'html':'UTF-8'}"
+                         {if !empty($lazy_load)}src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="{/if}
+                         alt=""
+                         width="{getWidthSize|intval type='home_default'}"
+                         height="{getWidthSize|intval type='home_default'}"
+                    >
                   </picture>
                 {/if}
               </div>
