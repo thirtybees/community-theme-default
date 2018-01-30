@@ -23,7 +23,7 @@
                   >
                 </noscript>
               {/if}
-              <picture {if $lazy_load}class="tb-lazy-image{/if}">
+              <picture {if $lazy_load}class="tb-lazy-image"{/if}>
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 {if !empty($webp)}
                   <source class="img-responsive center-block"
