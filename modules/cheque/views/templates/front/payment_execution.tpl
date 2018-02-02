@@ -28,7 +28,7 @@
         -
         {if isset($currencies) && $currencies|@count > 1}
         {l s='We accept several currencies to receive payments by check.' mod='cheque'}
-        <br />
+        <br>
       <div class="form-group">
         <label>{l s='Choose one of the following:' mod='cheque'}</label>
         <select id="currency_payment" class="form-control" name="currency_payment">
@@ -39,12 +39,12 @@
       </div>
       {else}
         {l s='We allow the following currencies to be sent by check:' mod='cheque'}&nbsp;<b>{$currencies[0].name}</b>
-        <input type="hidden" name="currency_payment" value="{$currencies[0].id_currency}" />
+        <input type="hidden" name="currency_payment" value="{$currencies[0].id_currency}">
       {/if}
       </p>
       <p>
         - {l s='Check owner and address information will be displayed on the next page.' mod='cheque'}
-        <br />
+        <br>
         - {l s='Please confirm your order by clicking \'I confirm my order\'' mod='cheque'}.
       </p>
     </div>

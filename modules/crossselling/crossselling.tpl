@@ -16,7 +16,7 @@
                                title="{$orderProduct.name|htmlspecialchars}">
                                 <img itemprop="image" src="{$orderProduct.image}"
                                      alt="{$orderProduct.name|htmlspecialchars}"
-                                     title="{$orderProduct.name|htmlspecialchars}"/>
+                                     title="{$orderProduct.name|htmlspecialchars}">
                             </a>
                             <div class="s_title_block">
                                 <h3 itemprop="name" class="product-name">

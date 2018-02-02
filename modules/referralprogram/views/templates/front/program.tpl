@@ -74,9 +74,9 @@
           {section name=friends start=0 loop=$nbFriends step=1}
             <tr>
               <td class="align_right">{$smarty.section.friends.iteration}</td>
-              <td><input type="text" class="form-control" name="friendsLastName[{$smarty.section.friends.index}]" size="14" value="{if isset($smarty.post.friendsLastName[$smarty.section.friends.index])}{$smarty.post.friendsLastName[$smarty.section.friends.index]|escape:'html':'UTF-8'}{/if}" /></td>
-              <td><input type="text" class="form-control" name="friendsFirstName[{$smarty.section.friends.index}]" size="14" value="{if isset($smarty.post.friendsFirstName[$smarty.section.friends.index])}{$smarty.post.friendsFirstName[$smarty.section.friends.index]|escape:'html':'UTF-8'}{/if}" /></td>
-              <td><input type="text" class="form-control" name="friendsEmail[{$smarty.section.friends.index}]" size="20" value="{if isset($smarty.post.friendsEmail[$smarty.section.friends.index])}{$smarty.post.friendsEmail[$smarty.section.friends.index]|escape:'html':'UTF-8'}{/if}" /></td>
+              <td><input type="text" class="form-control" name="friendsLastName[{$smarty.section.friends.index}]" size="14" value="{if isset($smarty.post.friendsLastName[$smarty.section.friends.index])}{$smarty.post.friendsLastName[$smarty.section.friends.index]|escape:'html':'UTF-8'}{/if}"></td>
+              <td><input type="text" class="form-control" name="friendsFirstName[{$smarty.section.friends.index}]" size="14" value="{if isset($smarty.post.friendsFirstName[$smarty.section.friends.index])}{$smarty.post.friendsFirstName[$smarty.section.friends.index]|escape:'html':'UTF-8'}{/if}"></td>
+              <td><input type="text" class="form-control" name="friendsEmail[{$smarty.section.friends.index}]" size="20" value="{if isset($smarty.post.friendsEmail[$smarty.section.friends.index])}{$smarty.post.friendsEmail[$smarty.section.friends.index]|escape:'html':'UTF-8'}{/if}"></td>
             </tr>
           {/section}
           </tbody>
@@ -86,7 +86,7 @@
         </p>
         <div class="checkbox">
           <label for="conditionsValided">
-            <input type="checkbox" name="conditionsValided" id="conditionsValided" value="1" {if isset($smarty.post.conditionsValided) AND $smarty.post.conditionsValided eq 1}checked="checked"{/if} />
+            <input type="checkbox" name="conditionsValided" id="conditionsValided" value="1" {if isset($smarty.post.conditionsValided) AND $smarty.post.conditionsValided eq 1}checked="checked"{/if}>
             {l s='I agree to the terms of service and adhere to them unconditionally.' mod='referralprogram'}
           </label>
           <a href="{$link->getModuleLink('referralprogram', 'rules', ['height' => '500', 'width' => '400'], true)|escape:'html':'UTF-8'}" class="thickbox" title="{l s='Conditions of the referral program' mod='referralprogram'}" rel="nofollow">{l s='Read conditions.' mod='referralprogram'}</a>
@@ -127,7 +127,7 @@
           {foreach from=$pendingFriends item=pendingFriend name=myLoop}
             <tr>
               <td>
-                <input type="checkbox" name="friendChecked[{$pendingFriend.id_referralprogram}]" id="friendChecked[{$pendingFriend.id_referralprogram}]" value="1" />
+                <input type="checkbox" name="friendChecked[{$pendingFriend.id_referralprogram}]" id="friendChecked[{$pendingFriend.id_referralprogram}]" value="1">
               </td>
               <td>
                 <label for="friendChecked[{$pendingFriend.id_referralprogram}]">{$pendingFriend.lastname|substr:0:22}</label>

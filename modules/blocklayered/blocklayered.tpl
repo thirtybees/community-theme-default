@@ -73,11 +73,11 @@
                                                                        id="layered_id_attribute_group_{$id_value}"
                                                                        aria-label="{$value.name|escape:'html':'UTF-8'}"
                                                                        {if !$value.nbr}disabled="disabled"{/if}
-                                                                       style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};"/>
+                                                                       style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};">
                                                                 {if isset($value.checked) && $value.checked}<input
                                                                     type="hidden"
                                                                     name="layered_{$filter.type_lite}_{$id_value}"
-                                                                    value="{$id_value}" />{/if}
+                                                                    value="{$id_value}">{/if}
                                                                 <label for="layered_{$filter.type_lite}_{$id_value}"{if !$value.nbr} class="disabled"{else}{if isset($filter.is_color_group) && $filter.is_color_group} name="layered_{$filter.type_lite}_{$id_value}" class="layered_color" data-rel="{$id_value}_{$filter.id_key}"{/if}{/if}
                                                                        aria-label="{$value.name|escape:'html':'UTF-8'}">
                                                                     {if !$value.nbr}
@@ -94,7 +94,7 @@
                                                                         <input type="checkbox"
                                                                                name="layered_{$filter.type_lite}_{$id_value}"
                                                                                id="layered_{$filter.type_lite}{if $id_value || $filter.type == 'quantity'}_{$id_value}{/if}"
-                                                                               value="{$id_value}{if $filter.id_key}_{$filter.id_key}{/if}"{if isset($value.checked)} checked="checked"{/if}{if !$value.nbr} disabled="disabled"{/if} />
+                                                                               value="{$id_value}{if $filter.id_key}_{$filter.id_key}{/if}"{if isset($value.checked)} checked="checked"{/if}{if !$value.nbr} disabled="disabled"{/if}>
                                                                         {if !$value.nbr}
                                                                             {$value.name|escape:'html':'UTF-8'}{if $layered_show_qties}
                                                                             <span> ({$value.nbr})</span>{/if}
@@ -125,19 +125,19 @@
                                                                                id="layered_id_attribute_group_{$id_value}"
                                                                                aria-label="{$value.name|escape:'html':'UTF-8'}"
                                                                                {if !$value.nbr}disabled="disabled"{/if}
-                                                                               style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};"/>
+                                                                               style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};">
                                                                         {if isset($value.checked) && $value.checked}
                                                                             <input
                                                                             type="hidden"
                                                                             name="layered_{$filter.type_lite}_{$id_value}"
-                                                                            value="{$id_value}" />{/if}
+                                                                            value="{$id_value}">{/if}
                                                                     {else}
                                                                         <input type="radio"
                                                                                class="layered_{$filter.type_lite}_{$id_value}"
                                                                                name="layered_{$filter.type_lite}{if $filter.id_key}_{$filter.id_key}{else}_1{/if}"
                                                                                id="layered_{$filter.type_lite}{if $id_value || $filter.type == 'quantity'}_{$id_value}{if $filter.id_key}_{$filter.id_key}{/if}{/if}"
                                                                                value="{$id_value}{if $filter.id_key}_{$filter.id_key}{/if}"{if isset($value.checked)} checked="checked"{/if}{if !$value.nbr} disabled="disabled"{/if}
-                                                                               aria-label="{$value.name|escape:'html':'UTF-8'}"/>
+                                                                               aria-label="{$value.name|escape:'html':'UTF-8'}">
                                                                     {/if}
 
                                                                     {if !$value.nbr}
@@ -189,7 +189,7 @@
                                                             {l s='From' mod='blocklayered'}
                                                             <input class="layered_{$filter.type}_range layered_input_range_min layered_input_range form-control"
                                                                    id="layered_{$filter.type}_range_min" type="text"
-                                                                   value="{$filter.values[0]}"/>
+                                                                   value="{$filter.values[0]}">
                           <span class="layered_{$filter.type}_range_unit">
                             {$filter.unit}
                           </span>
@@ -198,7 +198,7 @@
                                                             {l s='to' mod='blocklayered'}
                                                             <input class="layered_{$filter.type}_range layered_input_range_max layered_input_range form-control"
                                                                    id="layered_{$filter.type}_range_max" type="text"
-                                                                   value="{$filter.values[1]}"/>
+                                                                   value="{$filter.values[1]}">
                           <span class="layered_{$filter.type}_range_unit">
                             {$filter.unit}
                           </span>
@@ -217,10 +217,10 @@
                                                     <li style="display: none;">
                                                         <input class="layered_{$filter.type}_range"
                                                                id="layered_{$filter.type}_range_min" type="hidden"
-                                                               value="{$filter.values[0]}"/>
+                                                               value="{$filter.values[0]}">
                                                         <input class="layered_{$filter.type}_range"
                                                                id="layered_{$filter.type}_range_max" type="hidden"
-                                                               value="{$filter.values[1]}"/>
+                                                               value="{$filter.values[1]}">
                                                     </li>
                                                 {/if}
                                             {/if}
@@ -234,13 +234,13 @@
                                 {/if}
                                 {/foreach}
                             </div>
-                            <input type="hidden" name="id_category_layered" value="{$id_category_layered}"/>
+                            <input type="hidden" name="id_category_layered" value="{$id_category_layered}">
                             {foreach from=$filters item=filter}
                                 {if $filter.type_lite == 'id_attribute_group' && isset($filter.is_color_group) && $filter.is_color_group && $filter.filter_type != 2}
                                     {foreach from=$filter.values key=id_value item=value}
                                         {if isset($value.checked)}
                                             <input type="hidden" name="layered_id_attribute_group_{$id_value}"
-                                                   value="{$id_value}_{$filter.id_key}"/>
+                                                   value="{$id_value}_{$filter.id_key}">
                                         {/if}
                                     {/foreach}
                                 {/if}
@@ -249,8 +249,8 @@
                 </div>
                 <div id="layered_ajax_loader" style="display: none;">
                     <p>
-                        <img src="{$img_ps_dir}loader.gif" alt=""/>
-                        <br/>{l s='Loading...' mod='blocklayered'}
+                        <img src="{$img_ps_dir}loader.gif" alt="">
+                        <br>{l s='Loading...' mod='blocklayered'}
                     </p>
                 </div>
             </div>
@@ -262,13 +262,13 @@
             <div id="layered_block_left" class="block">
                 <div class="block_content">
                     <form action="#" id="layered_form">
-                        <input type="hidden" name="id_category_layered" value="{$id_category_layered}"/>
+                        <input type="hidden" name="id_category_layered" value="{$id_category_layered}">
                     </form>
                 </div>
                 <div style="display: none;">
                     <p>
-                        <img src="{$img_ps_dir}loader.gif" alt=""/>
-                        <br/>{l s='Loading...' mod='blocklayered'}
+                        <img src="{$img_ps_dir}loader.gif" alt="">
+                        <br>{l s='Loading...' mod='blocklayered'}
                     </p>
                 </div>
             </div>

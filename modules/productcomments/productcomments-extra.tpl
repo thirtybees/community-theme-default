@@ -11,9 +11,9 @@
               <div class="star star_on"></div>
             {/if}
           {/section}
-          <meta itemprop="worstRating" content = "0" />
-          <meta itemprop="ratingValue" content = "{if isset($ratings.avg)}{$ratings.avg|round:1|escape:'html':'UTF-8'}{else}{$averageTotal|round:1|escape:'html':'UTF-8'}{/if}" />
-          <meta itemprop="bestRating" content = "5" />
+          <meta itemprop="worstRating" content = "0">
+          <meta itemprop="ratingValue" content = "{if isset($ratings.avg)}{$ratings.avg|round:1|escape:'html':'UTF-8'}{else}{$averageTotal|round:1|escape:'html':'UTF-8'}{/if}">
+          <meta itemprop="bestRating" content = "5">
         </div>
       </div>
     {/if}
