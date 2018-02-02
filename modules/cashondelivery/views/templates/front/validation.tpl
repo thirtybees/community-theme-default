@@ -7,11 +7,11 @@
 
 <form action="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}" method="post">
   <div class="box">
-    <input type="hidden" name="confirm" value="1" />
+    <input type="hidden" name="confirm" value="1">
     <h3 class="page-subheading">{l s='Cash on delivery (COD) payment' mod='cashondelivery'}</h3>
     <p>
       - {l s='You have chosen the Cash on Delivery method.' mod='cashondelivery'}
-      <br/>
+      <br>
       - {l s='The total amount of your order is' mod='cashondelivery'}
       <span id="amount_{$currencies[0].id_currency}" class="price">{convertPrice price=$total}</span>
       {if $use_taxes == 1}

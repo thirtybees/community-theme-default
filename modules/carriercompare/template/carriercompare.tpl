@@ -18,13 +18,13 @@
       </div>
       <div class="form-group last">
         <label for="zipcode">{l s='Zip/postal code' mod='carriercompare'}</label>
-        <input class="form-control" type="text" name="zipcode" id="zipcode" value="{$zipcode|escape:'html':'UTF-8'}"/> ({l s='Needed for certain carriers.' mod='carriercompare'})
+        <input class="form-control" type="text" name="zipcode" id="zipcode" value="{$zipcode|escape:'html':'UTF-8'}"> ({l s='Needed for certain carriers.' mod='carriercompare'})
       </div>
       <div id="carriercompare_errors" style="display: none;">
-        <ul id="carriercompare_errors_list"></ul><br />
+        <ul id="carriercompare_errors_list"></ul><br>
       </div>
       <div id="SE_AjaxDisplay">
-        <img src="{$new_base_dir}loader.gif" alt="Loading data" /><br />
+        <img src="{$new_base_dir}loader.gif" alt="Loading data"><br>
         <p></p>
       </div>
       <div id="availableCarriers" style="display: none;">

@@ -12,7 +12,7 @@
                       {if isset($slide.size) && $slide.size} {$slide.size}{/if}
                       alt="{$slide.legend|escape:'htmlall':'UTF-8'}"
                       style="width: 100%; height: 100%"
-                />
+                >
               </a>
               {if isset($slide.description) && trim($slide.description) != ''}
                 <div class="homeslider-wrapper hid1den-xs">

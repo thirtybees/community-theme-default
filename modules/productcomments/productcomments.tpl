@@ -5,10 +5,10 @@
       {if !empty($comment.content)}
         <div class="comment row no-gutter" itemprop="review" itemscope itemtype="https://schema.org/Review">
 
-          <meta itemprop="datePublished" content="{$comment.date_add|escape:'html':'UTF-8'|substr:0:10}" />
-          <meta itemprop="worstRating" content = "0" />
-          <meta itemprop="ratingValue" content = "{$comment.grade|escape:'html':'UTF-8'}" />
-          <meta itemprop="bestRating" content = "5" />
+          <meta itemprop="datePublished" content="{$comment.date_add|escape:'html':'UTF-8'|substr:0:10}">
+          <meta itemprop="worstRating" content = "0">
+          <meta itemprop="ratingValue" content = "{$comment.grade|escape:'html':'UTF-8'}">
+          <meta itemprop="bestRating" content = "5">
 
           <div class="comment_author col-sm-3 col-md-2">
             <div class="form-group">
@@ -103,11 +103,11 @@
             <label>{$criterion.name|escape:'html':'UTF-8'}:</label>
             <div class="form-control-static">
               <div class="star_content">
-                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="1" />
-                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="2" />
-                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="3" />
-                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="4"/>
-                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="5" checked="checked"/>
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="1">
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="2">
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="3">
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="4">
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="5" checked="checked">
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
 
       <div class="form-group">
         <label for="comment_title">{l s='Title:' mod='productcomments'} <sup class="required">*</sup></label>
-        <input id="comment_title" class="form-control" name="title" type="text" value="" required/>
+        <input id="comment_title" class="form-control" name="title" type="text" value="" required>
       </div>
 
       <div class="form-group">
@@ -129,12 +129,12 @@
           <label for="commentCustomerName">
             {l s='Your name:' mod='productcomments'} <sup class="required">*</sup>
           </label>
-          <input id="commentCustomerName" class="form-control" name="customer_name" type="text" value="" required/>
+          <input id="commentCustomerName" class="form-control" name="customer_name" type="text" value="" required>
         </div>
       {/if}
 
       <div id="new_comment_form_footer" class="clearfix">
-        <input id="id_product_comment_send" name="id_product" type="hidden" value='{$id_product_comment_form}' />
+        <input id="id_product_comment_send" name="id_product" type="hidden" value='{$id_product_comment_form}'>
         <p class="help-block">
           <sup>*</sup> {l s='Required fields' mod='productcomments'}
         </p>

@@ -11,7 +11,7 @@
                    title="{l s='Our stores' mod='blockstore'}">
                     <img class="img-responsive"
                          src="{$link->getMediaLink("`$module_dir``$store_img|escape:'htmlall':'UTF-8'`")}"
-                         alt="{l s='Our stores' mod='blockstore'}" title="{l s='Our stores' mod='blockstore'}"/>
+                         alt="{l s='Our stores' mod='blockstore'}" title="{l s='Our stores' mod='blockstore'}">
                 </a>
             </p>
             {if !empty($store_text)}

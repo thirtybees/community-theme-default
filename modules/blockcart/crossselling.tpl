@@ -6,7 +6,7 @@
         <div class="col-xs-6 col-sm-4 col-md-3">
           <div class="thumbnail">
             <a href="{$orderProduct.link|escape:'html':'UTF-8'}" title="{$orderProduct.name|htmlspecialchars}" class="lnk_img">
-              <img class="img-responsive" src="{$orderProduct.image}" alt="{$orderProduct.name|htmlspecialchars}" />
+              <img class="img-responsive" src="{$orderProduct.image}" alt="{$orderProduct.name|htmlspecialchars}">
             </a>
           </div>
           <h4 class="product-name">

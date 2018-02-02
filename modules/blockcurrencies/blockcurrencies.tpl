@@ -11,8 +11,8 @@
 
     {* Backwards compatibility *}
     <div id="setCurrency" class="hidden" style="display: none">
-      <input type="hidden" name="id_currency" id="id_currency" value=""/>
-      <input type="hidden" name="SubmitCurrency" value="" />
+      <input type="hidden" name="id_currency" id="id_currency" value="">
+      <input type="hidden" name="SubmitCurrency" value="">
     </div>
 
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

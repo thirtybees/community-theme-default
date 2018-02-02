@@ -5,7 +5,7 @@
   </h3>
   <div class="required checkbox">
     <label for="customer_privacy" style="font-weight: normal;">
-      <input type="checkbox" value="1" id="customer_privacy" name="customer_privacy" autocomplete="off"/>
+      <input type="checkbox" value="1" id="customer_privacy" name="customer_privacy" autocomplete="off">
       {$privacy_message}
     </label>
   </div>

@@ -21,11 +21,11 @@
       <fieldset>
         <h3 class="page-subheading">{l s='New wishlist' mod='blockwishlist'}</h3>
         <div class="form-group">
-          <input type="hidden" name="token" value="{$token|escape:'html':'UTF-8'}" />
+          <input type="hidden" name="token" value="{$token|escape:'html':'UTF-8'}">
           <label class="align_right" for="name">
             {l s='Name' mod='blockwishlist'}
           </label>
-          <input type="text" id="name" name="name" class="inputTxt form-control" value="{if isset($smarty.post.name) and $errors|@count > 0}{$smarty.post.name|escape:'html':'UTF-8'}{/if}" />
+          <input type="text" id="name" name="name" class="inputTxt form-control" value="{if isset($smarty.post.name) and $errors|@count > 0}{$smarty.post.name|escape:'html':'UTF-8'}{/if}">
         </div>
         <div class="submit">
           <button id="submitWishlist" class="btn btn-lg btn-success" type="submit" name="submitWishlist">

@@ -38,4 +38,4 @@
     {/if}
   {/if}
 </p>
-<br class="clearfix"/>
+<br class="clearfix">
