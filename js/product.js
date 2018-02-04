@@ -123,19 +123,19 @@ $(function () {
   initProductImages();
 
   if (typeof contentOnly !== 'undefined') {
-    Modernizr.on('webp', function (result) {
-      if (result) {
-        $('span.fancybox, a.fancybox').each(function (index, elem) {
-          if (elem.href == null) {
-            return;
-          }
 
-          if (elem.href.indexOf('jpg') > -1) {
-            elem.href = elem.href.slice(0, -3) + 'webp';
-          }
-        });
-      }
-    });
+    if (window.useWebp && Modernizr.webp) {
+      $('span.fancybox, a.fancybox').each(function (index, elem) {
+        if (elem.href == null) {
+          return;
+        }
+
+        if (elem.href.indexOf('jpg') > -1) {
+          elem.href = elem.href.slice(0, -3) + 'webp';
+        }
+      });
+    }
+
     if (!contentOnly && !!$.prototype.fancybox) {
       $('span.fancybox, a.fancybox').fancybox({
         hideOnContentClick: true,
@@ -175,7 +175,7 @@ function initProductImages() {
   }
 
   // Init zoom on load
-  if (Modernizr.webp) {
+  if (window.useWebp && Modernizr.webp) {
     initZoom(
       $('#bigpic').find('> source').attr('srcset').replace('large', 'thickbox')
     );
