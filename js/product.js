@@ -175,7 +175,7 @@ function initProductImages() {
   }
 
   // Init zoom on load
-  if (window.useWebp && Modernizr.webp) {
+  if (window.useWebp && Modernizr.webp && $('#bigpic').find('> source').length) {
     initZoom(
       $('#bigpic').find('> source').attr('srcset').replace('large', 'thickbox')
     );
@@ -231,12 +231,14 @@ function displayImage($thumbAnchor) {
 
   if (Modernizr.webp) {
     var $source = $('#bigpic').find('> source');
-    $source.attr({
-      src: imgSrcLarge,
-      srcset: imgSrcLarge,
-      alt: imgTitle,
-      title: imgTitle
-    });
+    if ($source.length) {
+      $source.attr({
+        src: imgSrcLarge,
+        srcset: imgSrcLarge,
+        alt: imgTitle,
+        title: imgTitle
+      });
+    }
   }
 
   // There is no API to change zoom src, need to reinit
