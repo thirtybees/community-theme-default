@@ -356,6 +356,9 @@ $(document).on('click', '.color_pick', function(e) {
 
 $(document).on('change', '#quantity_wanted', function(e) {
   e.preventDefault();
+  if (isNaN($(this).val()) || $(this).val() === '') {
+      $(this).val('1');
+  }
   var specificPrice = findSpecificPrice();
   var $ourPriceDisplay = $('#our_price_display');
 
