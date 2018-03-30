@@ -207,7 +207,7 @@ function displayImage($thumbAnchor) {
   $thumb = $thumb.closest('a');
   var imgSrcThickBox;
   var imgSrcLarge;
-  if (Modernizr.webp) {
+  if (window.useWebp && Modernizr.webp) {
     imgSrcThickBox = $thumb.attr('href').replace('.jpg', '.webp');
     imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
   } else {
@@ -229,7 +229,7 @@ function displayImage($thumbAnchor) {
     title: imgTitle
   });
 
-  if (Modernizr.webp) {
+  if (window.useWebp && Modernizr.webp) {
     var $source = $('#bigpic').find('> source');
     if ($source.length) {
       $source.attr({
