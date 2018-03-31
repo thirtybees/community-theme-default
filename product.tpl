@@ -406,7 +406,7 @@
                           <i class="icon icon-fw icon-minus"></i>
                         </a>
                       </div>
-                      <input type="number" min="1" name="qty" id="quantity_wanted" class="text text-center form-control" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}">
+                      <input type="tel" min="1" name="qty" id="quantity_wanted" class="text text-center form-control" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}">
                       <div class="input-group-btn">
                         <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up" title="Increase" aria-label="Increase">
                           <i class="icon icon-fw icon-plus"></i>
