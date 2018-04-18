@@ -68,15 +68,15 @@
                 {l s='Details'} <i class="icon icon-chevron-right"></i>
               </span>
               </a>
-              {if isset($opc) && $opc}
-              <a class="btn btn-default" href="{$link->getPageLink('order-opc', true, NULL, "submitReorder&id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}" title="{l s='Reorder'}">
+              {if isset($reorderingAllowed) && $reorderingAllowed}
+                {if isset($opc) && $opc}
+                  <a class="btn btn-default" href="{$link->getPageLink('order-opc', true, NULL, "submitReorder&id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}" title="{l s='Reorder'}">
                 {else}
-                <a class="btn btn-default" href="{$link->getPageLink('order', true, NULL, "submitReorder&id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}" title="{l s='Reorder'}">
-                  {/if}
-                  {if isset($reorderingAllowed) && $reorderingAllowed}
+                  <a class="btn btn-default" href="{$link->getPageLink('order', true, NULL, "submitReorder&id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}" title="{l s='Reorder'}">
+                {/if}
                     <i class="icon icon-refresh"></i> {l s='Reorder'}
-                  {/if}
-                </a>
+                  </a>
+              {/if}
             </td>
           </tr>
         {/foreach}
