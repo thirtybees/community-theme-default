@@ -177,7 +177,9 @@ function initProductImages() {
   // Init zoom on load
   if (window.useWebp && Modernizr.webp && $('#bigpic').find('> source').length) {
     initZoom(
-      $('#bigpic').find('> source').attr('srcset').replace('large', 'thickbox')
+      //Reversing webp support
+      //$('#bigpic').find('> source').attr('srcset').replace('large', 'thickbox')
+        $('#bigpic').find('> img').attr('srcset').replace('large', 'thickbox')
     );
   } else {
     initZoom(
@@ -208,7 +210,10 @@ function displayImage($thumbAnchor) {
   var imgSrcThickBox;
   var imgSrcLarge;
   if (window.useWebp && Modernizr.webp) {
-    imgSrcThickBox = $thumb.attr('href').replace('.jpg', '.webp');
+    //Reversing webp support
+    //imgSrcThickBox = $thumb.attr('href').replace('.jpg', '.webp');
+    //imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
+    imgSrcThickBox = $thumb.attr('href');
     imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
   } else {
     imgSrcThickBox = $thumb.attr('href');
