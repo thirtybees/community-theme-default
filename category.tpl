@@ -17,6 +17,7 @@
                            title="{$category->name|escape:'html':'UTF-8'}"
                            width="{getWidthSize|intval type='category_default'}"
                            height="{getHeightSize|intval type='category_default'}"
+                           class="img-responsive"
                       >
                     </noscript>
                   {/if}
@@ -35,6 +36,7 @@
                          title="{$category->name|escape:'html':'UTF-8'}"
                          width="{getWidthSize|intval type='category_default'}"
                          height="{getHeightSize|intval type='category_default'}"
+                         class="img-responsive"
                     >
                   </picture>
                 </div>
