@@ -45,6 +45,7 @@
                           <input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if}>
                         </td>
                         <td class="delivery_option_logo">
+                          <label for="delivery_option_{$id_address|intval}_{$option@index}">
                           {foreach $option.carrier_list as $carrier}
                             {if $carrier.logo}
                               <img class="order_carrier_logo" src="{$carrier.logo|escape:'htmlall':'UTF-8'}" alt="{$carrier.instance->name|escape:'htmlall':'UTF-8'}">
@@ -53,8 +54,10 @@
                               {if !$carrier@last} - {/if}
                             {/if}
                           {/foreach}
+                            </label>
                         </td>
                         <td>
+                          <label for="delivery_option_{$id_address|intval}_{$option@index}">
                           {if $option.unique_carrier}
                             {foreach $option.carrier_list as $carrier}
                               <strong>{$carrier.instance->name|escape:'htmlall':'UTF-8'}</strong>
@@ -75,9 +78,11 @@
                               <span class="best_grade best_grade_price">{l s='The best price'}</span>
                             {/if}
                           {/if}
+                            </label>
                         </td>
                         <td class="delivery_option_price">
-                          <div class="delivery_option_price">
+                          <label for="delivery_option_{$id_address|intval}_{$option@index}">
+                            <div class="delivery_option_price">
                             {if $option.total_price_with_tax && !$option.is_free && (!isset($free_shipping) || (isset($free_shipping) && !$free_shipping))}
                               {if $use_taxes == 1}
                                 {if $priceDisplay == 1}
@@ -91,7 +96,8 @@
                             {else}
                               {l s='Free'}
                             {/if}
-                          </div>
+                            </div>
+                        </label>
                         </td>
                       </tr>
                     </table>
