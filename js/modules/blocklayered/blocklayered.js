@@ -45,7 +45,11 @@ function initSliders() {
         to = $slider.slider('values', 1) + slider.unit;
         break;
     }
-    $sliderRange.html(from + ' - ' + to);
+    if (isRtl) {
+      $sliderRange.html(to + ' - ' + from);
+    } else {
+      $sliderRange.html(from + ' - ' + to);
+    }
   });
 }
 
@@ -493,7 +497,7 @@ function initFilters() {
           slide: function (event, ui) {
             stopAjaxQuery();
 
-            var from, to;
+            var from, to, span;
             if (parseInt($(event.target).data('format'), 10) < 5) {
               from = window.formatCurrency(ui.values[0], parseInt($(event.target).data('format'), 10), $(event.target).data('unit'));
               to = window.formatCurrency(ui.values[1], parseInt($(event.target).data('format'), 10), $(event.target).data('unit'));
@@ -501,8 +505,13 @@ function initFilters() {
               from = ui.values[0] + $(event.target).data('unit');
               to = ui.values[1] + $(event.target).data('unit');
             }
+            if (isRtl) {
+              span = to + ' - ' + from;
+            } else {
+              span = from + ' - ' + to;
+            }
 
-            $('#layered_' + $(event.target).data('type') + '_range').html(from + ' - ' + to);
+            $('#layered_' + $(event.target).data('type') + '_range').html(span);
           },
           stop: function () {
             reloadContent(true);
