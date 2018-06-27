@@ -270,9 +270,6 @@ function reloadContent(paramsPlus) {
         $('#pagination, #pagination_bottom').hide();
       }
 
-      paginationButton(result.nbRenderedProducts, result.nbAskedProducts);
-      ajaxLoaderOn = 0;
-
       // On submitting nb items form, reload with the good nb of items
       $('.showall form').on('submit', function (e) {
         e.preventDefault();
@@ -304,8 +301,6 @@ function reloadContent(paramsPlus) {
       initSliders();
 
       window.current_friendly_url = result.current_friendly_url;
-
-      // Currente page url
       if (typeof window.current_friendly_url === 'undefined') {
         window.current_friendly_url = '#';
       }
@@ -327,6 +322,8 @@ function reloadContent(paramsPlus) {
           window.current_friendly_url += '/' + blocklayeredSliderName[sliderType] + '-' + $sliderRangerMin.val() + '-' + $sliderRangeMax.val();
         }
       });
+
+      paginationButton(result.nbRenderedProducts, result.nbAskedProducts);
 
       if (history.pushState) {
         history.pushState(null, '', window.current_friendly_url);
