@@ -319,7 +319,7 @@ function reloadContent(paramsPlus) {
           // Check if slider is enable & if slider is used
           if (typeof $slider.slider('values', 0) !== 'object') {
             if ($slider.slider('values', 0) !== $slider.slider('option', 'min') || $slider.slider('values', 1) !== $slider.slider('option', 'max')) {
-              window.current_friendly_url += '/' + blocklayeredSliderName[sliderType] + '-' + $slider.slider('values', 0) + '-' + $slider.slider('values', 1);
+              window.current_friendly_url += '/' + sliderType + '-' + $slider.slider('values', 0) + '-' + $slider.slider('values', 1);
             }
           }
         } else if ($sliderRangerMin.length) {
