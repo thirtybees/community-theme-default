@@ -8,15 +8,28 @@ $(document).ready(function() {
 });
 
 function vat_number() {
-  if ($('#company').length && ($('#company').val() != ''))
-    $('#vat_number, #vat_number_block').show();
-  else
-    $('#vat_number, #vat_number_block').hide();
+  if ($('#company').length && ($('#company').val() != '')) {
+    vat_number_show();
+  } else {
+    vat_number_hide();
+  }
 
   if ($('#company_invoice').length && ($('#company_invoice').val() != ''))
     $('#vat_number_block_invoice').show();
   else
     $('#vat_number_block_invoice').hide();
+}
+
+function vat_number_show() {
+  divs = $('#vat_area, #vat_number, #vat_number_block');
+  divs.find('input').prop('disabled', false);
+  divs.fadeTo('slow', 1.0);
+}
+
+function vat_number_hide() {
+  divs = $('#vat_number, #vat_number_block');
+  divs.find('input').prop('disabled', true);
+  divs.fadeTo('slow', 0.5);
 }
 
 function vat_number_ajax() {
@@ -30,10 +43,10 @@ function vat_number_ajax() {
         url: baseDir + 'modules/vatnumber/ajax.php?id_country=' + parseInt($(this).val()) + '&rand=' + new Date().getTime(),
         success: function(isApplicable) {
           if (isApplicable == '1') {
-            $('#vat_area').show();
-            $('#vat_number').show();
-          } else
-            $('#vat_area').hide();
+            vat_number_show();
+          } else {
+            vat_number_hide();
+          }
         }
       });
   });
