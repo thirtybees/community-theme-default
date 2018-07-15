@@ -21,15 +21,13 @@ function vat_number() {
 }
 
 function vat_number_show() {
-  divs = $('#vat_area, #vat_number, #vat_number_block');
-  divs.find('input').prop('disabled', false);
-  divs.fadeTo('slow', 1.0);
+  divs = $('#vat_area, #vat_number, #vat_number_block').filter(":hidden");
+  divs.slideDown('slow');
 }
 
 function vat_number_hide() {
-  divs = $('#vat_number, #vat_number_block');
-  divs.find('input').prop('disabled', true);
-  divs.fadeTo('slow', 0.5);
+  divs = $('#vat_number, #vat_number_block').filter(":visible");
+  divs.slideUp('fast');
 }
 
 function vat_number_ajax() {
