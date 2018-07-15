@@ -39,6 +39,26 @@
       {/if}
       {if $field_name eq 'vat_number'}
         <div id="vat_area">
+          {if isset($vat_display) && $vat_display >= 3}
+            <div class="checkbox">
+              <label for="vat-exemption">
+                <input
+                  type="checkbox"
+                  name="vat_exemption"
+                  id="vat-exemption"
+                  value="1"
+                  {if (isset($address->vat_exemption) && $address->vat_exemption)
+                      || (isset($address->vat_number) && strlen($address->vat_number))}
+                    checked="checked"
+                  {/if}
+                >
+                {l s='Yes, I qualify for VAT Relief!'}
+              </label>
+            </div>
+            <p id="vat-exemption-hint" class="help-block">
+              {l s='You\'ll get asked to verify your qualification.'}
+            </p>
+          {/if}
           <div id="vat_number">
             <div class="form-group">
               <label for="vat-number">{l s='VAT number'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
