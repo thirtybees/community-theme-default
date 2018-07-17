@@ -14,6 +14,14 @@ function vat_number() {
     vat_number_hide();
   }
 
+  $('#vat-exemption').not(':checked').on('change', function() {
+    if (this.checked) {
+      $('#vat-exemption-hint').slideDown('slow');
+    } else {
+      $('#vat-exemption-hint').slideUp('fast');
+    }
+  });
+
   if ($('#company_invoice').length && ($('#company_invoice').val() != ''))
     $('#vat_number_block_invoice').show();
   else

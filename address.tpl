@@ -55,7 +55,7 @@
                 {l s='Yes, I qualify for VAT Relief!'}
               </label>
             </div>
-            <p id="vat-exemption-hint" class="help-block">
+            <p id="vat-exemption-hint" class="help-block" style="display: none;">
               {l s='You\'ll get asked to verify your qualification.'}
             </p>
           {/if}
