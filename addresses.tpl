@@ -42,7 +42,7 @@
     </div>
   </div>
 {else}
-  <div class="alert alert-warning">{l s='No addresses are available.'}&nbsp;<a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}">{l s='Add a new address'}</a></div>
+  <div class="alert alert-warning">{l s='No addresses are available.'}</div>
 {/if}
 
 <div class="clearfix form-group">
