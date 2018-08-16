@@ -145,7 +145,7 @@ function bindGrid() {
     return;
   }
 
-  var view = $.totalStorage('display');
+  var view = $.totalStorage('display') || (displayList ? 'list' : 'grid');
   display(view);
 
   $(document).on('click', '#grid', function(e) {
