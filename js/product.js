@@ -968,7 +968,6 @@ function updateDiscountTable(newPrice) {
     var quantity = $(this).data('discount-quantity');
     var discountedPrice;
     var discountUpTo;
-
     if (type === 'percentage') {
       discountedPrice = newPrice * (1 - discount / 100);
       discountUpTo = newPrice * (discount / 100) * quantity;
@@ -976,8 +975,7 @@ function updateDiscountTable(newPrice) {
       discountedPrice = newPrice - discount;
       discountUpTo = discount * quantity;
     }
-
-    if (discountedPrice != 0) {
+    if (displayDiscountPrice != 0 && discountedPrice != 0) {
       $(this).attr('data-real-discount-value', formatCurrency(discountedPrice * currencyRate, currencyFormat, currencySign, currencyBlank));
       $(this).children('td').eq(1).text(formatCurrency(discountedPrice * currencyRate, currencyFormat, currencySign, currencyBlank));
     }
