@@ -977,7 +977,7 @@ function updateDiscountTable(newPrice) {
       discountUpTo = discount * quantity;
     }
 
-    if (discountedPrice != 0) {
+    if (displayDiscountPrice != 0 && discountedPrice != 0) {
       $(this).attr('data-real-discount-value', formatCurrency(discountedPrice * currencyRate, currencyFormat, currencySign, currencyBlank));
       $(this).children('td').eq(1).text(formatCurrency(discountedPrice * currencyRate, currencyFormat, currencySign, currencyBlank));
     }
