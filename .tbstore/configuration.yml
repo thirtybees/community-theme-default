@@ -1,0 +1,27 @@
+theme_name: Community Default Theme
+compatible_versions: 1.0.0+
+author: thirty bees
+category: themes
+tags:
+- community theme
+- default theme
+- community-default-theme
+description_short: This is the default theme that comes installed with thirty bees
+description: description.md
+images:
+- image-1.png
+license: AFL
+compatible_browsers:
+- IE 9
+- IE 10
+- IE 11
+- Edge
+- Firefox
+- Safari
+- Chrome
+- Opera
+responsive: yes
+technology:
+- bootstrap 3
+- fontawesome 4
+- bx slider
