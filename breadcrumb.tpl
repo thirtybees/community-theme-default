@@ -32,7 +32,9 @@
             <span itemprop="name">{$breadcrumb.title}</span>
           </a>
         {else}
-          <span itemprop="name">{$breadcrumb.title}</span>
+          <a href="#" title="{$breadcrumb.title}" itemprop="item">
+            <span itemprop="name">{$breadcrumb.title}</span>
+          </a>
         {/if}
         <meta itemprop="position" content="{($smarty.foreach.crumbs.iteration|intval + 1)}">
       </li>
