@@ -68,7 +68,8 @@
                 <div class="content_price show-if-product-grid-hover" itemprop="offers" itemscope
                      itemtype="https://schema.org/Offer">
                     {if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
-                        <span itemprop="price" class="price product-price">
+                        <meta itemprop="price" content="{$product.price}">
+                        <span class="price product-price">
             {hook h="displayProductPriceBlock" product=$product type="before_price"}
                             {if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
           </span>
