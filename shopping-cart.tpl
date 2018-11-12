@@ -522,11 +522,17 @@
   <div id="HOOK_SHOPPING_CART">{$HOOK_SHOPPING_CART}</div>
   <p class="cart_navigation clearfix">
     {if !$opc}
-      <a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}" class="btn btn-lg btn-success pull-right standard-checkout" title="{l s='Proceed to checkout'}">
+      <a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')
+      |escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}"
+          class="btn btn-lg btn-success pull-right standard-checkout btn-full" title="{l s='Proceed to checkout'}">
         <span>{l s='Proceed to checkout'} <i class="icon icon-chevron-right"></i></span>
       </a>
     {/if}
-    <a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|regex_replace:'/[\?|&]content_only=1/':''|escape:'html':'UTF-8'|secureReferrer}{/if}" class="btn btn-lg btn-default" title="{l s='Continue shopping'}">
+    <a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order',
+    true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server
+    .HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty
+    .server.HTTP_REFERER|regex_replace:'/[\?|&]content_only=1/':''|escape:'html':'UTF-8'|secureReferrer}{/if}"
+       class="btn btn-lg btn-default btn-full" title="{l s='Continue shopping'}">
       <i class="icon icon-chevron-left"></i> {l s='Continue shopping'}
     </a>
   </p>
