@@ -61,3 +61,10 @@ ul.list-grid {
     float: none;
   }
 }
+// Making Buttons full width on mobile
+@media (max-width: $screen-sm) {
+  .btn-full {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

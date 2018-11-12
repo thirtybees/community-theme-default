@@ -9772,6 +9772,13 @@ ul.list-grid > li {
   float: none;
 }
 
+@media (max-width: 768px) {
+  .btn-full {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   .replace-2x {
     font-size: 1px;
