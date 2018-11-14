@@ -522,9 +522,7 @@
   <div id="HOOK_SHOPPING_CART">{$HOOK_SHOPPING_CART}</div>
   <p class="cart_navigation clearfix">
     {if !$opc}
-      <a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')
-      |escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}"
-          class="btn btn-lg btn-success pull-right standard-checkout btn-full" title="{l s='Proceed to checkout'}">
+      <a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}" class="btn btn-lg btn-success pull-right standard-checkout btn-full" title="{l s='Proceed to checkout'}">
         <span>{l s='Proceed to checkout'} <i class="icon icon-chevron-right"></i></span>
       </a>
     {/if}
