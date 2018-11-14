@@ -529,9 +529,7 @@
       </a>
     {/if}
     <a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order',
-    true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server
-    .HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty
-    .server.HTTP_REFERER|regex_replace:'/[\?|&]content_only=1/':''|escape:'html':'UTF-8'|secureReferrer}{/if}"
+    true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|regex_replace:'/[\?|&]content_only=1/':''|escape:'html':'UTF-8'|secureReferrer}{/if}"
        class="btn btn-lg btn-default btn-full" title="{l s='Continue shopping'}">
       <i class="icon icon-chevron-left"></i> {l s='Continue shopping'}
     </a>
