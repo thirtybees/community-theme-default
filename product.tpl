@@ -7,10 +7,10 @@
   {/if}
   {if !$priceDisplay || $priceDisplay == 2}
     {assign var='productPrice' value=$product->getPrice(true)}
-    {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(false, $smarty.const.NULL)}
+    {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(false)}
   {elseif $priceDisplay == 1}
     {assign var='productPrice' value=$product->getPrice(false)}
-    {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
+    {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true)}
   {/if}
   {assign var='cartDefaultWidth' value={getWidthSize|intval type='cart_default'}}
   {assign var='cartDefaultHeight' value={getHeightSize|intval type='cart_default'}}
