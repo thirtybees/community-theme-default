@@ -6,10 +6,10 @@
     {assign var='priceDisplayPrecision' value=2}
   {/if}
   {if !$priceDisplay || $priceDisplay == 2}
-    {assign var='productPrice' value=$product->getPrice(true, $smarty.const.NULL, 6)}
+    {assign var='productPrice' value=$product->getPrice(true)}
     {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(false, $smarty.const.NULL)}
   {elseif $priceDisplay == 1}
-    {assign var='productPrice' value=$product->getPrice(false, $smarty.const.NULL, 6)}
+    {assign var='productPrice' value=$product->getPrice(false)}
     {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
   {/if}
   {assign var='cartDefaultWidth' value={getWidthSize|intval type='cart_default'}}
@@ -371,7 +371,7 @@
                     {if $priceDisplay == 2}
                       <br>
                       <span id="pretaxe_price">{strip}
-                        <span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span> {l s='tax excl.'}
+                        <span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false)}</span> {l s='tax excl.'}
                       {/strip}</span>
                     {/if}
                   </div>
@@ -781,9 +781,9 @@
     {addJsDef productHasAttributes=isset($groups)|boolval}
     {addJsDef productPriceTaxExcluded=($product->getPriceWithoutReduct(true)|default:'null' - $product->ecotax)|floatval}
     {addJsDef productPriceTaxIncluded=($product->getPriceWithoutReduct(false)|default:'null' - $product->ecotax * (1 + $ecotaxTax_rate / 100))|floatval}
-    {addJsDef productBasePriceTaxExcluded=($product->getPrice(false, null, 6, null, false, false) - $product->ecotax)|floatval}
-    {addJsDef productBasePriceTaxExcl=($product->getPrice(false, null, 6, null, false, false)|floatval)}
-    {addJsDef productBasePriceTaxIncl=($product->getPrice(true, null, 6, null, false, false)|floatval)}
+    {addJsDef productBasePriceTaxExcluded=($product->getPrice(false, null, $smarty.const._TB_PRICE_DATABASE_PRECISION_, null, false, false) - $product->ecotax)|floatval}
+    {addJsDef productBasePriceTaxExcl=($product->getPrice(false, null, $smarty.const._TB_PRICE_DATABASE_PRECISION_, null, false, false)|floatval)}
+    {addJsDef productBasePriceTaxIncl=($product->getPrice(true, null, $smarty.const._TB_PRICE_DATABASE_PRECISION_, null, false, false)|floatval)}
     {addJsDef productReference=$product->reference|escape:'html':'UTF-8'}
     {addJsDef productAvailableForOrder=$product->available_for_order|boolval}
     {addJsDef productPriceWithoutReduction=$productPriceWithoutReduction|floatval}
