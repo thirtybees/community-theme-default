@@ -1,10 +1,6 @@
 {include file="$tpl_dir./errors.tpl"}
 
 {if empty($errors)}
-
-  {if !isset($priceDisplayPrecision)}
-    {assign var='priceDisplayPrecision' value=2}
-  {/if}
   {if !$priceDisplay || $priceDisplay == 2}
     {assign var='productPrice' value=$product->getPrice(true)}
     {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(false)}

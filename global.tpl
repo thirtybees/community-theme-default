@@ -4,7 +4,7 @@
   {addJsDef baseUri=$base_uri}
   {addJsDef static_token=$static_token}
   {addJsDef token=$token}
-  {addJsDef priceDisplayPrecision=$priceDisplayPrecision*$currency->decimals}
+  {addJsDef priceDisplayPrecision=$priceDisplayPrecision}
   {addJsDef priceDisplayMethod=$priceDisplay}
   {addJsDef roundMode=$roundMode}
   {addJsDef currency=$currency}
