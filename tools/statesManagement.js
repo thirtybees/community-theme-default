@@ -84,17 +84,22 @@ function bindStateInputAndUpdate() {
 }
 
 function updateState(suffix) {
-  $('#id_state' + (typeof suffix !== 'undefined' ? '_' + suffix : '') + ' option:not(:first-child)').remove();
+  var selectId = '#id_state' + (typeof suffix !== 'undefined' ? '_' + suffix : '');
+  var select = $(selectId);
+  $(selectId + ' option:not(:first-child)').remove();
   if (typeof countries !== 'undefined')
     var state_list = states[parseInt($('#id_country' + (typeof suffix !== 'undefined' ? '_' + suffix : '')).val())];
   if (typeof state_list !== 'undefined') {
-    $(state_list).each(function(key, item) {
-      $('#id_state' + (typeof suffix !== 'undefined' ? '_' + suffix : '')).append('<option value="' + parseInt(item.id) + '">' + item.name + '</option>');
-    });
+    select.attr('required', 'required');
 
+    $(state_list).each(function(key, item) {
+      select.append('<option value="' + parseInt(item.id) + '">' + item.name + '</option>');
+    });
     $('.id_state' + (typeof suffix !== 'undefined' ? '_' + suffix : '') + ':hidden').fadeIn('slow');
-  } else
+  } else {
+    select.removeAttr('required');
     $('.id_state' + (typeof suffix !== 'undefined' ? '_' + suffix : '')).fadeOut('fast');
+  }
 }
 
 function updateNeedIDNumber(suffix) {
