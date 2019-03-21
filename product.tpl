@@ -54,7 +54,7 @@
             <a class="fancybox"
                   data-fancybox-group="product"
                   id="view_full_size"
-                  href="1"
+                  href="{$link->getProductLink($product)|escape:'html':'UTF-8'}"
                   onclick="return false;"
             >
               <noscript>
