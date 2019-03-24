@@ -67,6 +67,7 @@ $(document).ready(function() {
             // update token
             static_token = jsonData.token;
             updateNewAccountToAddressBlock(that.attr('data-adv-api'));
+            $("#header-navbar-right-nav").load(" #header-navbar-right-nav > *");
           }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
