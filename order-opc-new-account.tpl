@@ -51,7 +51,7 @@
         <div id="opc_account_form" class="unvisible">
           {$HOOK_CREATE_ACCOUNT_TOP}
 
-          <div id="opc_account_errors" class="alert alert-danger" style="display:none;"></div>
+
 
           <input type="hidden" id="is_new_customer" name="is_new_customer" value="0">
           <input type="hidden" id="opc_id_customer" name="opc_id_customer" value="{if isset($guestInformations) && isset($guestInformations.id_customer) && $guestInformations.id_customer}{$guestInformations.id_customer}{else}0{/if}">
@@ -415,7 +415,7 @@
               <sup>*</sup>{l s='Required field'}
             </p>
             <button type="submit" name="submitAccount" id="submitAccount" class="btn btn-lg btn-success"><span>{l s='Save'} <i class="icon icon-chevron-right"></i></span></button>
-
+            <div id="opc_account_errors" class="alert alert-danger" style="display:none;"></div>
           </div>
           <div style="display: none;" id="opc_account_saved" class="alert alert-success">
             {l s='Account information saved successfully'}
