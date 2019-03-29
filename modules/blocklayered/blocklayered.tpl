@@ -133,8 +133,7 @@
                                                                             value="{$id_value}">{/if}
                                                                     {else}
                                                                         <input type="radio"
-                                                                               class="layered_{$filter.type_lite}_{$id_value}"
-                                                                               name="layered_{$filter.type_lite}{if $filter.id_key}_{$filter.id_key}{else}_1{/if}"
+                                                                               name="layered_{$filter.type_lite}_{$id_value}"
                                                                                id="layered_{$filter.type_lite}{if $id_value || $filter.type == 'quantity'}_{$id_value}{if $filter.id_key}_{$filter.id_key}{/if}{/if}"
                                                                                value="{$id_value}{if $filter.id_key}_{$filter.id_key}{/if}"{if isset($value.checked)} checked="checked"{/if}{if !$value.nbr} disabled="disabled"{/if}
                                                                                aria-label="{$value.name|escape:'html':'UTF-8'}">
