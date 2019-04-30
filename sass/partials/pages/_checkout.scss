@@ -187,13 +187,9 @@
     &.bankwire {
       background: url('../img/bankwire.png') 15px 12px no-repeat #fbfbfb;
     }
-    &.cheque {
-      background: url('../img/cheque.png') 15px 15px no-repeat #fbfbfb;
-    }
     &.cash {
       background: url('../img/cash.png') 15px 15px no-repeat #fbfbfb;
     }
-    &.cheque,
     &.bankwire,
     &.cash {
       &:after {

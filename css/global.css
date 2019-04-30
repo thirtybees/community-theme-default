@@ -9979,15 +9979,11 @@ p.required {
   background: url("../img/bankwire.png") 15px 12px no-repeat #fbfbfb;
 }
 
-.payment_module a.cheque {
-  background: url("../img/cheque.png") 15px 15px no-repeat #fbfbfb;
-}
-
 .payment_module a.cash {
   background: url("../img/cash.png") 15px 15px no-repeat #fbfbfb;
 }
 
-.payment_module a.cheque:after, .payment_module a.bankwire:after, .payment_module a.cash:after {
+.payment_module a.bankwire:after, .payment_module a.cash:after {
   display: block;
   content: "\f054";
   position: absolute;
