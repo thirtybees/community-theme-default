@@ -381,13 +381,6 @@ th {
   float: right;
 }
 
-@media (min-width: 768px) {
-  #cttopmenu-navbar-collapse {
-    padding-left: 15px;
-    padding-right: 0;
-  }
-}
-
 /* Block cart */
 #blockcart-header:after {
   float: left;

@@ -73,7 +73,6 @@
         <module action="enable" name="blockuserinfo"/>
         <module action="enable" name="blockviewed"/>
         <module action="enable" name="ctconfiguration"/>
-        <module action="enable" name="cttopmenu"/>
         <module action="enable" name="dashactivity"/>
         <module action="enable" name="dashtrends"/>
         <module action="enable" name="dashgoals"/>
@@ -227,27 +226,6 @@
             <hook module="blockviewed" hook="displayLeftColumn" position="13"/>
             <hook module="blockviewed" hook="displayHeader" position="26"/>
             <hook module="ctconfiguration" hook="displayHeader" position="35"/>
-            <hook module="cttopmenu" hook="displayTop" position="3"/>
-            <hook module="cttopmenu" hook="actionCategoryUpdate" position="3"/>
-            <hook module="cttopmenu" hook="actionCTTopMenuCompositionChanged" position="1"/>
-            <hook module="cttopmenu" hook="actionObjectProductUpdateAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectProductDeleteAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectCategoryUpdateAfter" position="1"/>
-            <hook module="cttopmenu" hook="actionObjectCategoryDeleteAfter" position="1"/>
-            <hook module="cttopmenu" hook="actionObjectCategoryAddAfter" position="1"/>
-            <hook module="cttopmenu" hook="actionObjectCmsUpdateAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectCmsDeleteAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectCmsAddAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectCmsCategoryUpdateAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectCmsCategoryDeleteAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectCmsCategoryAddAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectSupplierDeleteAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectSupplierAddAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectSupplierUpdateAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectManufacturerDeleteAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectManufacturerAddAfter" position="2"/>
-            <hook module="cttopmenu" hook="actionObjectManufacturerUpdateAfter" position="2"/>
-            <hook module="cttopmenu" hook="displayHeader" position="34"/>
             <hook module="dashactivity" hook="dashboardZoneOne" position="1"/>
             <hook module="dashactivity" hook="dashboardData" position="1"/>
             <hook module="dashactivity" hook="actionObjectOrderAddAfter" position="1"/>

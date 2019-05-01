@@ -1,4 +1,4 @@
-// 
+//
 // @import "theme_variables";
 // @import "vendor_variables";
 @import "vendor/bootstrap/bootstrap/variables";
@@ -414,13 +414,6 @@ th {
         float: right;
       }
     }
-  }
-}
-
-@media (min-width: $screen-sm-min) {
-  #cttopmenu-navbar-collapse {
-    padding-left: 15px;
-    padding-right: 0;
   }
 }
 
