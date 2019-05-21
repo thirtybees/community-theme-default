@@ -73,20 +73,15 @@
         <module action="enable" name="blockuserinfo"/>
         <module action="enable" name="blockviewed"/>
         <module action="enable" name="ctconfiguration"/>
-        <module action="enable" name="dashactivity"/>
-        <module action="enable" name="dashtrends"/>
-        <module action="enable" name="dashgoals"/>
-        <module action="enable" name="dashproducts"/>
         <module action="enable" name="homeslider"/>
         <module action="enable" name="homefeatured"/>
         <module action="enable" name="productpaymentlogos"/>
-        <module action="enable" name="statsdata"/>
         <module action="enable" name="themeconfigurator"/>
         <module action="enable" name="blockwishlist"/>
         <module action="enable" name="productcomments"/>
         <module action="enable" name="sendtoafriend"/>
-        <module action="disable" name="autoupgrade"/>
-        <module action="disable" name="blockadvertising"/>
+        <module action="disable" name="advancedeucompliance"/>
+        <module action="disable" name="beesblog"/>
         <module action="disable" name="blockcustomerprivacy"/>
         <module action="disable" name="blocklink"/>
         <module action="disable" name="blockpermanentlinks"/>
@@ -94,18 +89,17 @@
         <module action="disable" name="blockrss"/>
         <module action="disable" name="blocksharefb"/>
         <module action="disable" name="blocktopmenu"/>
+        <module action="disable" name="cookiebot"/>
         <module action="disable" name="crossselling"/>
-        <module action="disable" name="editorial"/>
-        <module action="disable" name="favoriteproducts"/>
-        <module action="disable" name="ganalytics"/>
-        <module action="disable" name="gsitemap"/>
+        <module action="disable" name="dateofdelivery"/>
+        <module action="disable" name="eucookieconsent"/>
+        <module action="disable" name="loyalty"/>
         <module action="disable" name="mailalerts"/>
-        <module action="disable" name="newsletter"/>
+        <module action="disable" name="nocaptcharecaptcha"/>
         <module action="disable" name="productscategory"/>
         <module action="disable" name="producttooltip"/>
-        <module action="disable" name="trackingfront"/>
-        <module action="disable" name="vatnumber"/>
-        <module action="disable" name="addshoppers"/>
+        <module action="disable" name="referralprogram"/>
+        <module action="disable" name="tawkto"/>
         <hooks>
             <hook module="socialsharing" hook="displayHeader" position="1"/>
             <hook module="socialsharing" hook="displayRightColumnProduct" position="2"/>
@@ -226,25 +220,6 @@
             <hook module="blockviewed" hook="displayLeftColumn" position="13"/>
             <hook module="blockviewed" hook="displayHeader" position="26"/>
             <hook module="ctconfiguration" hook="displayHeader" position="35"/>
-            <hook module="dashactivity" hook="dashboardZoneOne" position="1"/>
-            <hook module="dashactivity" hook="dashboardData" position="1"/>
-            <hook module="dashactivity" hook="actionObjectOrderAddAfter" position="1"/>
-            <hook module="dashactivity" hook="actionObjectCustomerAddAfter" position="1"/>
-            <hook module="dashactivity" hook="actionObjectCustomerMessageAddAfter" position="1"/>
-            <hook module="dashactivity" hook="actionObjectCustomerThreadAddAfter" position="1"/>
-            <hook module="dashactivity" hook="actionObjectOrderReturnAddAfter" position="1"/>
-            <hook module="dashactivity" hook="actionAdminControllerSetMedia" position="1"/>
-            <hook module="dashtrends" hook="actionOrderStatusPostUpdate" position="2"/>
-            <hook module="dashtrends" hook="dashboardData" position="2"/>
-            <hook module="dashtrends" hook="actionAdminControllerSetMedia" position="2"/>
-            <hook module="dashtrends" hook="dashboardZoneTwo" position="1"/>
-            <hook module="dashgoals" hook="dashboardData" position="3"/>
-            <hook module="dashgoals" hook="actionAdminControllerSetMedia" position="3"/>
-            <hook module="dashgoals" hook="dashboardZoneTwo" position="2"/>
-            <hook module="dashproducts" hook="actionSearch" position="1"/>
-            <hook module="dashproducts" hook="dashboardData" position="4"/>
-            <hook module="dashproducts" hook="actionObjectOrderAddAfter" position="2"/>
-            <hook module="dashproducts" hook="dashboardZoneTwo" position="3"/>
             <hook module="homeslider" hook="displayHeader" position="27"/>
             <hook module="homeslider" hook="displayTopColumn" position="1"/>
             <hook module="homeslider" hook="actionShopDataDuplication" position="3"/>
@@ -257,9 +232,6 @@
             <hook module="homefeatured" hook="displayHomeTabContent" position="2"/>
             <hook module="productpaymentlogos" hook="displayHeader" position="29"/>
             <hook module="productpaymentlogos" hook="displayProductButtons" position="2"/>
-            <hook module="statsdata" hook="actionAuthentication" position="1"/>
-            <hook module="statsdata" hook="displayFooter" position="6"/>
-            <hook module="statsdata" hook="actionCustomerAccountAdd" position="2"/>
             <hook module="themeconfigurator" hook="displayLeftColumn" position="14"/>
             <hook module="themeconfigurator" hook="displayHome" position="1"/>
             <hook module="themeconfigurator" hook="displayHeader" position="30"/>
