@@ -266,6 +266,10 @@
            suppliers="true" scenes="false"/>
     <image name="home_default" width="250" height="250" products="true" categories="false" manufacturers="false"
            suppliers="false" scenes="false"/>
+    <image name="home_default_smaller" width="218" height="218" products="true" categories="false" manufacturers="false"
+           suppliers="false" scenes="false"/>
+    <image name="home_default_smallest" width="211" height="211" products="true" categories="false" manufacturers="false"
+           suppliers="false" scenes="false"/>
     <image name="large_default" width="458" height="458" products="true" categories="false" manufacturers="true"
            suppliers="true" scenes="false"/>
     <image name="thickbox_default" width="800" height="800" products="true" categories="false" manufacturers="false"
