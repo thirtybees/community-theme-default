@@ -13,6 +13,9 @@
   <link rel="shortcut icon" href="{$favicon_url}">
   <link href="{$css_dir}global.css" rel="stylesheet">
   <link href="{$css_dir}maintenance.css" rel="stylesheet">
+  {if $isRtl}
+    <link href="{$css_dir}rtl.css" rel="stylesheet">
+  {/if}
 </head>
 <body>
 
