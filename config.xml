@@ -10,7 +10,6 @@
   </variations>
   <docs></docs>
   <metas>
-    <meta meta_page="404" left="0" right="0"/>
     <meta meta_page="best-sales" left="1" right="0"/>
     <meta meta_page="contact" left="0" right="0"/>
     <meta meta_page="index" left="0" right="0"/>
@@ -36,16 +35,26 @@
     <meta meta_page="order-opc" left="0" right="0"/>
     <meta meta_page="guest-tracking" left="0" right="0"/>
     <meta meta_page="order-confirmation" left="0" right="0"/>
-    <meta meta_page="product" left="0" right="0"/>
-    <meta meta_page="category" left="1" right="0"/>
-    <meta meta_page="cms" left="0" right="0"/>
     <meta meta_page="module-bankwire-validation" left="0" right="0"/>
     <meta meta_page="module-bankwire-payment" left="0" right="0"/>
-    <meta meta_page="module-cashondelivery-validation" left="0" right="0"/>
     <meta meta_page="products-comparison" left="0" right="0"/>
+    <meta meta_page="attachment" left="1" right="0"/>
+    <meta meta_page="favicon" left="1" right="0"/>
+    <meta meta_page="getfile" left="1" right="0"/>
+    <meta meta_page="module-blocknewsletter-verification" left="1" right="0"/>
+    <meta meta_page="module-blockwishlist-buywishlist" left="1" right="0"/>
+    <meta meta_page="module-blockwishlist-managewishlist" left="1" right="0"/>
+    <meta meta_page="module-blockwishlist-mywishlist" left="1" right="0"/>
+    <meta meta_page="module-blockwishlist-sendwishlist" left="1" right="0"/>
+    <meta meta_page="module-blockwishlist-view" left="1" right="0"/>
+    <meta meta_page="order-detail" left="1" right="0"/>
+    <meta meta_page="order-return" left="1" right="0"/>
+    <meta meta_page="pagenotfound" left="1" right="0"/>
+    <meta meta_page="pdf-invoice" left="1" right="0"/>
+    <meta meta_page="pdf-order-return" left="1" right="0"/>
+    <meta meta_page="pdf-order-slip" left="1" right="0"/>
   </metas>
   <modules>
-    <module action="enable" name="socialsharing"/>
     <module action="enable" name="blockbanner"/>
     <module action="enable" name="blockbestsellers"/>
     <module action="enable" name="blockcart"/>
@@ -77,25 +86,26 @@
     <module action="enable" name="homeslider"/>
     <module action="enable" name="homefeatured"/>
     <module action="enable" name="productpaymentlogos"/>
-    <module action="enable" name="themeconfigurator"/>
+    <module action="enable" name="socialsharing"/>
     <module action="enable" name="blockwishlist"/>
     <module action="enable" name="productcomments"/>
     <module action="enable" name="sendtoafriend"/>
+    <module action="enable" name="themeconfigurator"/>
     <module action="disable" name="advancedeucompliance"/>
-    <module action="disable" name="beesblog"/>
     <module action="disable" name="blockcustomerprivacy"/>
     <module action="disable" name="blocklink"/>
     <module action="disable" name="blockpermanentlinks"/>
     <module action="disable" name="blockreinsurance"/>
     <module action="disable" name="blockrss"/>
     <module action="disable" name="blocksharefb"/>
+    <module action="disable" name="beesblog"/>
     <module action="disable" name="cookiebot"/>
     <module action="disable" name="crossselling"/>
     <module action="disable" name="dateofdelivery"/>
     <module action="disable" name="eucookieconsent"/>
-    <module action="disable" name="loyalty"/>
     <module action="disable" name="mailalerts"/>
     <module action="disable" name="nocaptcharecaptcha"/>
+    <module action="disable" name="loyalty"/>
     <module action="disable" name="productscategory"/>
     <module action="disable" name="producttooltip"/>
     <module action="disable" name="referralprogram"/>
