@@ -102,7 +102,7 @@
     <module action="disable" name="tawkto"/>
     <hooks>
       <hook module="socialsharing" hook="displayHeader" position="1"/>
-      <hook module="socialsharing" hook="displayRightColumnProduct" position="2"/>
+      <hook module="socialsharing" hook="displayRightColumnProduct" position="1"/>
       <hook module="socialsharing" hook="actionObjectProductUpdateAfter" position="1"/>
       <hook module="socialsharing" hook="actionObjectProductDeleteAfter" position="1"/>
       <hook module="socialsharing" hook="displayCompareExtraInformation" position="1"/>
@@ -121,10 +121,10 @@
       <hook module="blockcart" hook="displayTop" position="2"/>
       <hook module="blockcart" hook="actionCartListOverride" position="1"/>
       <hook module="blocksocial" hook="displayHeader" position="5"/>
-      <hook module="blocksocial" hook="displayFooter" position="1"/>
+      <hook module="blocksocial" hook="displayFooter" position="2"/>
       <hook module="blockcategories" hook="displayLeftColumn" position="2"/>
       <hook module="blockcategories" hook="displayHeader" position="6"/>
-      <!-- hook module="blockcategories" hook="displayFooter" position="3"/ -->
+      <hook module="blockcategories" hook="displayFooter" position="3"/>
       <hook module="blockcategories" hook="actionCategoryAdd" position="1"/>
       <hook module="blockcategories" hook="actionCategoryUpdate" position="1"/>
       <hook module="blockcategories" hook="actionCategoryDelete" position="1"/>
@@ -162,16 +162,16 @@
       <hook module="blocklayered" hook="actionAttributeSave" position="1"/>
       <hook module="blockcms" hook="displayLeftColumn" position="4"/>
       <hook module="blockcms" hook="displayHeader" position="11"/>
-      <hook module="blockcms" hook="displayFooter" position="3"/>
+      <hook module="blockcms" hook="displayFooter" position="4"/>
       <hook module="blockcms" hook="actionObjectCmsUpdateAfter" position="1"/>
       <hook module="blockcms" hook="actionObjectCmsDeleteAfter" position="1"/>
       <hook module="blockcms" hook="actionShopDataDuplication" position="1"/>
       <hook module="blockcms" hook="actionAdminStoresControllerUpdate_optionsAfter" position="1"/>
       <hook module="blockcmsinfo" hook="displayHome" position="3"/>
       <hook module="blockcontact" hook="displayHeader" position="12"/>
-      <hook module="blockcontact" hook="displayNav" position="1"/>
+      <hook module="blockcontact" hook="displayNav" position="4"/>
       <hook module="blockcontactinfos" hook="displayHeader" position="13"/>
-      <hook module="blockcontactinfos" hook="displayFooter" position="5"/>
+      <hook module="blockcontactinfos" hook="displayFooter" position="6"/>
       <hook module="blockmanufacturer" hook="displayLeftColumn" position="5" exceptions="category"/>
       <hook module="blockmanufacturer" hook="displayHeader" position="14"/>
       <hook module="blockmanufacturer" hook="actionObjectManufacturerDeleteAfter" position="1"/>
@@ -182,7 +182,7 @@
       <hook module="blockmyaccount" hook="actionModuleRegisterHookAfter" position="1"/>
       <hook module="blockmyaccount" hook="actionModuleUnRegisterHookAfter" position="1"/>
       <hook module="blockmyaccountfooter" hook="displayHeader" position="16"/>
-      <hook module="blockmyaccountfooter" hook="displayFooter" position="4"/>
+      <hook module="blockmyaccountfooter" hook="displayFooter" position="5"/>
       <hook module="blockmyaccountfooter" hook="actionModuleRegisterHookAfter" position="2"/>
       <hook module="blockmyaccountfooter" hook="actionModuleUnRegisterHookAfter" position="2"/>
       <hook module="blocknewproducts" hook="displayLeftColumn" position="7"/>
@@ -193,7 +193,7 @@
       <hook module="blocknewproducts" hook="displayHomeTab" position="1"/>
       <hook module="blocknewproducts" hook="displayHomeTabContent" position="1"/>
       <hook module="blocknewsletter" hook="displayHeader" position="18"/>
-      <hook module="blocknewsletter" hook="displayFooter" position="2"/>
+      <hook module="blocknewsletter" hook="displayFooter" position="1"/>
       <hook module="blocknewsletter" hook="actionCustomerAccountAdd" position="1"/>
       <hook module="blockpaymentlogo" hook="displayLeftColumn" position="8" exceptions="category"/>
       <hook module="blockpaymentlogo" hook="displayHeader" position="19"/>
@@ -235,10 +235,9 @@
       <hook module="blocktopmenu" hook="displayHeader" position="34"/>
       <hook module="blockuserinfo" hook="displayHeader" position="25"/>
       <hook module="blockuserinfo" hook="displayTop" position="4"/>
-      <hook module="blockuserinfo" hook="displayNav" position="4"/>
+      <hook module="blockuserinfo" hook="displayNav" position="1"/>
       <hook module="blockviewed" hook="displayLeftColumn" position="13"/>
       <hook module="blockviewed" hook="displayHeader" position="26"/>
-      <hook module="ctconfiguration" hook="displayHeader" position="35"/>
       <hook module="homeslider" hook="displayHeader" position="27"/>
       <hook module="homeslider" hook="displayTopColumn" position="1"/>
       <hook module="homeslider" hook="actionShopDataDuplication" position="3"/>
@@ -254,7 +253,7 @@
       <hook module="themeconfigurator" hook="displayLeftColumn" position="14"/>
       <hook module="themeconfigurator" hook="displayHome" position="1"/>
       <hook module="themeconfigurator" hook="displayHeader" position="30"/>
-      <hook module="themeconfigurator" hook="displayFooter" position="7"/>
+      <hook module="themeconfigurator" hook="displayFooter" position="8"/>
       <hook module="themeconfigurator" hook="displayBackOfficeHeader" position="1"/>
       <hook module="themeconfigurator" hook="displayTopColumn" position="2"/>
       <hook module="themeconfigurator" hook="actionObjectLanguageAddAfter" position="2"/>
@@ -267,7 +266,7 @@
       <hook module="blockwishlist" hook="displayMyAccountBlock" position="1"/>
       <hook module="blockwishlist" hook="displayProductListFunctionalButtons" position="1"/>
       <hook module="productcomments" hook="displayHeader" position="32"/>
-      <hook module="productcomments" hook="displayRightColumnProduct" position="1"/>
+      <hook module="productcomments" hook="displayRightColumnProduct" position="2"/>
       <hook module="productcomments" hook="displayProductTab" position="1"/>
       <hook module="productcomments" hook="displayProductTabContent" position="1"/>
       <hook module="productcomments" hook="displayProductComparison" position="1"/>
