@@ -48,7 +48,7 @@
             <a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}" title="{$manufacturer.name|escape:'html':'UTF-8'}">
               {if !empty($lazy_load)}
                 <noscript>
-                  <img src="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                  <img src="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.id_manufacturer|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
                        alt="{$manufacturer.name|escape:'htmlall':'UTF-8'}"
                        width="{$mediumDefaultWidth}"
                        height="{$mediumDefaultHeight}"
@@ -60,14 +60,14 @@
                 <video style="display: none;"><![endif]-->
                 {if !empty($webp)}
                   <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
-                          data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.webp"
+                          data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.id_manufacturer|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.webp"
                           sizes="1px"
                           type="image/webp"
                   >
                 {/if}
                 <!--[if IE 9]></video><![endif]-->
                 <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
-                     data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.image|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                     data-{/if}srcset="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$manufacturer.id_manufacturer|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
                      {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
                      sizes="1px"
                      alt="{$manufacturer.name|escape:'htmlall':'UTF-8'}"
