@@ -50,7 +50,7 @@
           <div class="thumbnail">
             {if !empty($lazy_load)}
               <noscript>
-                <img src="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                <img src="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.id_supplier|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
                      alt="{$supplier.name|escape:'htmlall':'UTF-8'}"
                      width="{$mediumDefaultWidth}"
                      height="{$mediumDefaultHeight}"
@@ -62,14 +62,14 @@
               <video style="display: none;"><![endif]-->
               {if !empty($webp)}
                 <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
-                        data-{/if}srcset="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                        data-{/if}srcset="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.id_supplier|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
                         sizes="1px"
                         type="image/webp"
                 />
               {/if}
               <!--[if IE 9]></video><![endif]-->
               <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
-                   data-{/if}srcset="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
+                   data-{/if}srcset="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.id_supplier|intval}-medium_default{if ImageManager::retinaSupport()}2x{/if}.jpg"
                    {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
                    sizes="1px"
                    alt="{$supplier.name|escape:'htmlall':'UTF-8'}"
@@ -79,7 +79,7 @@
             </picture>
             <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}" title="{$supplier.name|escape:'html':'UTF-8'}">
               <img class="img-responsive"
-                   src="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.image|escape:'html':'UTF-8'}-medium_default.jpg"
+                   src="{$img_sup_dir|escape:'html':'UTF-8'}{$supplier.id_supplier|intval}-medium_default.jpg"
                    alt="{$supplier.name|escape:'html':'UTF-8'}"
                    style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height|intval}px"
               >
