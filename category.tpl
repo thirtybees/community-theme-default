@@ -1,4 +1,3 @@
-{$display_subcategories = (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories)}
 
 {include file="$tpl_dir./errors.tpl"}
 
@@ -43,17 +42,20 @@
             {/if}
 
             <h1 class="page-heading{if (isset($subcategories) && !$products) || (isset($subcategories) && $products) || !isset($subcategories) && $products} product-listing{/if}">
-      <span class="cat-name">
-        {$category->name|escape:'html':'UTF-8'}
-          {if isset($categoryNameComplement)}&nbsp;{$categoryNameComplement|escape:'html':'UTF-8'}{/if}
-      </span>
+                <span class="cat-name">
+                    {$category->name|escape:'html':'UTF-8'}
+                    {if isset($categoryNameComplement)}
+                        &nbsp;{$categoryNameComplement|escape:'html':'UTF-8'}
+                    {/if}
+                </span>
             </h1>
 
             {if !empty($category->description)}
                 <div id="category-description" class="rte">{$category->description}</div>
             {/if}
         </section>
-        {if !empty($subcategories) && $display_subcategories}
+        {if $subcategories
+            && ($display_subcategories || ! isset($display_subcategories))}
             <section id="category-subcategories">
                 <h2 class="page-heading">{$category->name|escape:'html':'UTF-8'} {l s='Subcategories'}</h2>
                 <ul class="list-grid row">
@@ -81,9 +83,6 @@
                                     <h3 class="subcategory-title text-center">
                                         <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|escape:'html':'UTF-8'}</a>
                                     </h3>
-                                    {* if $subcategory.description}
-                                      <div>{$subcategory.description}</div>
-                                    {/if *}
                                 </div>
                             </div>
                         </li>
