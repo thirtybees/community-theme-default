@@ -72,7 +72,8 @@
                                              )|escape:'htmlall':'UTF-8'}"
                                              alt="{$subcategory.name|escape:'html':'UTF-8'}"
                                              title="{$subcategory.name|escape:'html':'UTF-8'}"
-                                             style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height}px"
+                                             width="{getWidthSize|intval type='medium_default'}"
+                                             height="{getHeightSize|intval type='medium_default'}"
                                         >
                                     {else}
                                         <img class="replace-2x img-responsive"
