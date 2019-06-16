@@ -23,7 +23,12 @@
           <td class="logo">
             {if $store.has_picture}
               <div class="store-image">
-                <img src="{$img_store_dir}{$store.id_store}-medium_default.jpg"
+                <img src="{Link::getGenericImageLink(
+                         'stores',
+                         $store.id_store,
+                         'medium_default',
+                         (ImageManager::retinaSupport()) ? '2x' : ''
+                     )|escape:'htmlall':'UTF-8'}"
                      alt="{$store.name|escape:'html':'UTF-8'}"
                      style="width: {$mediumSize.width}px; height: {$mediumSize.height}px"
                 >

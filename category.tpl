@@ -64,7 +64,12 @@
                                    title="{$subcategory.name|escape:'html':'UTF-8'}">
                                     {if $subcategory.id_image}
                                         <img class="replace-2x img-responsive"
-                                             src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium_default')|escape:'html':'UTF-8'}"
+                                             src="{Link::getGenericImageLink(
+                                                 'categories',
+                                                 $subcategory.id_image,
+                                                 'medium_default',
+                                                 (ImageManager::retinaSupport()) ? '2x' : ''
+                                             )|escape:'htmlall':'UTF-8'}"
                                              alt="{$subcategory.name|escape:'html':'UTF-8'}"
                                              title="{$subcategory.name|escape:'html':'UTF-8'}"
                                              style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height}px"
