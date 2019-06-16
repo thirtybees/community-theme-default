@@ -60,9 +60,9 @@
                     {foreach from=$subcategories item=subcategory}
                         <li class="col-xs-6 col-sm-4 col-md-3">
                             <div class="thumbnail">
-                                <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}"
-                                   title="{$subcategory.name|escape:'html':'UTF-8'}">
-                                    {if $subcategory.id_image}
+                                {if $subcategory.id_image}
+                                    <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}"
+                                       title="{$subcategory.name|escape:'html':'UTF-8'}">
                                         <img class="replace-2x img-responsive"
                                              src="{Link::getGenericImageLink(
                                                  'categories',
@@ -75,15 +75,8 @@
                                              width="{getWidthSize|intval type='medium_default'}"
                                              height="{getHeightSize|intval type='medium_default'}"
                                         >
-                                    {else}
-                                        <img class="replace-2x img-responsive"
-                                             src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg"
-                                             alt="{$subcategory.name|escape:'html':'UTF-8'}"
-                                             title="{$subcategory.name|escape:'html':'UTF-8'}"
-                                             style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height}px"
-                                        >
-                                    {/if}
-                                </a>
+                                    </a>
+                                {/if}
                                 <div class="caption">
                                     <h3 class="subcategory-title text-center">
                                         <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|escape:'html':'UTF-8'}</a>
