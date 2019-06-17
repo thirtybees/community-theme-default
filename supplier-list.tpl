@@ -48,62 +48,52 @@
       {foreach from=$suppliers_list item=supplier}
         <li class="col-xs-6 col-sm-4 col-md-3">
           <div class="thumbnail">
-            {if !empty($lazy_load)}
-              <noscript>
-                <img src="{Link::getGenericImageLink(
+            <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}" title="{$supplier.name|escape:'html':'UTF-8'}">
+              {if !empty($lazy_load)}
+                <noscript>
+                  <img src="{Link::getGenericImageLink(
+                           'suppliers',
+                           $supplier.id_supplier,
+                           'medium_default',
+                           (ImageManager::retinaSupport()) ? '2x' : ''
+                       )|escape:'htmlall':'UTF-8'}"
+                       alt="{$supplier.name|escape:'htmlall':'UTF-8'}"
+                       width="{$mediumDefaultWidth}"
+                       height="{$mediumDefaultHeight}"
+                  >
+                </noscript>
+              {/if}
+              <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
+                <!--[if IE 9]>
+                <video style="display: none;"><![endif]-->
+                {if !empty($webp)}
+                  <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
+                          data-{/if}srcset="{Link::getGenericImageLink(
+                              'suppliers',
+                              $supplier.id_supplier,
+                              'medium_default',
+                              (ImageManager::retinaSupport()) ? '2x' : '',
+                              true
+                          )|escape:'htmlall':'UTF-8'}"
+                          sizes="1px"
+                          type="image/webp"
+                  />
+                {/if}
+                <!--[if IE 9]></video><![endif]-->
+                <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
+                     data-{/if}srcset="{Link::getGenericImageLink(
                          'suppliers',
                          $supplier.id_supplier,
                          'medium_default',
                          (ImageManager::retinaSupport()) ? '2x' : ''
                      )|escape:'htmlall':'UTF-8'}"
+                     {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
+                     sizes="1px"
                      alt="{$supplier.name|escape:'htmlall':'UTF-8'}"
                      width="{$mediumDefaultWidth}"
                      height="{$mediumDefaultHeight}"
                 >
-              </noscript>
-            {/if}
-            <picture class="img-responsive{if !empty($lazy_load)} tb-lazy-image{/if}">
-              <!--[if IE 9]>
-              <video style="display: none;"><![endif]-->
-              {if !empty($webp)}
-                <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
-                        data-{/if}srcset="{Link::getGenericImageLink(
-                            'suppliers',
-                            $supplier.id_supplier,
-                            'medium_default',
-                            (ImageManager::retinaSupport()) ? '2x' : '',
-                            true
-                        )|escape:'htmlall':'UTF-8'}"
-                        sizes="1px"
-                        type="image/webp"
-                />
-              {/if}
-              <!--[if IE 9]></video><![endif]-->
-              <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w"
-                   data-{/if}srcset="{Link::getGenericImageLink(
-                       'suppliers',
-                       $supplier.id_supplier,
-                       'medium_default',
-                       (ImageManager::retinaSupport()) ? '2x' : ''
-                   )|escape:'htmlall':'UTF-8'}"
-                   {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
-                   sizes="1px"
-                   alt="{$supplier.name|escape:'htmlall':'UTF-8'}"
-                   width="{$mediumDefaultWidth}"
-                   height="{$mediumDefaultHeight}"
-              >
-            </picture>
-            <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}" title="{$supplier.name|escape:'html':'UTF-8'}">
-              <img class="img-responsive"
-                   src="{Link::getGenericImageLink(
-                       'suppliers',
-                       $supplier.id_supplier,
-                       'medium_default',
-                       (ImageManager::retinaSupport()) ? '2x' : ''
-                   )|escape:'htmlall':'UTF-8'}"
-                   alt="{$supplier.name|escape:'html':'UTF-8'}"
-                   style="width: {$mediumSize.width|intval}px; height: {$mediumSize.height|intval}px"
-              >
+              </picture>
             </a>
             <div class="caption">
               <h3 class="text-center">
