@@ -2,7 +2,18 @@
   <div id="scenes">
     <div>
       {foreach $scenes as $scene_key=>$scene}
-        <div class="screen_scene" id="screen_scene_{$scene->id_scene}" style="background:transparent url({$base_dir}img/scenes/{$scene->id_scene}-scene_default.jpg); height:{$largeSceneImageType.height|intval}px; width:{$largeSceneImageType.width|intval}px;{if !$scene@first} display:none;{/if}">
+        <div id="screen_scene_{$scene->id_scene}"
+             class="screen_scene"
+             style="background:transparent url({Link::getGenericImageLink(
+                 'scenes',
+                 $scene->id_scene,
+                 'scene_default',
+                 (ImageManager::retinaSupport()) ? '2x' : ''
+             )|escape:'htmlall':'UTF-8'});
+             height: {$largeSceneImageType.height|intval}px;
+             width: {$largeSceneImageType.width|intval}px;
+             {if !$scene@first} display:none;{/if}"
+        >
           {foreach $scene->products as $product_key=>$product}
             {if isset($product.id_image)}
               {assign var=imageIds value="`$product.id_product`-`$product.id_image`"}
@@ -72,7 +83,16 @@
             {foreach $scenes as $scene}
               <li id="scene_thumb_{$scene->id_scene}" style="{if !$scene@last} padding-right:10px;{/if}">
                 <a style="width:{$thumbSceneImageType.width}px; height:{$thumbSceneImageType.height}px" title="{$scene->name|escape:'html':'UTF-8'}" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" data-id_scene="{$scene->id_scene|intval}" class="scene_thumb">
-                  <img alt="{$scene->name|escape:'html':'UTF-8'}" src="{$content_dir}img/scenes/thumbs/{$scene->id_scene}-m_scene_default.jpg" width="{$thumbSceneSize.width}" height="{$thumbSceneSize.height}">
+                  <img alt="{$scene->name|escape:'html':'UTF-8'}"
+                       src="{Link::getGenericImageLink(
+                           'scenes_thumbs',
+                           $scene->id_scene,
+                           'm_scene_default',
+                           (ImageManager::retinaSupport()) ? '2x' : ''
+                       )|escape:'htmlall':'UTF-8'}"
+                       width="{$thumbSceneSize.width|intval}"
+                       height="{$thumbSceneSize.height|intval}"
+                  >
                 </a>
               </li>
             {/foreach}
