@@ -42,11 +42,6 @@
     <meta meta_page="favicon" left="1" right="0"/>
     <meta meta_page="getfile" left="1" right="0"/>
     <meta meta_page="module-blocknewsletter-verification" left="1" right="0"/>
-    <meta meta_page="module-blockwishlist-buywishlist" left="1" right="0"/>
-    <meta meta_page="module-blockwishlist-managewishlist" left="1" right="0"/>
-    <meta meta_page="module-blockwishlist-mywishlist" left="1" right="0"/>
-    <meta meta_page="module-blockwishlist-sendwishlist" left="1" right="0"/>
-    <meta meta_page="module-blockwishlist-view" left="1" right="0"/>
     <meta meta_page="order-detail" left="1" right="0"/>
     <meta meta_page="order-return" left="1" right="0"/>
     <meta meta_page="pagenotfound" left="1" right="0"/>
@@ -87,7 +82,6 @@
     <module action="enable" name="homefeatured"/>
     <module action="enable" name="productpaymentlogos"/>
     <module action="enable" name="socialsharing"/>
-    <module action="enable" name="blockwishlist"/>
     <module action="enable" name="productcomments"/>
     <module action="enable" name="sendtoafriend"/>
     <module action="enable" name="themeconfigurator"/>
@@ -98,6 +92,7 @@
     <module action="disable" name="blockreinsurance"/>
     <module action="disable" name="blockrss"/>
     <module action="disable" name="blocksharefb"/>
+    <module action="disable" name="blockwishlist"/>
     <module action="disable" name="beesblog"/>
     <module action="disable" name="cookiebot"/>
     <module action="disable" name="crossselling"/>
@@ -267,14 +262,6 @@
       <hook module="themeconfigurator" hook="displayBackOfficeHeader" position="1"/>
       <hook module="themeconfigurator" hook="displayTopColumn" position="2"/>
       <hook module="themeconfigurator" hook="actionObjectLanguageAddAfter" position="2"/>
-      <hook module="blockwishlist" hook="displayHeader" position="31"/>
-      <hook module="blockwishlist" hook="actionCartSave" position="1"/>
-      <hook module="blockwishlist" hook="displayTop" position="7"/>
-      <hook module="blockwishlist" hook="displayAdminCustomers" position="1"/>
-      <hook module="blockwishlist" hook="displayCustomerAccount" position="1"/>
-      <hook module="blockwishlist" hook="displayProductButtons" position="1"/>
-      <hook module="blockwishlist" hook="displayMyAccountBlock" position="1"/>
-      <hook module="blockwishlist" hook="displayProductListFunctionalButtons" position="1"/>
       <hook module="productcomments" hook="displayHeader" position="32"/>
       <hook module="productcomments" hook="displayRightColumnProduct" position="2"/>
       <hook module="productcomments" hook="displayProductTab" position="1"/>
