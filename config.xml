@@ -82,7 +82,6 @@
     <module action="enable" name="homefeatured"/>
     <module action="enable" name="productpaymentlogos"/>
     <module action="enable" name="socialsharing"/>
-    <module action="enable" name="productcomments"/>
     <module action="enable" name="sendtoafriend"/>
     <module action="enable" name="themeconfigurator"/>
     <module action="disable" name="advancedeucompliance"/>
@@ -101,6 +100,7 @@
     <module action="disable" name="mailalerts"/>
     <module action="disable" name="nocaptcharecaptcha"/>
     <module action="disable" name="loyalty"/>
+    <module action="disable" name="productcomments"/>
     <module action="disable" name="productscategory"/>
     <module action="disable" name="producttooltip"/>
     <module action="disable" name="referralprogram"/>
@@ -262,12 +262,6 @@
       <hook module="themeconfigurator" hook="displayBackOfficeHeader" position="1"/>
       <hook module="themeconfigurator" hook="displayTopColumn" position="2"/>
       <hook module="themeconfigurator" hook="actionObjectLanguageAddAfter" position="2"/>
-      <hook module="productcomments" hook="displayHeader" position="32"/>
-      <hook module="productcomments" hook="displayRightColumnProduct" position="2"/>
-      <hook module="productcomments" hook="displayProductTab" position="1"/>
-      <hook module="productcomments" hook="displayProductTabContent" position="1"/>
-      <hook module="productcomments" hook="displayProductComparison" position="1"/>
-      <hook module="productcomments" hook="displayProductListReviews" position="1"/>
       <hook module="sendtoafriend" hook="displayHeader" position="33"/>
       <hook module="sendtoafriend" hook="displayLeftColumnProduct" position="1"/>
     </hooks>
