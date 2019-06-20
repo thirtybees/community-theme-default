@@ -82,7 +82,6 @@
     <module action="enable" name="homefeatured"/>
     <module action="enable" name="productpaymentlogos"/>
     <module action="enable" name="socialsharing"/>
-    <module action="enable" name="sendtoafriend"/>
     <module action="enable" name="themeconfigurator"/>
     <module action="disable" name="advancedeucompliance"/>
     <module action="disable" name="blockcustomerprivacy"/>
@@ -104,6 +103,7 @@
     <module action="disable" name="productscategory"/>
     <module action="disable" name="producttooltip"/>
     <module action="disable" name="referralprogram"/>
+    <module action="disable" name="sendtoafriend"/>
     <module action="disable" name="tawkto"/>
     <hooks>
       <hook module="socialsharing" hook="displayHeader" position="1"/>
@@ -262,8 +262,6 @@
       <hook module="themeconfigurator" hook="displayBackOfficeHeader" position="1"/>
       <hook module="themeconfigurator" hook="displayTopColumn" position="2"/>
       <hook module="themeconfigurator" hook="actionObjectLanguageAddAfter" position="2"/>
-      <hook module="sendtoafriend" hook="displayHeader" position="33"/>
-      <hook module="sendtoafriend" hook="displayLeftColumnProduct" position="1"/>
     </hooks>
   </modules>
   <images>
