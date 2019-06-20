@@ -9,7 +9,7 @@
       {/if}
       {if !empty($blockcontactinfos_address)}
         <li>
-          {$blockcontactinfos_address|escape:'html':'UTF-8'}
+          {$blockcontactinfos_address|escape:'html':'UTF-8'|nl2br}
         </li>
       {/if}
       {if !empty($blockcontactinfos_phone)}
