@@ -48,6 +48,11 @@
     <meta meta_page="pdf-invoice" left="1" right="0"/>
     <meta meta_page="pdf-order-return" left="1" right="0"/>
     <meta meta_page="pdf-order-slip" left="1" right="0"/>
+    <meta meta_page="category" left="1" right="0"/>
+    <meta meta_page="changecurrency" left="1" right="0"/>
+    <meta meta_page="cms" left="1" right="0"/>
+    <meta meta_page="product" left="0" right="0"/>
+    <meta meta_page="statistics" left="1" right="0"/>
   </metas>
   <modules>
     <module action="enable" name="blockbanner"/>
