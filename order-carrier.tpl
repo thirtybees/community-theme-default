@@ -61,10 +61,10 @@
                           {if $option.unique_carrier}
                             {foreach $option.carrier_list as $carrier}
                               <strong>{$carrier.instance->name|escape:'htmlall':'UTF-8'}</strong>
+                              {if isset($carrier.instance->delay[$cookie->id_lang])}
+                                <br>{l s='Delivery time:'}&nbsp;{$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
+                              {/if}
                             {/foreach}
-                            {if isset($carrier.instance->delay[$cookie->id_lang])}
-                              <br>{l s='Delivery time:'}&nbsp;{$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
-                            {/if}
                           {/if}
                           {if count($option_list) > 1}
                             <br>
