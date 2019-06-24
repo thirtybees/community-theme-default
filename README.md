@@ -8,9 +8,5 @@
 ## Requirements
 This mobile responsive community theme runs on thirty bees shopping cart. Read the main [**software requirements**](https://github.com/thirtybees/thirtybees#requirements "thirty bees shopping cart requirements") for this shopping cart.
 
-## Documentation
-All the instructions you will need can be found in the [**documents folder**](docs/ "Mobile Responsive Community Theme Documentation").
-
-
 ## Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md)
