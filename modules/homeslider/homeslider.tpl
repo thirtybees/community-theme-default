@@ -15,7 +15,7 @@
                 >
               </a>
               {if isset($slide.description) && trim($slide.description) != ''}
-                <div class="homeslider-wrapper hid1den-xs">
+                <div class="homeslider-wrapper hidden-xs">
                   <div class="homeslider-description">{$slide.description}</div>
                 </div>
               {/if}
