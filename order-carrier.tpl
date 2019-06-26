@@ -42,7 +42,9 @@
                     <table class="resume table table-bordered{if !$option.unique_carrier} hide{/if}">
                       <tr>
                         <td class="delivery_option_radio">
-                          <input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if}>
+                          <label for="delivery_option_{$id_address|intval}_{$option@index}">
+                            <input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if}>
+                          </label>
                         </td>
                         <td class="delivery_option_logo">
                           <label for="delivery_option_{$id_address|intval}_{$option@index}">
