@@ -89,6 +89,11 @@
     <module action="enable" name="socialsharing"/>
     <module action="enable" name="themeconfigurator"/>
     <module action="disable" name="advancedeucompliance"/>
+    <module action="disable" name="beesblog"/>
+    <module action="disable" name="beesblogcategories"/>
+    <module action="disable" name="beesblogpopularposts"/>
+    <module action="disable" name="beesblogrecentposts"/>
+    <module action="disable" name="beesblogrelatedproducts"/>
     <module action="disable" name="blockcustomerprivacy"/>
     <module action="disable" name="blocklink"/>
     <module action="disable" name="blockpermanentlinks"/>
@@ -96,7 +101,6 @@
     <module action="disable" name="blockrss"/>
     <module action="disable" name="blocksharefb"/>
     <module action="disable" name="blockwishlist"/>
-    <module action="disable" name="beesblog"/>
     <module action="disable" name="cookiebot"/>
     <module action="disable" name="crossselling"/>
     <module action="disable" name="dateofdelivery"/>
