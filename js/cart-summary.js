@@ -762,6 +762,8 @@ function updateCartSummary(json) {
     }
     if (!hasDeliveryAddress)
       $('.cart_total_delivery').hide();
+    if (json.carrier.id == null && !json.free_ship)
+      $('.cart_total_delivery').hide();
   }
 
   if (json.total_wrapping > 0) {
