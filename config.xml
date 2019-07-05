@@ -114,6 +114,7 @@
     <module action="disable" name="referralprogram"/>
     <module action="disable" name="sendtoafriend"/>
     <module action="disable" name="tawkto"/>
+    <module action="disable" name="tbhtmlblock"/>
     <module action="disable" name="thememanager"/>
     <hooks>
       <hook module="socialsharing" hook="displayHeader" position="1"/>
