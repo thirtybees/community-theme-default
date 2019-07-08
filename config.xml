@@ -58,16 +58,15 @@
     <module action="enable" name="blockbanner"/>
     <module action="enable" name="blockbestsellers"/>
     <module action="enable" name="blockcart"/>
-    <module action="enable" name="blocksocial"/>
     <module action="enable" name="blockcategories"/>
-    <module action="enable" name="blockcurrencies"/>
-    <module action="enable" name="blockfacebook"/>
-    <module action="enable" name="blocklanguages"/>
-    <module action="enable" name="blocklayered"/>
     <module action="enable" name="blockcms"/>
     <module action="enable" name="blockcmsinfo"/>
     <module action="enable" name="blockcontact"/>
     <module action="enable" name="blockcontactinfos"/>
+    <module action="enable" name="blockcurrencies"/>
+    <module action="enable" name="blockfacebook"/>
+    <module action="enable" name="blocklanguages"/>
+    <module action="enable" name="blocklayered"/>
     <module action="enable" name="blockmanufacturer"/>
     <module action="enable" name="blockmyaccount"/>
     <module action="enable" name="blockmyaccountfooter"/>
@@ -75,6 +74,7 @@
     <module action="enable" name="blocknewsletter"/>
     <module action="enable" name="blockpaymentlogo"/>
     <module action="enable" name="blocksearch"/>
+    <module action="enable" name="blocksocial"/>
     <module action="enable" name="blockspecials"/>
     <module action="enable" name="blockstore"/>
     <module action="enable" name="blocksupplier"/>
@@ -83,8 +83,8 @@
     <module action="enable" name="blockuserinfo"/>
     <module action="enable" name="blockviewed"/>
     <module action="enable" name="ctconfiguration"/>
-    <module action="enable" name="homeslider"/>
     <module action="enable" name="homefeatured"/>
+    <module action="enable" name="homeslider"/>
     <module action="enable" name="productpaymentlogos"/>
     <module action="enable" name="socialsharing"/>
     <module action="enable" name="themeconfigurator"/>
@@ -105,9 +105,9 @@
     <module action="disable" name="crossselling"/>
     <module action="disable" name="dateofdelivery"/>
     <module action="disable" name="eucookieconsent"/>
+    <module action="disable" name="loyalty"/>
     <module action="disable" name="mailalerts"/>
     <module action="disable" name="nocaptcharecaptcha"/>
-    <module action="disable" name="loyalty"/>
     <module action="disable" name="productcomments"/>
     <module action="disable" name="productscategory"/>
     <module action="disable" name="producttooltip"/>
