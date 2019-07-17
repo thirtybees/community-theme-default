@@ -28,13 +28,6 @@
         </a>
     {/if}
 
-    {if !empty($google_plus_url)}
-        <a href="{$google_plus_url|escape:html:'UTF-8'}" title="{l s='Google Plus' mod='blocksocial'}" target="_blank"
-           rel="noopener">
-            <i class="icon icon-google-plus icon-2x icon-fw"></i>
-        </a>
-    {/if}
-
     {if !empty($pinterest_url)}
         <a href="{$pinterest_url|escape:html:'UTF-8'}" title="{l s='Pinterest' mod='blocksocial'}" target="_blank"
            rel="noopener">
