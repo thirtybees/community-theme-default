@@ -55,6 +55,7 @@
     <meta meta_page="statistics" left="1" right="0"/>
   </metas>
   <modules>
+    <module action="enable" name="blockbanner"/>
     <module action="enable" name="blockbestsellers"/>
     <module action="enable" name="blockcart"/>
     <module action="enable" name="blockcategories"/>
@@ -93,7 +94,6 @@
     <module action="disable" name="beesblogpopularposts"/>
     <module action="disable" name="beesblogrecentposts"/>
     <module action="disable" name="beesblogrelatedproducts"/>
-    <module action="disable" name="blockbanner"/>
     <module action="disable" name="blockcustomerprivacy"/>
     <module action="disable" name="blocklink"/>
     <module action="disable" name="blockpermanentlinks"/>
@@ -117,6 +117,9 @@
     <module action="disable" name="tbhtmlblock"/>
     <module action="disable" name="thememanager"/>
     <hooks>
+      <hook module="blockbanner" hook="displayHeader" position="2"/>
+      <hook module="blockbanner" hook="actionObjectLanguageAddAfter" position="1"/>
+      <hook module="blockbanner" hook="displayBanner" position="1"/>
       <hook module="blockbestsellers" hook="displayHeader" position="3"/>
       <hook module="blockbestsellers" hook="actionOrderStatusPostUpdate" position="1"/>
       <hook module="blockbestsellers" hook="actionProductAdd" position="1"/>
