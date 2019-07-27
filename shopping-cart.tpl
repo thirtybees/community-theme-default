@@ -223,6 +223,9 @@
           </tr>
         {/if}
       {/if}
+      <tr class="shipping_error" style="display:none">
+          <td colspan="{$col_span_subtotal+2}" class="text-left" style="width: 1px;"></td>
+      </tr>
       <tr class="cart_total_voucher{if $total_discounts == 0} unvisible{/if}">
         <td colspan="{$col_span_subtotal}" class="text-right">
           {if $display_tax_label}

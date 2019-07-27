@@ -245,37 +245,39 @@
             <div class="hook_extracarrier" id="HOOK_EXTRACARRIER_{$id_address}">
               {if isset($HOOK_EXTRACARRIER_ADDR) &&  isset($HOOK_EXTRACARRIER_ADDR.$id_address)}{$HOOK_EXTRACARRIER_ADDR.$id_address}{/if}
             </div>
-            {foreachelse}
-            {assign var='errors' value=' '|explode:''}
-            <div class="alert alert-warning" id="noCarrierWarning">
-              {foreach $cart->getDeliveryAddressesWithoutCarriers(true, $errors) as $address}
-                {if empty($address->alias)}
-                  {l s='No carriers available.'}
-                {else}
-                  {assign var='flag_error_message' value=false}
-                  {foreach $errors as $error}
-                    {if $error == Carrier::SHIPPING_WEIGHT_EXCEPTION}
-                      {$flag_error_message = true}
-                      {l s='The product selection cannot be delivered by the available carrier(s): it is too heavy. Please amend your cart to lower its weight.'}
-                    {elseif $error == Carrier::SHIPPING_PRICE_EXCEPTION}
-                      {$flag_error_message = true}
-                      {l s='The product selection cannot be delivered by the available carrier(s). Please amend your cart.'}
-                    {elseif $error == Carrier::SHIPPING_SIZE_EXCEPTION}
-                      {$flag_error_message = true}
-                      {l s='The product selection cannot be delivered by the available carrier(s): its size does not fit. Please amend your cart to reduce its size.'}
+          {foreachelse}
+            {if $opc}
+              {assign var='errors' value=[]}
+              <div class="alert alert-warning" id="noCarrierWarning">
+                {foreach $cart->getDeliveryAddressesWithoutCarriers(true, $errors) as $address}
+                  {if empty($address->alias)}
+                    {l s='No carriers available.'}
+                  {else}
+                    {assign var='flag_error_message' value=false}
+                    {foreach $errors as $error}
+                      {if $error == Carrier::SHIPPING_WEIGHT_EXCEPTION}
+                        {$flag_error_message = true}
+                        {l s='The product selection cannot be delivered by the available carrier(s): it is too heavy. Please amend your cart to lower its weight.'}
+                      {elseif $error == Carrier::SHIPPING_PRICE_EXCEPTION}
+                        {$flag_error_message = true}
+                        {l s='The product selection cannot be delivered by the available carrier(s). Please amend your cart.'}
+                      {elseif $error == Carrier::SHIPPING_SIZE_EXCEPTION}
+                        {$flag_error_message = true}
+                        {l s='The product selection cannot be delivered by the available carrier(s): its size does not fit. Please amend your cart to reduce its size.'}
+                      {/if}
+                    {/foreach}
+                    {if !$flag_error_message}
+                      {l s='No carriers available for the address "%s".' sprintf=$address->alias}
                     {/if}
-                  {/foreach}
-                  {if !$flag_error_message}
-                    {l s='No carriers available for the address "%s".' sprintf=$address->alias}
                   {/if}
-                {/if}
-                {if !$address@last}
-                  <br>
-                {/if}
-                {foreachelse}
-                {l s='No carriers available.'}
-              {/foreach}
-            </div>
+                  {if !$address@last}
+                    <br>
+                  {/if}
+                  {foreachelse}
+                  {l s='No carriers available.'}
+                {/foreach}
+              </div>
+            {/if}
           {/foreach}
         {/if}
       </div>
