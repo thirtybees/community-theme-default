@@ -762,6 +762,17 @@ function updateCartSummary(json) {
     }
     if (!hasDeliveryAddress)
       $('.cart_total_delivery').hide();
+    if (json.carrier.id == null && !json.free_ship)
+      $('.cart_total_delivery').hide();
+  }
+  if(json.errors.length !== 0) {
+      $('.shipping_error > td').html(json.errors.join('<br>'));
+      $('#cart_voucher').attr('rowspan', parseInt($('#cart_voucher').attr('rowspan'))+1);
+      $('.shipping_error').show();
+  } else if($('.shipping_error:visible').length != 0) {
+      $('.shipping_error').hide();
+      $('#cart_voucher').attr('rowspan', parseInt($('#cart_voucher').attr('rowspan'))-1);
+      $('.shipping_error > td').html('');
   }
 
   if (json.total_wrapping > 0) {
