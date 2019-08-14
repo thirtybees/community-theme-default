@@ -38,8 +38,10 @@ function bindCheckbox() {
     $('#opc_invoice_address').slideDown('slow');
     if ($('#company_invoice').val() == '')
       $('#vat_number_block_invoice').hide();
-  } else
+  } else {
     $('#opc_invoice_address').slideUp('slow');
+  }
+  updateState('invoice');
 }
 
 function bindZipcode() {
@@ -86,6 +88,15 @@ function bindStateInputAndUpdate() {
 function updateState(suffix) {
   var selectId = '#id_state' + (typeof suffix !== 'undefined' ? '_' + suffix : '');
   var select = $(selectId);
+
+  if (suffix === 'invoice') {
+    var invoiceAddressShown = ($('#invoice_address:checked').length > 0);
+    if (! invoiceAddressShown) {
+      select.removeAttr('required');
+      return;
+    }
+  }
+
   $(selectId + ' option:not(:first-child)').remove();
   if (typeof countries !== 'undefined')
     var state_list = states[parseInt($('#id_country' + (typeof suffix !== 'undefined' ? '_' + suffix : '')).val())];
