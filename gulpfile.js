@@ -2,16 +2,13 @@ var gulp        = require('gulp');
 var del         = require('del');
 var mkdirp      = require('mkdirp');
 var glob        = require('glob-all');
-var fs          = require('fs-extra');
-var zip         = require('gulp-zip');
+var fs          = require('fs');
 var jscs        = require('gulp-jscs');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 var notify      = require('gulp-notify');
 var bourbon     = require('node-bourbon');
 var gulpif      = require('gulp-if');
-var rename      = require('gulp-rename');
-/** @var {{ themeName, themeModulePrefix, sourcemaps }} options **/
 var options     = require('./package.json').options;
 
 var createFolders = [
@@ -76,7 +73,7 @@ gulp.task('compile-css', function() {
 
 
 gulp.task('watch-sass', function() {
-	gulp.watch('./sass/**/*.scss', ['compile-css']);
+	gulp.watch('./sass/**/*.scss', gulp.series('compile-css'));
 });
 
 gulp.task('clean-up', function() {
@@ -188,4 +185,4 @@ function listBrokenTranslationStrings(smartyTplCode, translationContext) {
 	});
 }
 
-gulp.task('default', ['compile-css']);
+gulp.task('default', gulp.series('compile-css', 'watch-sass'));
