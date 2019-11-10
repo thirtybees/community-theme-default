@@ -132,7 +132,6 @@
       <hook module="blockcart" hook="actionCartListOverride" position="1"/>
       <hook module="blockcart" hook="displayTop" position="2"/>
       <hook module="blockcategories" hook="displayHeader" position="6"/>
-      <hook module="blockcategories" hook="actionAdminLanguagesControllerStatusBefore" position="1"/>
       <hook module="blockcategories" hook="actionAdminMetaControllerUpdate_optionsBefore" position="1"/>
       <hook module="blockcategories" hook="actionCategoryAdd" position="1"/>
       <hook module="blockcategories" hook="actionCategoryDelete" position="1"/>
