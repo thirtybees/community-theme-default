@@ -9,6 +9,7 @@
 
 {$HOOK_ORDER_CONFIRMATION}
 {$HOOK_PAYMENT_RETURN}
+{hook h='displayOrderConfirmationTop'}
 {if $is_guest}
   <p>{l s='Your order ID is:'} <span class="bold">{$id_order_formatted}</span> . {l s='Your order ID has been sent via email.'}</p>
   <p class="cart_navigation clearfix">
@@ -19,3 +20,4 @@
     <a class="btn btn-lg btn-default" href="{$link->getPageLink('history', true)|escape:'html':'UTF-8'}" title="{l s='Go to your order history page'}"><i class="icon icon-chevron-left"></i> {l s='View your order history'}</a>
   </p>
 {/if}
+{hook h='displayOrderConfirmationBelow'}

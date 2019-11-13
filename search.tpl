@@ -21,7 +21,7 @@
     </div>
   {/if}
 </h1>
-
+{hook h='displaySearchTop'}
 {include file="$tpl_dir./errors.tpl"}
 {if !$nbProducts}
   <div class="alert alert-warning">
@@ -63,3 +63,4 @@
     </div>
   </div>
 {/if}
+{hook h='displaySearchBelow'}

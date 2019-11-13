@@ -9,7 +9,7 @@
     </div>
   {/if}
 </h1>
-
+{hook h='displayCartTop'}
 {if isset($account_created)}
   <div class="alert alert-success">
     {l s='Your account has been created.'}
