@@ -1,7 +1,7 @@
 {capture name=path}{l s='New products'}{/capture}
 
 <h1 class="page-heading product-listing">{l s='New products'}</h1>
-
+{hook h='displayNewProductsTop'}
 {if $products}
   <div class="content_sortPagiBar">
     <div class="form-inline sortPagiBar clearfix">
@@ -25,3 +25,4 @@
 {else}
   <div class="alert alert-warning">{l s='No new products.'}</div>
 {/if}
+{hook h='displayNewProductsBelow'}

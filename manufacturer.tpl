@@ -15,7 +15,7 @@
       <h2 class="page-heading">
         {l s='List of products by manufacturer'}&nbsp;{$manufacturer->name|escape:'html':'UTF-8'}
       </h2>
-
+      {hook h='displayManufacturerTop'}
       <div class="content_sortPagiBar clearfix">
         <div class="form-inline sortPagiBar clearfix">
           {include file="./product-sort.tpl"}
@@ -41,3 +41,4 @@
     <div class="alert alert-warning">{l s='No products for this manufacturer.'}</div>
   {/if}
 {/if}
+{hook h='displayManufacturerBelow'}
