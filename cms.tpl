@@ -28,7 +28,7 @@
     {if !empty($cms_category->description)}
       <div class="cms-category-content rte">{$cms_category->description|escape:'html':'UTF-8'}</div>
     {/if}
-
+    {hook h='displayCMSTop'}
     {if !empty($sub_category)}
       <section>
         <h2 class="page-heading">{l s='List of sub categories in %s:' sprintf=$cms_category->name}</h2>
@@ -72,3 +72,4 @@
     {addJsDefL name=adtoken}{$smarty.get.adtoken|escape:'html':'UTF-8'}{/addJsDefL}
   {/if}
 {/strip}
+{hook h='displayCMSBelow'}
