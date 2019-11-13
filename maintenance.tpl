@@ -29,6 +29,6 @@
     {l s='Thanks for your patience.'}
   </p>
 </div>
-
+{hook h='displayMaintenance'}
 </body>
 </html>

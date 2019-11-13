@@ -1,4 +1,5 @@
 <div class="pagenotfound jumbotron text-center">
+  {hook h='displayNotFoundTop'}
   <h2>{l s='This page is not available'}</h2>
   <p>{l s='We\'re sorry, but the Web address you\'ve entered is no longer available.'}</p>
   <p>{l s='To find a product, please type its name in the field below.'}</p>
@@ -14,7 +15,7 @@
     </div>
   </form>
 </div>
-
+{hook h='displayNotFoundBottom'}
 <nav>
   <ul class="pager">
     <li>

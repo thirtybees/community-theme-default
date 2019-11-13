@@ -5,6 +5,7 @@
     <h1 class="page-heading">{l s='Shipping:'}</h1>
     {include file="$tpl_dir./order-steps.tpl"}
     {include file="$tpl_dir./errors.tpl"}
+    {hook h='displayCarrierTop'}
     <form id="form" action="{$link->getPageLink('order', true, NULL, "{if $multi_shipping}multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" method="post" name="carrier_area">
 {else}
   <div id="carrier_area" class="opc-main-block">
@@ -355,6 +356,7 @@
     {/if}
   {/if}
 </div>
+{hook h='displayCarrierBelow'}
 {if !$opc}
   <p class="cart_navigation clearfix">
     <input type="hidden" name="step" value="3">

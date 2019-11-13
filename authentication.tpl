@@ -6,7 +6,7 @@
 {/capture}
 
 <h1 class="page-heading">{if !isset($email_create)}{l s='Authentication'}{else}{l s='Create an account'}{/if}</h1>
-
+{hook h='displayAuthenticationTop'}
 {if isset($back) && preg_match("/^http/", $back)}{assign var='current_step' value='login'}{include file="$tpl_dir./order-steps.tpl"}{/if}
 
 {include file="$tpl_dir./errors.tpl"}
@@ -66,3 +66,4 @@
     {addJsDef email_create=false}
   {/if}
 {/strip}
+{hook h='displayAuthenticationBottom'}

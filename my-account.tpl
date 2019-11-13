@@ -4,7 +4,7 @@
 {if isset($account_created)}
   <div class="alert alert-success">{l s='Your account has been created.'}</div>
 {/if}
-
+{hook h='displayMyAccountTop'}
 <p>{l s='Welcome to your account. Here you can manage all of your personal information and orders.'}</p>
 
 <div id="my-account-menu" class="row">
@@ -33,7 +33,7 @@
     </div>
   {/if}
 </div>
-
+{hook h='displayMyAccountBelow'}
 <nav>
   <ul class="pager">
     <li class="previous">
