@@ -26,7 +26,6 @@
     "scan-translations": "./node_modules/.bin/gulp scan-translations"
   },
   "dependencies": {
-    "compass": "^0.1.1",
     "node-bourbon": "^4.2.8"
   }
 }
