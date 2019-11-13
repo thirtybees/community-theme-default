@@ -1,15 +1,15 @@
-var gulp        	= require('gulp');
-var del         	= require('del');
-var mkdirp      	= require('mkdirp');
-var glob        	= require('glob-all');
-var fs          	= require('fs');
-var jscs        	= require('gulp-jscs');
-var sass        	= require('gulp-sass');
-var autoprefixer 	= require('gulp-autoprefixer');
-var sourcemaps  	= require('gulp-sourcemaps');
-var notify      	= require('gulp-notify');
-var gulpif      	= require('gulp-if');
-var options     	= require('./package.json').options;
+var gulp = require('gulp');
+var del = require('del');
+var mkdirp = require('mkdirp');
+var glob = require('glob-all');
+var fs = require('fs');
+var eslint = require('gulp-eslint');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
+var notify = require('gulp-notify');
+var gulpif = require('gulp-if');
+var options = require('./package.json').options;
 
 var createFolders = [
 	'./cache/',
@@ -116,7 +116,8 @@ gulp.task('format-js', function() {
 		'!./js/autoload/**/*.js',
 		'!./js/debug/**/*.js'
 	])
-		.pipe(jscs({fix: false}))
+		.pipe(eslint())
+		.pipe(eslint.format())
 		.pipe(gulp.dest('./js/'));
 });
 
