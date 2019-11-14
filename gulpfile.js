@@ -8,7 +8,6 @@ var sass        	= require('gulp-sass');
 var autoprefixer 	= require('gulp-autoprefixer');
 var sourcemaps  	= require('gulp-sourcemaps');
 var notify      	= require('gulp-notify');
-var bourbon     	= require('node-bourbon');
 var gulpif      	= require('gulp-if');
 var options     	= require('./package.json').options;
 
@@ -59,7 +58,6 @@ gulp.task('compile-css', function() {
 		.pipe(gulpif(options.sourcemaps, sourcemaps.init()))
 		.pipe(
 			sass({
-				includePaths: bourbon.includePaths,
 				outputStyle: 'expanded',
 				precision: 8
 			}).on('error', sass.logError)

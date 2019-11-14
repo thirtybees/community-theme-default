@@ -479,13 +479,11 @@ th {
 /* Fancybox */
 .fancybox-button--left::after {
   -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .fancybox-button--right::after {
   -webkit-transform: rotate(-135deg);
-  -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
 

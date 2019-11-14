@@ -83,7 +83,7 @@
 }
 
 .blockcategories .ilvl-2 {
-  background-color: #1a1a1a;
+  background-color: #1a1919;
   color: #fff;
   border-color: #ddd;
 }
@@ -127,7 +127,7 @@
 }
 
 .blockcategories .list-group-item-wrapper.active > .ilvl-2 {
-  background-color: #1a1a1a;
+  background-color: #1a1919;
   color: #fff;
   border-color: #ddd;
 }

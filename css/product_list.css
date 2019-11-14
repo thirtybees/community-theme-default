@@ -165,8 +165,6 @@
   border: 1px solid #ccc;
   background-color: #f6f6f6;
   margin-left: -1px;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 

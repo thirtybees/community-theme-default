@@ -31,7 +31,5 @@
     "format-js": "./node_modules/.bin/gulp format-js",
     "scan-translations": "./node_modules/.bin/gulp scan-translations"
   },
-  "dependencies": {
-    "node-bourbon": "^4.2.8"
-  }
+  "dependencies": {}
 }
