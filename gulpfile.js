@@ -1,15 +1,16 @@
-var gulp        = require('gulp');
-var del         = require('del');
-var mkdirp      = require('mkdirp');
-var glob        = require('glob-all');
-var fs          = require('fs');
-var jscs        = require('gulp-jscs');
-var sass        = require('gulp-sass');
-var sourcemaps  = require('gulp-sourcemaps');
-var notify      = require('gulp-notify');
-var bourbon     = require('node-bourbon');
-var gulpif      = require('gulp-if');
-var options     = require('./package.json').options;
+var gulp        	= require('gulp');
+var del         	= require('del');
+var mkdirp      	= require('mkdirp');
+var glob        	= require('glob-all');
+var fs          	= require('fs');
+var jscs        	= require('gulp-jscs');
+var sass        	= require('gulp-sass');
+var autoprefixer 	= require('gulp-autoprefixer');
+var sourcemaps  	= require('gulp-sourcemaps');
+var notify      	= require('gulp-notify');
+var bourbon     	= require('node-bourbon');
+var gulpif      	= require('gulp-if');
+var options     	= require('./package.json').options;
 
 var createFolders = [
 	'./cache/',
@@ -63,6 +64,7 @@ gulp.task('compile-css', function() {
 				precision: 8
 			}).on('error', sass.logError)
 		)
+		.pipe(autoprefixer())
 		.pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
 		.pipe(gulp.dest('./css/'))
 		.pipe(displayNotification({
