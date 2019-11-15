@@ -80,7 +80,6 @@ p.checkbox input[type="checkbox"] {
   cursor: not-allowed;
   opacity: 0.65;
   filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -191,6 +190,11 @@ p.checkbox input[type="checkbox"] {
 .button.ajax_add_to_cart_button:hover {
   background-color: #005f8e;
   border-color: #00476b;
+}
+
+button {
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 ul {
