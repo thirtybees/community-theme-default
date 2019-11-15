@@ -8,7 +8,6 @@ var jscs        = require('gulp-jscs');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 var notify      = require('gulp-notify');
-var bourbon     = require('node-bourbon');
 var gulpif      = require('gulp-if');
 var rename      = require('gulp-rename');
 /** @var {{ themeName, themeModulePrefix, sourcemaps }} options **/
@@ -61,7 +60,6 @@ gulp.task('compile-css', function() {
 		.pipe(gulpif(options.sourcemaps, sourcemaps.init()))
 		.pipe(
 			sass({
-				includePaths: bourbon.includePaths,
 				outputStyle: 'expanded',
 				precision: 8
 			}).on('error', sass.logError)

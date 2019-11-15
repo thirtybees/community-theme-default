@@ -66,6 +66,5 @@ $font-icon     : 'FontAwesome';
 $fa-css-prefix : icon;
 $fa-font-path: "../fonts/font-awesome";
 
-// Custom mixins + bourbon
-@import "bourbon";
+// Custom mixins
 @import "vendor_mixins";
