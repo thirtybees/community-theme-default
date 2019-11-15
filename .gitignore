@@ -53,5 +53,5 @@ jspm_packages
 yarn.lock
 .idea/
 
-#bug fix for jscsrc
-js/gulpfile.js
+# NPM lock file
+package-lock.json

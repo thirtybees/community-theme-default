@@ -22,9 +22,9 @@ npm install
 ```
 npm run compile-css
 ```
-### Building JavaScript
+### Linting JavaScript
 ```
-npm run format-js
+npm run lint-js
 ```
 
 ## Contributing

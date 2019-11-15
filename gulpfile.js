@@ -107,7 +107,7 @@ gulp.task('copy-index', function(callback) {
 	});
 });
 
-gulp.task('format-js', function() {
+gulp.task('lint-js', function() {
 
 	return gulp.src([
 		'./gulpfile.js',
@@ -117,8 +117,7 @@ gulp.task('format-js', function() {
 		'!./js/debug/**/*.js'
 	])
 		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(gulp.dest('./js/'));
+		.pipe(eslint.format());
 });
 
 
