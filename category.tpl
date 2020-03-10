@@ -71,7 +71,7 @@
                 <div id="category-description" class="rte">{$category->description}</div>
             {/if}
         </section>
-        {if $subcategories
+        {if !empty($subcategories)
             && ($display_subcategories || ! isset($display_subcategories))}
             <section id="category-subcategories">
                 <h2 class="page-heading">{$category->name|escape:'html':'UTF-8'} {l s='Subcategories'}</h2>
