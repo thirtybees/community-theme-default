@@ -20,7 +20,7 @@ function showOrder(mode, var_content, file) {
         bindOrderDetailForm();
 
         $blockOrderDetail.fadeIn(function() {
-          $.scrollTo($blockOrderDetail, 1000, {offset: -(50 + 10)});
+          $.scrollTo($blockOrderDetail, 1000, {axis:'y', offset: -(50 + 10)});
         });
       });
     }
