@@ -85,7 +85,34 @@
   {/if}
 
   {if $is_logged AND !$is_guest}
-    {include file="$tpl_dir./order-address-advanced.tpl"}
+    <div class="row">
+        {if $delivery->id}
+            <div class="col-xs-12 col-sm-6"{if !$have_non_virtual_products} style="display: none;"{/if}>
+                <ul id="delivery_address" class="address item box">
+                    <li><h3 class="page-subheading">{l s='Delivery address'}&nbsp;<span class="address_alias">({$delivery->alias})</span></h3></li>
+                    {if $delivery->company}<li class="address_company">{$delivery->company|escape:'html':'UTF-8'}</li>{/if}
+                    <li class="address_name">{$delivery->firstname|escape:'html':'UTF-8'} {$delivery->lastname|escape:'html':'UTF-8'}</li>
+                    <li class="address_address1">{$delivery->address1|escape:'html':'UTF-8'}</li>
+                    {if $delivery->address2}<li class="address_address2">{$delivery->address2|escape:'html':'UTF-8'}</li>{/if}
+                    <li class="address_city">{$delivery->postcode|escape:'html':'UTF-8'} {$delivery->city|escape:'html':'UTF-8'}</li>
+                    <li class="address_country">{$delivery->country|escape:'html':'UTF-8'} {if $delivery->id_state }({$delivery_state->name|escape:'html':'UTF-8'}){/if}</li>
+                </ul>
+            </div>
+        {/if}
+        {if $invoice->id}
+            <div class="col-xs-12 col-sm-6">
+                <ul id="invoice_address" class="address alternate_item box">
+                    <li><h3 class="page-subheading">{l s='Invoice address'}&nbsp;<span class="address_alias">({$invoice->alias})</span></h3></li>
+                    {if $invoice->company}<li class="address_company">{$invoice->company|escape:'html':'UTF-8'}</li>{/if}
+                    <li class="address_name">{$invoice->firstname|escape:'html':'UTF-8'} {$invoice->lastname|escape:'html':'UTF-8'}</li>
+                    <li class="address_address1">{$invoice->address1|escape:'html':'UTF-8'}</li>
+                    {if $invoice->address2}<li class="address_address2">{$invoice->address2|escape:'html':'UTF-8'}</li>{/if}
+                    <li class="address_city">{$invoice->postcode|escape:'html':'UTF-8'} {$invoice->city|escape:'html':'UTF-8'}</li>
+                    <li class="address_country">{$invoice->country|escape:'html':'UTF-8'} {if $invoice->id_state}({$invoice->name|escape:'html':'UTF-8'}){/if}</li>
+                </ul>
+            </div>
+        {/if}
+    </div>
   {elseif $opc}
     {include file="$tpl_dir./order-opc-new-account-advanced.tpl"}
   {/if}
@@ -111,5 +138,5 @@
     {/if}
   {/if}
 
-  {include file="$tpl_dir./shopping-cart-advanced.tpl"}
+  {include file="$tpl_dir./shopping-cart-advanced.tpl" cannotModify=1 noDeleteButton=1}
 {/if}
