@@ -223,7 +223,7 @@
               {if isset($HOOK_EXTRACARRIER_ADDR) &&  isset($HOOK_EXTRACARRIER_ADDR.$id_address)}{$HOOK_EXTRACARRIER_ADDR.$id_address}{/if}
             </div>
             {foreachelse}
-            {assign var='errors' value=' '|explode:''}
+            {assign var='errors' value=[]}
             <div class="alert alert-warning" id="noCarrierWarning">
               {foreach $cart->getDeliveryAddressesWithoutCarriers(true, $errors) as $address}
                 {if empty($address->alias)}
