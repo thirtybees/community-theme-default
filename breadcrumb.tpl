@@ -2,6 +2,7 @@
 
 {if !empty($path)}
   {* Extract bradcrumb links from anchors *}
+  {assign var='matches' value=[]}
   {$matchCount = preg_match_all('/<a.+?href="(.+?)"[^>]*>([^<]*)<\/a>/', $path, $matches)}
   {$breadcrumbs = []}
   {for $i=0; $i<$matchCount; $i++}
