@@ -6,14 +6,14 @@
         <div class="comment row no-gutter" itemprop="review" itemscope itemtype="https://schema.org/Review">
 
           <meta itemprop="datePublished" content="{$comment.date_add|escape:'html':'UTF-8'|substr:0:10}">
-          <meta itemprop="worstRating" content = "0">
-          <meta itemprop="ratingValue" content = "{$comment.grade|escape:'html':'UTF-8'}">
-          <meta itemprop="bestRating" content = "5">
 
           <div class="comment_author col-sm-3 col-md-2">
             <div class="form-group">
               <div><b>{l s='Grade' mod='productcomments'}</b></div>
               <div class="star_content clearfix"  itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                <meta itemprop="worstRating" content = "0">
+                <meta itemprop="ratingValue" content="{$comment.grade|escape:'html':'UTF-8'}">
+                <meta itemprop="bestRating" content = "5">
                 {section name="i" start=0 loop=5 step=1}
                   {if $comment.grade <= $smarty.section.i.index}
                     <div class="star"></div>
