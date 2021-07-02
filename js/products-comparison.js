@@ -64,9 +64,10 @@ function reloadProductComparison() {
     $.ajax({
       url: baseUri + '?controller=products-comparison&ajax=1&action=remove&id_product=' + id_product,
       cache: false,
+      success: function() {
+        window.location.search = '?' + $.param(params);
+      }
     });
-
-    window.location.search = '?' + $.param(params);
   });
 }
 
