@@ -111,5 +111,5 @@
     {/if}
   {/if}
 
-  {include file="$tpl_dir./shopping-cart-advanced.tpl"}
+  {include file="$tpl_dir./shopping-cart-advanced.tpl" cannotModify=1}
 {/if}
