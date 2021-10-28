@@ -1,4 +1,4 @@
-{if isset($wishlists) && count($wishlists) > 1}
+{if isset($wishlists) && is_array($wishlists) && count($wishlists) > 1}
   <div class="wishlist">
     <a class="wishlist_button_list" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Wishlist' mod='blockwishlist'}" data-placement="top">
       <i class="icon icon-star-o"></i> {l s='Add to wishlist' mod='blockwishlist'}

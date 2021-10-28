@@ -1,5 +1,5 @@
 <div class="buttons_bottom_block form-group hidden-print">
-  {if isset($wishlists) && count($wishlists) > 1}
+  {if isset($wishlists) && is_array($wishlists) && count($wishlists) > 1}
     <a id="wishlist_button" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Wishlist' mod='blockwishlist'}" data-placement="top">
       <i class="icon icon-fw icon-star-o"></i> <b>{l s='Add to wishlist' mod='blockwishlist'}</b>
     </a>
