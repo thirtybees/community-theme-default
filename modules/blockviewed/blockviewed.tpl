@@ -12,26 +12,26 @@
                             >
                               {if !empty($lazy_load)}
                                 <noscript>
-                                  <img src="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', null, ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
+                                  <img src="{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small', null, ImageManager::retinaSupport())}"
                                        alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
-                                       width="{getWidthSize|intval type='small_default'}"
-                                       height="{getHeightSize|intval type='small_default'}"
+                                       width="{getWidthSize|intval type='small'}"
+                                       height="{getHeightSize|intval type='small'}"
                                   >
                                 </noscript>
                               {/if}
                               <picture {if !empty($lazy_load)}class="tb-lazy-image"{/if}>
                                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                                 {if !empty($webp)}
-                                  <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', 'webp', ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.webp{/if}"
+                                  <source {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small', 'webp', ImageManager::retinaSupport())}"
                                           type="image/webp"
                                   >
                                 {/if}
                                 <!--[if IE 9]></video><![endif]-->
-                                <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default', null, ImageManager::retinaSupport())}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}"
+                                <img {if !empty($lazy_load)}srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII= 1w" data-{/if}srcset="{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small', null, ImageManager::retinaSupport())}"
                                      {if !empty($lazy_load)}src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="{/if}
                                      alt="{$viewedProduct->legend|escape:'html':'UTF-8'}"
-                                     width="{getWidthSize|intval type='small_default'}"
-                                     height="{getHeightSize|intval type='small_default'}"
+                                     width="{getWidthSize|intval type='small'}"
+                                     height="{getHeightSize|intval type='small'}"
                                 >
                               </picture>
                             </a>
