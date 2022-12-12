@@ -5,10 +5,15 @@
       <ul id="homeslider"{if isset($smarty.capture.height) && $smarty.capture.height} style="max-height:{$smarty.capture.height}px;"{/if}>
         {foreach from=$homeslider_slides item=slide}
           {if $slide.active}
+            {if isset($slide.imageUrl)}
+              {$slideImageUrl = $slide.imageUrl}
+            {else}
+              {$slideImageUrl = "`$smarty.const._MODULE_DIR_`homeslider/images/`$slide.image`"}
+            {/if}
             <li class="homeslider-container">
               <a href="{$slide.url|escape:'html':'UTF-8'}" title="{$slide.legend|escape:'html':'UTF-8'}">
                 <img  class="img-responsive"
-                      src="{$link->getMediaLink("`$smarty.const._MODULE_DIR_`homeslider/images/`$slide.image|escape:'htmlall':'UTF-8'`")}"
+                      src="{$link->getMediaLink($slideImageUrl)|escape:'htmlall':'UTF-8'}"
                       {if isset($slide.size) && $slide.size} {$slide.size}{/if}
                       alt="{$slide.legend|escape:'htmlall':'UTF-8'}"
                       style="width: 100%; height: 100%"
