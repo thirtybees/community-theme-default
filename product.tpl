@@ -775,8 +775,8 @@
     {/if}
     {addJsDef oosHookJsCodeFunctions=Array()}
     {addJsDef productHasAttributes=isset($groups)|boolval}
-    {addJsDef productPriceTaxExcluded=($product->getPriceWithoutReduct(true)|default:'null' - $product->ecotax)|floatval}
-    {addJsDef productPriceTaxIncluded=($product->getPriceWithoutReduct(false)|default:'null' - $product->ecotax * (1 + $ecotaxTax_rate / 100))|floatval}
+    {addJsDef productPriceTaxExcluded=floatval($product->getPriceWithoutReduct(true)) - floatval($product->ecotax)}
+    {addJsDef productPriceTaxIncluded=floatval($product->getPriceWithoutReduct(false)) - floatval($product->ecotax * (1 + $ecotaxTax_rate / 100))}
     {addJsDef productBasePriceTaxExcluded=($product->getPrice(false, null, $smarty.const._TB_PRICE_DATABASE_PRECISION_, null, false, false) - $product->ecotax)|floatval}
     {addJsDef productBasePriceTaxExcl=($product->getPrice(false, null, $smarty.const._TB_PRICE_DATABASE_PRECISION_, null, false, false)|floatval)}
     {addJsDef productBasePriceTaxIncl=($product->getPrice(true, null, $smarty.const._TB_PRICE_DATABASE_PRECISION_, null, false, false)|floatval)}
