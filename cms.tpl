@@ -26,7 +26,7 @@
     <h1 class="page-heading">{$cms_category->name|escape:'html':'UTF-8'}</h1>
 
     {if !empty($cms_category->description)}
-      <div class="cms-category-content rte">{$cms_category->description|escape:'html':'UTF-8'}</div>
+      <div class="cms-category-content rte">{$cms_category->description}</div>
     {/if}
     {hook h='displayCMSTop'}
     {if !empty($sub_category)}
