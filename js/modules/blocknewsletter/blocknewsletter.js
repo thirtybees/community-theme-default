@@ -6,6 +6,7 @@ $(function() {
 
   $('#newsletter-input').on({
     focus: function() {
+      $('#blocknewsletter-captcha').show();
       if ($(this).val() == placeholder_blocknewsletter || $(this).val() == msg_newsl) {
         $(this).val('');
       }

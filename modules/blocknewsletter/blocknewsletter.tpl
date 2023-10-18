@@ -11,6 +11,9 @@
         </span>
       </div>
       <input type="hidden" name="action" value="0" />
+      {if isset($newsletterCaptcha) && $newsletterCaptcha}
+      <div id="blocknewsletter-captcha">{$newsletterCaptcha}</div>
+      {/if}
     </div>
   </form>
   {hook h="displayBlockNewsletterBottom" from='blocknewsletter'}
