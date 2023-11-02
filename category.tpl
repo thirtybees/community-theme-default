@@ -138,6 +138,10 @@
             </section>
         {/if}
 
+        {if !empty($category->additional_description)}
+        <div id="category-additional-description" class="rte">{$category->additional_description}</div>
+        {/if}
+
     {/if}
     </main>
 {/if}
