@@ -299,7 +299,7 @@
               {if $field_name eq "company"}
                 <div class="form-group">
                   <label for="company_invoice">{l s='Company'}{if in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
-                  <input type="text" class="text form-control validate" id="company_invoice" name="company_invoice"  data-validate="isName" value="{if isset($guestInformations) && isset($guestInformations.company_invoice) && $guestInformations.company_invoice}{$guestInformations.company_invoice}{/if}">
+                  <input type="text" class="text form-control validate" id="company_invoice" name="company_invoice"  data-validate="isGenericName" value="{if isset($guestInformations) && isset($guestInformations.company_invoice) && $guestInformations.company_invoice}{$guestInformations.company_invoice}{/if}">
                 </div>
               {elseif $field_name eq "vat_number"}
                 <div id="vat_number_block_invoice" class="is_customer_param" style="display:none;">
