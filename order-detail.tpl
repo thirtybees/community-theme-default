@@ -442,6 +442,6 @@
       </div>
     </form>
   {else}
-    <div class="alert alert-info"><i class="icon icon-info-sign"></i> {l s='You cannot return merchandise with a guest account'}</div>
+    <div class="alert alert-info">{l s='You cannot return merchandise with a guest account'}</div>
   {/if}
 {/if}
