@@ -73,7 +73,7 @@
                                                                        id="layered_id_attribute_group_{$id_value}"
                                                                        aria-label="{$value.name|escape:'html':'UTF-8'}"
                                                                        {if !$value.nbr}disabled="disabled"{/if}
-                                                                       style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};">
+                                                                       style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(/img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};">
                                                                 {if isset($value.checked) && $value.checked}<input
                                                                     type="hidden"
                                                                     name="layered_{$filter.type_lite}_{$id_value}"
@@ -125,7 +125,7 @@
                                                                                id="layered_id_attribute_group_{$id_value}"
                                                                                aria-label="{$value.name|escape:'html':'UTF-8'}"
                                                                                {if !$value.nbr}disabled="disabled"{/if}
-                                                                               style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};">
+                                                                               style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(/img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};">
                                                                         {if isset($value.checked) && $value.checked}
                                                                             <input
                                                                             type="hidden"
