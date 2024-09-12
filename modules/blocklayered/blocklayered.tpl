@@ -66,6 +66,17 @@
                                                     {if $value.nbr || !$hide_0_values}
                                                         <li class="nomargin {if $smarty.foreach.fe.index >= $filter.filter_show_limit}hiddable{/if}">
                                                             {if isset($filter.is_color_group) && $filter.is_color_group}
+                                                                {if isset($value.color)}
+                                                                    {if isset($value.texture)}
+                                                                        {$background = "url("|cat:$value.texture|cat:")"}
+                                                                    {elseif file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}
+                                                                        {$background = "url(/img/co/"|cat:$id_value|cat:".jpg)"}
+                                                                    {else}
+                                                                        {$background = $value.color}
+                                                                    {/if}
+                                                                {else}
+                                                                    {$background = "#CCC"}
+                                                                {/if}
                                                                 <input class="color-option {if isset($value.checked) && $value.checked}on{/if} {if !$value.nbr}disable{/if}"
                                                                        type="button"
                                                                        name="layered_{$filter.type_lite}_{$id_value}"
@@ -73,7 +84,7 @@
                                                                        id="layered_id_attribute_group_{$id_value}"
                                                                        aria-label="{$value.name|escape:'html':'UTF-8'}"
                                                                        {if !$value.nbr}disabled="disabled"{/if}
-                                                                       style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(/img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};">
+                                                                       style="background: {$background}">
                                                                 {if isset($value.checked) && $value.checked}<input
                                                                     type="hidden"
                                                                     name="layered_{$filter.type_lite}_{$id_value}"
