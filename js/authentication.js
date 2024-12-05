@@ -16,7 +16,7 @@ function submitFunction() {
   $('#create_account_error').html('').hide();
   $.ajax({
     type: 'POST',
-    url: baseUri + '?rand=' + new Date().getTime(),
+    url:  $('#create-account_form').attr('action'),
     async: true,
     cache: false,
     dataType: 'json',
