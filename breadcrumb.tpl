@@ -20,7 +20,7 @@
 
 <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
   <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home Page'}" itemprop="item">
+    <a href="{$link->getPageLink('index')}" title="{l s='Home Page'}" itemprop="item">
       <span itemprop="name">{l s='Home'}</span>
     </a>
     <meta itemprop="position" content="1">
