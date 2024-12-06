@@ -72,7 +72,10 @@ if (typeof combinations !== 'undefined' && combinations) {
   k = 0;
   for (i in combinations) {
     if (combinations.hasOwnProperty(i)) {
-      globalQuantity += combinations[i]['quantity'];
+      var combinationQuantity = combinations[i]['quantity'];
+      if (combinationQuantity > 0) {
+        globalQuantity += combinationQuantity;
+      }
       combinationsJS[k] = [];
       combinationsJS[k]['idCombination'] = parseInt(i, 10);
       combinationsJS[k]['idsAttributes'] = combinations[i]['attributes'];
