@@ -622,7 +622,12 @@ function updateDisplay() {
 
     //availability value management
     if (stock_management && availableNowValue != '') {
-      $availabilityValue.removeClass('label-warning').addClass('label-success').text(availableNowValue).show();
+      $availabilityValue
+          .removeClass('label-success')
+          .removeClass('label-warning')
+          .removeClass('label-danger')
+          .addClass('label-success')
+          .text(availableNowValue).show();
       $('#availability_statut:hidden').show();
     } else
       $('#availability_statut:visible').hide();
@@ -668,10 +673,19 @@ function updateDisplay() {
     if (!selectedCombination['unavailable']) {
       $availabilityValue.text(doesntExistNoMore + (globalQuantity > 0 ? ' ' + doesntExistNoMoreBut : ''));
       if (!allowBuyWhenOutOfStock) {
-        $availabilityValue.removeClass('label-success').addClass('label-warning');
+        $availabilityValue
+            .removeClass('label-success')
+            .removeClass('label-warning')
+            .removeClass('label-danger')
+            .addClass('label-warning');
       }
     } else {
-      $availabilityValue.text(doesntExist).removeClass('label-success').addClass('label-warning');
+      $availabilityValue
+          .text(doesntExist)
+          .removeClass('label-success')
+          .removeClass('label-warning')
+          .removeClass('label-danger')
+          .addClass('label-warning');
       $oosHook.hide();
     }
 
