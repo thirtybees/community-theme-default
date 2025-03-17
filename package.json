@@ -9,7 +9,7 @@
     "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",
     "gulp-notify": "^3.2.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.1",
     "gulp-sourcemaps": "^2.6.5",
     "mkdirp": "^0.5.1"
   },
@@ -23,6 +23,9 @@
     "last 2 versions",
     "not dead"
   ],
+  "engines": {
+    "node": ">=14.0.0 <15.0.0"
+  },
   "scripts": {
     "compile-css": "./node_modules/.bin/gulp compile-css",
     "watch-sass": "./node_modules/.bin/gulp watch-sass",
@@ -30,6 +33,5 @@
     "copy-index": "./node_modules/.bin/gulp copy-index",
     "lint-js": "./node_modules/.bin/gulp lint-js",
     "scan-translations": "./node_modules/.bin/gulp scan-translations"
-  },
-  "dependencies": {}
+  }
 }
