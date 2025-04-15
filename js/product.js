@@ -510,7 +510,8 @@ function addCombination(
   combination_specific_price
 ) {
 
-  globalQuantity += quantity;
+  if(quantity > 0)
+    globalQuantity += quantity;
 
   var combination = [];
   combination['idCombination'] = idCombination;
@@ -673,7 +674,12 @@ function updateDisplay() {
       $('#quantity_wanted_p:visible').hide();
 
     // display that the product is unavailable with theses attributes
-    if (!selectedCombination['unavailable']) {
+    if(globalQuantity <= 0 && !allowBuyWhenOutOfStock){
+        $availabilityValue
+            .text(doesntExistNoMore)
+            .removeClass('label-success label-warning')
+            .addClass('label-danger');
+    } else if (!selectedCombination['unavailable']) {
       $availabilityValue.text(doesntExistNoMore + (globalQuantity > 0 ? ' ' + doesntExistNoMoreBut : ''));
       if (!allowBuyWhenOutOfStock) {
         $availabilityValue
