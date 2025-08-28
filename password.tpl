@@ -7,7 +7,7 @@
   {if isset($confirmation) && $confirmation == 1}
     <div class="alert alert-success">{l s='Your password has been successfully reset and a confirmation has been sent to your email address:'} {if isset($customer_email)}{$customer_email|escape:'html':'UTF-8'|stripslashes}{/if}</div>
   {elseif isset($confirmation) && $confirmation == 2}
-    <div class="alert alert-success">{l s='A confirmation email has been sent to your address:'} {if isset($customer_email)}{$customer_email|escape:'html':'UTF-8'|stripslashes}{/if}</div>
+    <div class="alert alert-success">{l s='A confirmation email has been sent to your address if it appears in our records:'} {if isset($customer_email)}{$customer_email|escape:'html':'UTF-8'|stripslashes}{/if}</div>
   {else}
     <p>{l s='Please enter the email address you used to register. We will then send you a new password. '}</p>
     <form action="{$request_uri|escape:'html':'UTF-8'}" method="post" class="std" id="form_forgotpassword">

@@ -7,11 +7,11 @@
     <div class="alert alert-success">{l s='Your password has been changed'}</div>
   {else}
     <p>{l s='Please enter new password for [1]%s[/1]' sprintf=[$customer->email] tags=['<b>']}</p>
-    <form action="{$link->getPageLink('password', true)|escape:'html':'UTF-8'}" method="post">
+    <form action="{$link->getPageLink('password', true, null, 'token='|cat:$token)}" method="post">
       <fieldset>
         <input type="hidden" name="username" value="{$customer->email}" />
-        <input type="hidden" name="token" value="{$customer->secure_key}" />
-        <input type="hidden" name="id_customer" value="{$customer->id}" />
+        <input type="hidden" name="token" value="{$token}">
+        <input type="hidden" name="csrf_token" value="{$csrf_token|escape:'html':'UTF-8'}">
         <div class="form-group">
           <label for="email">{l s='Password'}</label>
           <input class="form-control" type="password" id="password" name="password" autocomplete="new-password" required>
