@@ -594,6 +594,7 @@ function updateCartSummary(json) {
     return;
 
   $('div.alert-danger').fadeOut();
+  updateSuccessMessages(json.successes);
 
   for (i = 0; i < json.products.length; i++)
     product_list[json.products[i].id_product + '_' + json.products[i].id_product_attribute + '_' + json.products[i].id_address_delivery] = json.products[i];
@@ -782,6 +783,28 @@ function updateCartSummary(json) {
     $('#total_wrapping').html(formatCurrency(json.total_wrapping, currencyFormat, currencySign, currencyBlank));
     $('#total_wrapping').parent().hide();
   }
+}
+
+function updateSuccessMessages(successes) {
+  var $container = $('#front-success-messages');
+  if (!$container.length)
+    return;
+
+  var $content = $container.find('.success-message-text');
+  $content.empty();
+
+  if (!successes || !successes.length) {
+    $container.hide();
+    return;
+  }
+
+  for (var i = 0; i < successes.length; i++) {
+    $('<span class="success-message-item"></span>').text(successes[i]).appendTo($content);
+    if (i < successes.length - 1)
+      $content.append('<br>');
+  }
+
+  $container.show();
 }
 
 function updateCustomizedDatas(json) {
