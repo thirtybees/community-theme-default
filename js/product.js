@@ -277,6 +277,17 @@ function refreshProductImages(id_product_attribute) {
           thumbSlider.goToSlide(slideNumber);
         }
       }
+
+      const images = combinationImages[combination.idCombination];
+      if (images) {
+        $('#thumbs_list li').hide();
+        images.forEach(imageId => {
+          const $thumbAnchor = $('#thumb_' + imageId).parent().parent();
+          $thumbAnchor.show();
+        });
+      } else {
+        $('#thumbs_list li').show();
+      }
     }
   }
 }
