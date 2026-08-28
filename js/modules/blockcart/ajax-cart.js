@@ -18,42 +18,51 @@ $(function() {
 
   var hoverCollapseTimeout = 200;
 
-  $cartHeader.on({
-    mouseenter: function() {
-      if (ajaxCart.nb_total_products > 0 || parseInt($('.ajax_cart_quantity').html()) > 0)
-        $cartDropDown.stop(true, true).slideDown();
-    },
-    mouseleave: function() {
-      setTimeout(function() {
-        if (!oBlockcart.isHoveringOver() && !oBlockcartDropDown.isHoveringOver())
-          $cartDropDown.stop(true, true).slideUp();
-      }, hoverCollapseTimeout);
-    },
-    click: function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      // Simulate hover when browser says device is touch based
-      if (is_touch_enabled) {
-        if ($(this).next('.cart_block:visible').length && !oBlockcartDropDown.isHoveringOver()) {
-          $cartDropDown.stop(true, true).slideUp();
-        } else if (ajaxCart.nb_total_products > 0 || parseInt($('.ajax_cart_quantity').html()) > 0) {
-          $cartDropDown.stop(true, true).slideDown();
-        }
-        return false;
-      } else {
-        window.location.href = $(this).attr('href');
-      }
-    }
-  });
-
-  $cartDropDown.on('mouseleave', function() {
-    setTimeout(function() {
-      if (!oBlockcart.isHoveringOver()) {
-        $cartDropDown.stop(true, true).slideUp();
-      }
-    }, hoverCollapseTimeout);
-  });
+	if (!is_touch_enabled) {
+		$cartHeader.on({
+		 mouseenter: function() {
+			if (ajaxCart.nb_total_products > 0 || parseInt($('.ajax_cart_quantity').html()) > 0)
+			  $cartDropDown.stop(true, true).slideDown();
+		 },
+		 mouseleave: function() {
+			setTimeout(function() {
+			  if (!oBlockcart.isHoveringOver() && !oBlockcartDropDown.isHoveringOver())
+				 $cartDropDown.stop(true, true).slideUp();
+			}, hoverCollapseTimeout);
+		 },
+		 click: function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+		 }
+		});
+		$cartDropDown.on('mouseleave', function() {
+		 setTimeout(function() {
+			if (!oBlockcart.isHoveringOver()) {
+			  $cartDropDown.stop(true, true).slideUp();
+			}
+		 }, hoverCollapseTimeout);
+		});
+	} else {
+		$cartHeader.on({
+			click: function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				if ($(this).next('.cart_block:visible').length && !oBlockcartDropDown.isHoveringOver()) {
+					$cartDropDown.stop(true, true).slideUp();
+				} else if (ajaxCart.nb_total_products > 0 || parseInt($('.ajax_cart_quantity').html()) > 0) {
+					$cartDropDown.stop(true, true).slideDown();
+				}
+				return false;
+			}
+		});
+		// close $cartDropDown even with tap out anywhere
+		$(document).click(function (e) {
+			e.stopPropagation();
+			if ( $cartDropDown.has(e.target).length === 0) {
+				$cartDropDown.stop(true, true).slideUp();
+			}
+		});
+	}
 
   $(document).on('click', '.delete_voucher', function(e) {
     e.preventDefault();
