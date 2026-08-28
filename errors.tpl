@@ -1,3 +1,13 @@
+<div id="front-success-messages" class="alert alert-success"{if !isset($successes) || !$successes} style="display:none"{/if}>
+  <strong class="success-message-title">{l s='Congratulations!'}</strong>
+  <span class="success-message-text">
+    {if isset($successes)}
+      {foreach from=$successes item=success name=successLoop}
+        <span class="success-message-item">{$success}</span>{if !$smarty.foreach.successLoop.last}<br>{/if}
+      {/foreach}
+    {/if}
+  </span>
+</div>
 {if isset($errors) && $errors}
   <div class="alert alert-danger">
     <p>{if $errors|@count > 1}{l s='There are %d errors' sprintf=$errors|@count}{else}{l s='There is %d error' sprintf=$errors|@count}{/if}</p>
